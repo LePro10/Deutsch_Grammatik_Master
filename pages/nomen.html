@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="dark">
+<head>
+<script>
+(function() {
+  const saved = localStorage.getItem('theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const theme = saved || (prefersDark ? 'dark' : 'dark');
+  document.documentElement.setAttribute('data-theme', theme);
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nomen – Deutsch Grammatik Master</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<div class="app">
+  <header class="header">
+    <div class="header-left">
+      <button class="nav-toggle" aria-label="Menü"><span></span><span></span><span></span></button>
+      <a href="../index.html" class="logo"><div class="logo-icon">🇩🇪</div><span>Grammatik Master</span></a>
+    </div>
+    <div class="header-right">
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="globalSearch" placeholder="Suchen...">
+        <div id="searchResults" class="search-results"></div>
+      </div>
+      <button class="btn-icon" id="themeBtn" onclick="APP.toggleTheme()" title="Theme wechseln">🌙</button>
+    </div>
+  </header>
+
+  <aside class="sidebar">
+    <div class="sidebar-section">Lernen</div>
+    <ul class="sidebar-nav">
+      <li><a href="../index.html"><span class="nav-icon">🏠</span> Dashboard</a></li>
+      <li><a href="wortarten-grundlagen.html"><span class="nav-icon">🧩</span> Wortarten Grundlagen</a></li>
+      <li><a href="nomen.html" class="active"><span class="nav-icon">📝</span> Nomen</a></li>
+      <li><a href="adjektiv.html"><span class="nav-icon">🎨</span> Adjektiv</a></li>
+      <li><a href="pronomen.html"><span class="nav-icon">👤</span> Pronomen</a></li>
+      <li><a href="partikel.html"><span class="nav-icon">🔗</span> Partikel</a></li>
+      <li><a href="verben.html"><span class="nav-icon">⚡</span> Verben</a></li>
+      <li><a href="aktiv-passiv.html"><span class="nav-icon">🔄</span> Aktiv & Passiv</a></li>
+      <li><a href="indirekte-rede.html"><span class="nav-icon">💬</span> Indirekte Rede</a></li>
+    </ul>
+    <div class="sidebar-section">Üben</div>
+    <ul class="sidebar-nav">
+      <li><a href="uebungen.html"><span class="nav-icon">✏️</span> Übungen</a></li>
+      <li><a href="pruefung.html"><span class="nav-icon">🎯</span> Prüfungssimulation</a></li>
+      <li><a href="lernplan.html"><span class="nav-icon">📅</span> Lernplan</a></li>
+      <li><a href="zusammenfassung.html"><span class="nav-icon">📚</span> Zusammenfassung</a></li>
+    </ul>
+  </aside>
+
+  <div class="sidebar-overlay"></div>
+
+  <main class="main">
+    <div class="content">
+      <div class="breadcrumb">
+        <a href="../index.html">Dashboard</a>
+        <span class="breadcrumb-sep">/</span>
+        <span>Nomen</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;flex-wrap:wrap;">
+        <h1 style="margin:0;">📝 Nomen</h1>
+        <span class="tag tag-outline">Genus · Numerus · Kasus · Deklination</span>
+      </div>
+      <p>Nomen (Substantive) sind die wichtigste Wortart. Sie werden grossgeschrieben und haben ein festes Geschlecht (Genus), eine Zahl (Numerus) und einen Fall (Kasus).</p>
+
+      <div class="tabs">
+        <button class="tab active">Theorie</button>
+        <button class="tab">Quiz</button>
+        <button class="tab">Lückentext</button>
+        <button class="tab">Satzanalyse</button>
+        <button class="tab">Kapiteltest</button>
+        <button class="tab">Lernkarten</button>
+      </div>
+
+      <div class="tab-panel active">
+        <h2>1. Geschlecht (Genus)</h2>
+        <p>Jedes Nomen hat ein grammatisches Geschlecht, das sich am bestimmten Artikel in der Einzahl erkennen lässt:</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Genus</th><th>Artikel</th><th>Beispiele</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Maskulin</strong></td><td>der / ein</td><td>der Baum, der Mann, der Tisch</td></tr>
+              <tr><td><strong>Feminin</strong></td><td>die / eine</td><td>die Wiese, die Frau, die Wand</td></tr>
+              <tr><td><strong>Neutrum</strong></td><td>das / ein</td><td>das Tal, das Kind, das Haus</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout callout-info">
+          <span class="callout-icon">💡</span>
+          <div class="callout-content">
+            <p><strong>Wichtig:</strong> Das grammatische Geschlecht stimmt nicht immer mit dem natürlichen Geschlecht überein. Es heisst <em>das Mädchen</em> (Neutrum) und <em>die Person</em> (Feminin), obwohl es sich um Personen handelt. Grammatisches Genus ≠ natürliches Geschlecht!</p>
+          </div>
+        </div>
+
+        <h3>Endungen als Orientierungshilfe</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Endung</th><th>Genus</th><th>Beispiele</th></tr></thead>
+            <tbody>
+              <tr><td>-ung, -heit, -keit, -schaft, -tion, -tät, -ei</td><td>feminin</td><td>die Bildung, die Freiheit, die Mannschaft, die Universität, die Bäckerei</td></tr>
+              <tr><td>-chen, -lein (Diminutive)</td><td>neutrum</td><td>das Mädchen, das Büchlein</td></tr>
+              <tr><td>-tum, -ment</td><td>neutrum</td><td>das Eigentum, das Instrument, das Quantum</td></tr>
+              <tr><td>-er, -en, -ismus</td><td>meist maskulin</td><td>der Lehrer, der Garten, der Tourismus</td></tr>
+              <tr><td>-o, -ma</td><td>meist neutrum</td><td>das Auto, das Drama, das Thema</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>2. Einzahl und Mehrzahl (Numerus)</h2>
+        <p>Nomen stehen entweder im Singular oder im Plural. Die Pluralform lässt sich nicht immer ableiten.</p>
+
+        <h3>Pluralformen</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Merkmal</th><th>Singular</th><th>Plural</th></tr></thead>
+            <tbody>
+              <tr><td>Ohne Endung</td><td>der Löffel, das Raster, der Wagen</td><td>die Löffel, die Raster, die Wagen</td></tr>
+              <tr><td>Mit Endung -e</td><td>der Monat, das Bild</td><td>die Monate, die Bilder</td></tr>
+              <tr><td>Mit Endung -er</td><td>das Kind, das Haus</td><td>die Kinder, die Häuser</td></tr>
+              <tr><td>Mit Endung -en / -n</td><td>die Frau, die Schule, der Student</td><td>die Frauen, die Schulen, die Studenten</td></tr>
+              <tr><td>Mit Umlaut</td><td>die Tochter, das Haus, der Bruder</td><td>die Töchter, die Häuser, die Brüder</td></tr>
+              <tr><td>Nur Singular</td><td>das Glück, das Publikum, der Regen</td><td>–</td></tr>
+              <tr><td>Nur Plural</td><td>–</td><td>die Eltern, die Ferien, die Leute</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout callout-warning">
+          <span class="callout-icon">⚠️</span>
+          <div class="callout-content">
+            <p>Im Deutschen gibt es <strong>keine Pluralform mit Apostroph</strong>. Schreibweisen wie «Handy's» oder «Pizza's» sind falsch! Richtig: die Handys, die Pizzas.</p>
+          </div>
+        </div>
+
+        <h3>Homonyme: Gleiche Form, unterschiedliche Bedeutung</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Nomen</th><th>Bedeutung 1</th><th>Bedeutung 2</th></tr></thead>
+            <tbody>
+              <tr><td>der See / die See</td><td>Binnengewässer (Maskulin)</td><td>Meer (Feminin)</td></tr>
+              <tr><td>der Mast / die Mast</td><td>hoher Pfahl (Maskulin)</td><td>Fütterung (Feminin)</td></tr>
+              <tr><td>der Schild / das Schild</td><td>Schutzwaffe (Maskulin)</td><td>Tafel, Hinweis (Neutrum)</td></tr>
+              <tr><td>das Gehalt / die Gehaltsabrechnung</td><td>Bezahlung (Neutrum)</td><td>Zusammensetzung (Fem. nur in Komposita)</td></tr>
+              <tr><td>der Kristall / das Kristall</td><td>Edelstein (Maskulin)</td><td>Glas (Neutrum, umgangssprachlich)</td></tr>
+              <tr><td>der Kunde / die Kundschaft</td><td>Käufer (Maskulin)</td><td>Kundenkreis (Feminin, Ableitung)</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>3. Die vier Fälle (Kasus)</h2>
+        <p>Das Nomen kann in vier verschiedenen Fällen auftreten. Die Fälle erkennt man am besten mit der <strong>Fragemethode</strong>:</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Fall</th><th>Frage</th><th>Beispiel</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Nominativ</strong></td><td>Wer oder was?</td><td><span class="gram-nomen">Der Polizist</span> stoppt einen Autofahrer.</td></tr>
+              <tr><td><strong>Akkusativ</strong></td><td>Wen oder was?</td><td>Er schreibt <span class="gram-nomen">einen Bussenzettel</span>.</td></tr>
+              <tr><td><strong>Dativ</strong></td><td>Wem?</td><td>Er überreicht den Bussenzettel <span class="gram-nomen">dem Autofahrer</span>.</td></tr>
+              <tr><td><strong>Genitiv</strong></td><td>Wessen?</td><td><span class="gram-nomen">Des Autofahrers</span> Ärger ist gross.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Übersicht: Bestimmter Artikel</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Fall</th><th>Maskulin</th><th>Feminin</th><th>Neutrum</th><th>Plural</th></tr></thead>
+            <tbody>
+              <tr><td>Nominativ</td><td>der Mann</td><td>die Frau</td><td>das Kind</td><td>die Leute</td></tr>
+              <tr><td>Akkusativ</td><td>den Mann</td><td>die Frau</td><td>das Kind</td><td>die Leute</td></tr>
+              <tr><td>Dativ</td><td>dem Mann</td><td>der Frau</td><td>dem Kind</td><td>den Leuten</td></tr>
+              <tr><td>Genitiv</td><td>des Mannes</td><td>der Frau</td><td>des Kindes</td><td>der Leute</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Übersicht: Unbestimmter Artikel</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Fall</th><th>Maskulin</th><th>Feminin</th><th>Neutrum</th></tr></thead>
+            <tbody>
+              <tr><td>Nominativ</td><td>ein Mann</td><td>eine Frau</td><td>ein Kind</td></tr>
+              <tr><td>Akkusativ</td><td>einen Mann</td><td>eine Frau</td><td>ein Kind</td></tr>
+              <tr><td>Dativ</td><td>einem Mann</td><td>einer Frau</td><td>einem Kind</td></tr>
+              <tr><td>Genitiv</td><td>eines Mannes</td><td>einer Frau</td><td>eines Kindes</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Plural (alle Genera)</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Fall</th><th>Pluralform</th></tr></thead>
+            <tbody>
+              <tr><td>Nominativ</td><td>die Frauen / Männer / Kinder</td></tr>
+              <tr><td>Akkusativ</td><td>die Frauen / Männer / Kinder</td></tr>
+              <tr><td>Dativ</td><td>den Frauen / Männern / Kindern</td></tr>
+              <tr><td>Genitiv</td><td>der Frauen / Männer / Kinder</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>4. Deklinationen</h2>
+        <p>Es gibt drei Deklinationsreihen:</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Deklination</th><th>Genitiv-Merkmal</th><th>Betroffene Nomen</th><th>Beispiel</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Nulldeklination</strong></td><td>ohne Endung</td><td>Alle femininen Nomen</td><td>der Gabel → der Gabel</td></tr>
+              <tr><td><strong>s-Deklination</strong></td><td>-s / -es</td><td>Die meisten maskulinen und alle neutralen Nomen</td><td>des Baumes, des Kindes</td></tr>
+              <tr><td><strong>n-Deklination</strong></td><td>-n / -en</td><td>Ein Teil der maskulinen Nomen</td><td>des Raben, des Menschen, des Studenten</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout callout-info">
+          <span class="callout-icon">📌</span>
+          <div class="callout-content">
+            <p><strong>Merke:</strong> Im Plural gibt es nur für den Dativ eine besondere Endung: <strong>-n</strong> (den Bildern, den Frauen, den Kindern). Bei Pluralendungen auf -s fällt die Dativendung weg (den Handys, den Pizzas).</p>
+          </div>
+        </div>
+
+        <h3>Spezialfall: Genitiv bei Eigennamen</h3>
+        <p>Personen- und Tiernamen erhalten im Genitiv ein <strong>-s</strong> ohne Apostroph: Erikas Büro, Peters Auto, Londons Nobelviertel.</p>
+        <p>Endet der Name bereits auf <strong>-s, -ß, -z, -tz, -x</strong>, kommt ein <strong>Apostroph</strong>: Max' Spezialrezept, Sokrates' Lehren, Felix' Fahrrad.</p>
+
+        <h2>5. Geschlechtsneutrale Sprache</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Form</th><th>Erklärung</th><th>Beispiel</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Paarformel</strong></td><td>Männliche und weibliche Form nennen</td><td>Teilnehmerinnen und Teilnehmer, Schülerinnen und Schüler</td></tr>
+              <tr><td><strong>Geschlechtsneutrales Nomen</strong></td><td>Bezeichnet Personen ohne Genus</td><td>Kursmitglieder, Studierende, Fachkräfte</td></tr>
+              <tr><td><strong>Binnen-I</strong></td><td>Grosses I in der Wortmitte (umstritten)</td><td>TeilnehmerInnen, SchülerInnen</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>6. Nomen ohne Plural (Singularia tantum)</h2>
+        <p>Diese Nomen bezeichnen meist Stoffe, Abstrakta oder Kollektiva und haben keine Pluralform:</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Kategorie</th><th>Beispiele</th></tr></thead>
+            <tbody>
+              <tr><td>Stoffe und Materialien</td><td>Obst, Gemüse, Gepäck, Geld, Wasser</td></tr>
+              <tr><td>Abstrakta</td><td>Regen, Schnee, Verhalten, Lob, Zank</td></tr>
+              <tr><td>Gefühle und Zustände</td><td>Mut, Frieden, Neid, Mitleid</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout callout-info">
+          <span class="callout-icon">💡</span>
+          <div class="callout-content">
+            <p>Manche Nomen sind im Alltag zwar «zählbar» (z.B. «zwei Biere»), grammatikalisch aber Singularia tantum. Dann verwendet man Umschreibungen wie «zwei Flaschen Bier» oder «zwei Gläser Bier».</p>
+          </div>
+        </div>
+
+        <h2>7. Nomen nur Plural (Pluralia tantum)</h2>
+        <p>Diese Nomen kommen ausschliesslich im Plural vor:</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Nomen</th><th>Bedeutung</th></tr></thead>
+            <tbody>
+              <tr><td>die Leute</td><td>Personen (kein Singular)</td></tr>
+              <tr><td>die Ferien</td><td>Urlaub (Schweiz/Österreich; in Deutschland meist der Urlaub)</td></tr>
+              <tr><td>die Eltern</td><td>Vater und Mutter zusammen</td></tr>
+              <tr><td>die Kosten</td><td>Ausgaben, Aufwand</td></tr>
+              <tr><td>die Personalien</td><td>Personendaten</td></tr>
+              <tr><td>die Pocken</td><td>Krankheit</td></tr>
+              <tr><td>die Gebrüder</td><td>Brüder (meist als Titel: Gebrüder Grimm)</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="tab-panel">
+        <h2>🎯 Quiz: Nomen (15 Fragen)</h2>
+        <div id="nomen-quiz"></div>
+      </div>
+
+      <div class="tab-panel">
+        <h2>✏️ Lückentext: Nomen (15 Sätze)</h2>
+        <div id="nomen-input"></div>
+      </div>
+
+      <div class="tab-panel">
+        <h2>🔍 Satzanalyse (10 Sätze)</h2>
+        <p>Fahre mit der Maus über die farbigen Wörter, um die grammatische Analyse zu sehen.</p>
+        <div style="margin-top:1.5rem;">
+          <h4>Satz 1</h4>
+          <div id="sa1"></div>
+        </div>
+        <div style="margin-top:1.5rem;">
+          <h4>Satz 2</h4>
+          <div id="sa2"></div>
+        </div>
+        <div style="margin-top:1.5rem;">
+          <h4>Satz 3</h4>
+          <div id="sa3"></div>
+        </div>
+        <div style="margin-top:1.5rem;">
+          <h4>Satz 4</h4>
+          <div id="sa4"></div>
+        </div>
+        <div style="margin-top:1.5rem;">
+          <h4>Satz 5</h4>
+          <div id="sa5"></div>
+        </div>
+        <div style="margin-top:1.5rem;">
+          <h4>Satz 6</h4>
+          <div id="sa6"></div>
+        </div>
+        <div style="margin-top:1.5rem;">
+          <h4>Satz 7</h4>
+          <div id="sa7"></div>
+        </div>
+        <div style="margin-top:1.5rem;">
+          <h4>Satz 8</h4>
+          <div id="sa8"></div>
+        </div>
+        <div style="margin-top:1.5rem;">
+          <h4>Satz 9</h4>
+          <div id="sa9"></div>
+        </div>
+        <div style="margin-top:1.5rem;">
+          <h4>Satz 10</h4>
+          <div id="sa10"></div>
+        </div>
+      </div>
+
+      <div class="tab-panel">
+        <h2>🎓 Kapiteltest: Nomen (20 Fragen)</h2>
+        <div id="nomen-test"></div>
+      </div>
+
+      <div class="tab-panel">
+        <h2>🃏 Lernkarten (8 Karten)</h2>
+        <div id="nomen-flashcards"></div>
+      </div>
+    </div>
+  </main>
+</div>
+<script src="../js/app.js"></script>
+<script>
+APP.markVisited('nomen');
+APP.init();
+
+// ===== QUIZ (15 Fragen) =====
+const nomenQuestions = [
+  { question: "Welches Genus hat 'das Mädchen'?", options: ["Maskulin","Feminin","Neutrum"], answer: 2, explanation: "Diminutive auf -chen sind immer neutrum." },
+  { question: "Welcher Fall wird mit 'Wen oder was?' erfragt?", options: ["Nominativ","Akkusativ","Dativ","Genitiv"], answer: 1, explanation: "Der Akkusativ fragt nach dem direkten Objekt: Wen oder was?" },
+  { question: "Wie lautet der Genitiv Singular von 'der Mann'?", options: ["des Manns","des Mannes","des Mann","der Mann"], answer: 1, explanation: "Nomen der s-Deklination bilden den Genitiv mit -es: des Mannes." },
+  { question: "Welche Endung deutet meist auf feminines Genus hin?", options: ["-ung","-chen","-tum","-er"], answer: 0, explanation: "Endungen wie -ung, -heit, -keit, -schaft sind fast immer feminin." },
+  { question: "Wie lautet der Plural von 'das Haus'?", options: ["die Hause","die Häuser","die Häusen","die Haus"], answer: 1, explanation: "Haus bildet den Plural mit Umlaut und -er: die Häuser." },
+  { question: "Welcher Artikel steht im Dativ Plural für alle Genera?", options: ["die","den","der","dem"], answer: 1, explanation: "Im Dativ Plural heisst der Artikel für alle Genera 'den'." },
+  { question: "Welches Nomen hat nur Pluralformen?", options: ["das Glück","die Eltern","der Tisch","die Frau"], answer: 1, explanation: "'Eltern', 'Leute' und 'Ferien' kommen nur im Plural vor." },
+  { question: "Wie lautet der Genitiv von 'Hans'?", options: ["Hans","Hans'","Hanses","von Hans"], answer: 1, explanation: "Eigennamen auf -s erhalten im Genitiv einen Apostroph: Hans' Buch." },
+  { question: "Welches Genus hat ein Nomen auf '-chen'?", options: ["Maskulin","Feminin","Neutrum"], answer: 2, explanation: "Alle Diminutive auf -chen und -lein sind neutrum." },
+  { question: "Wie heisst der bestimmte Artikel im Akkusativ Maskulin?", options: ["der","den","dem","des"], answer: 1, explanation: "Im Akkusativ Maskulin lautet der bestimmte Artikel 'den': den Mann." },
+  { question: "Welches Nomen gehört zur n-Deklination?", options: ["der Baum","der Mensch","das Haus","die Frau"], answer: 1, explanation: "'Mensch', 'Student', 'Rabe', 'Herr' gehören zur n-Deklination." },
+  { question: "Welches Nomen hat keinen Plural?", options: ["die Eltern","der Regen","die Ferien","die Leute"], answer: 1, explanation: "'Regen' ist ein Singulariatantum und hat keine Pluralform." },
+  { question: "Was ist ein Beispiel für eine Paarformel?", options: ["TeilnehmerInnen","Studierende","Teilnehmerinnen und Teilnehmer","der Kunde"], answer: 2, explanation: "Paarformeln nennen die weibliche und männliche Form getrennt." },
+  { question: "Welche Endung hat der Dativ Plural?", options: ["-s","-n","-en","-er"], answer: 1, explanation: "Im Dativ Plural erhält das Nomen die Endung -n (den Frauen, den Kindern)." },
+  { question: "Wann setzt man beim Genitiv von Eigennamen einen Apostroph?", options: ["Immer","Nie","Wenn der Name auf -s, -ß, -z, -tz, -x endet","Nur bei Frauennamen"], answer: 2, explanation: "Ein Apostroph steht nur, wenn der Name auf -s, -ß, -z, -tz oder -x endet: Max' Auto." }
+];
+
+// ===== LÜCKENTEXT (15 Sätze) =====
+const nomenInputs = [
+  { before: "Der Lehrer gibt", answer: "dem Schüler", after: "ein Buch. (Wem? → Dativ)" },
+  { before: "Die Farbe", answer: "des Autos", after: "ist rot. (Wessen? → Genitiv)" },
+  { before: "Ich sehe", answer: "den Hund", after: "im Park. (Wen? → Akkusativ)" },
+  { before: "", answer: "Die Kinder", after: "spielen im Garten. (Wer? → Nominativ)" },
+  { before: "Die Türen", answer: "des Schranks", after: "sind offen. (Wessen? → Genitiv)" },
+  { before: "Wir helfen", answer: "den Nachbarn", after: "beim Umzug. (Wem? → Dativ Plural)" },
+  { before: "Sie kauft", answer: "eine Tasche", after: "in der Stadt. (Was? → Akkusativ Fem.)" },
+  { before: "Der Plural von 'das Kind' lautet", answer: "die Kinder", after: ". (Plural mit -er)" },
+  { before: "", answer: "Des Studenten", after: "Noten sind sehr gut. (Genitiv n-Deklination)" },
+  { before: "Ich gebe", answer: "dem Mann", after: "den Schlüssel. (Wem? → Dativ Mask.)" },
+  { before: "Die Schüler lesen", answer: "die Bücher", after: "im Unterricht. (Was? → Akkusativ Plural)" },
+  { before: "", answer: "Das Mädchen", after: "tanzt schön. (Wer? → Nominativ Neutrum)" },
+  { before: "Er erzählt von", answer: "den Ferien", after: "in Spanien. (Nur Plural)" },
+  { before: "Der Genitiv von 'Peter' heisst", answer: "Peters", after: "(ohne Apostroph)." },
+  { before: "Die Mehrzahl von 'die Frau' ist", answer: "die Frauen", after: ". (Plural auf -en)" }
+];
+
+// ===== SATZANALYSE (10 Sätze) =====
+const saData = [
+  { id: 'sa1', sentence: 'Der Lehrer gibt dem Schüler ein Buch.', analysis: { 'der': 'Artikel, Nominativ, Maskulin, Singular', 'lehrer': 'Nomen, Nominativ, Maskulin, Singular, Subjekt', 'gibt': 'Verb, Präsens', 'dem': 'Artikel, Dativ, Maskulin, Singular', 'schüler': 'Nomen, Dativ, Maskulin, Singular, n-Deklination, indirektes Objekt', 'ein': 'Artikel, Akkusativ, Neutrum, Singular', 'buch': 'Nomen, Akkusativ, Neutrum, Singular, direktes Objekt' } },
+  { id: 'sa2', sentence: 'Die Farbe des Autos ist rot.', analysis: { 'die': 'Artikel, Nominativ, Feminin, Singular', 'farbe': 'Nomen, Nominativ, Feminin, Singular, Subjekt', 'des': 'Artikel, Genitiv, Neutrum, Singular', 'autos': 'Nomen, Genitiv, Neutrum, Singular, s-Deklination', 'ist': 'Verb, Präsens', 'rot': 'Adjektiv, Prädikativ' } },
+  { id: 'sa3', sentence: 'Ich sehe den Hund im Park.', analysis: { 'ich': 'Personalpronomen, Nominativ, Singular, Subjekt', 'sehe': 'Verb, Präsens', 'den': 'Artikel, Akkusativ, Maskulin, Singular', 'hund': 'Nomen, Akkusativ, Maskulin, Singular, direktes Objekt', 'im': 'Präposition + Artikel, Dativ', 'park': 'Nomen, Dativ, Maskulin, Singular' } },
+  { id: 'sa4', sentence: 'Die Kinder spielen im Garten.', analysis: { 'die': 'Artikel, Nominativ, Plural', 'kinder': 'Nomen, Nominativ, Neutrum, Plural, Subjekt', 'spielen': 'Verb, Präsens', 'im': 'Präposition + Artikel, Dativ', 'garten': 'Nomen, Dativ, Maskulin, Singular' } },
+  { id: 'sa5', sentence: 'Des Mannes Auto ist neu.', analysis: { 'des': 'Artikel, Genitiv, Maskulin, Singular', 'mannes': 'Nomen, Genitiv, Maskulin, Singular, s-Deklination', 'auto': 'Nomen, Nominativ, Neutrum, Singular, Subjekt', 'ist': 'Verb, Präsens', 'neu': 'Adjektiv, Prädikativ' } },
+  { id: 'sa6', sentence: 'Wir helfen den Nachbarn beim Umzug.', analysis: { 'wir': 'Personalpronomen, Nominativ, Plural, Subjekt', 'helfen': 'Verb, Präsens', 'den': 'Artikel, Dativ, Plural', 'nachbarn': 'Nomen, Dativ, Maskulin, Plural, n-Deklination, indirektes Objekt', 'beim': 'Präposition + Artikel, Dativ', 'umzug': 'Nomen, Dativ, Maskulin, Singular' } },
+  { id: 'sa7', sentence: 'Das Mädchen liest die Geschichte.', analysis: { 'das': 'Artikel, Nominativ, Neutrum, Singular', 'mädchen': 'Nomen, Nominativ, Neutrum, Singular, Subjekt', 'liest': 'Verb, Präsens', 'die': 'Artikel, Akkusativ, Feminin, Singular', 'geschichte': 'Nomen, Akkusativ, Feminin, Singular, direktes Objekt' } },
+  { id: 'sa8', sentence: 'Die Eltern kaufen den Kindern Geschenke.', analysis: { 'die': 'Artikel, Nominativ, Plural', 'eltern': 'Nomen, Nominativ, Plural, Subjekt', 'kaufen': 'Verb, Präsens', 'den': 'Artikel, Dativ, Plural', 'kindern': 'Nomen, Dativ, Neutrum, Plural, indirektes Objekt', 'geschenke': 'Nomen, Akkusativ, Neutrum, Plural, direktes Objekt' } },
+  { id: 'sa9', sentence: "Max' Fahrrad steht im Keller.", analysis: { "max'": 'Eigenname, Genitiv, Maskulin, Singular', 'fahrrad': 'Nomen, Nominativ, Neutrum, Singular, Subjekt', 'steht': 'Verb, Präsens', 'im': 'Präposition + Artikel, Dativ', 'keller': 'Nomen, Dativ, Maskulin, Singular' } },
+  { id: 'sa10', sentence: 'Die Studenten lernen für die Prüfung.', analysis: { 'die': 'Artikel, Nominativ, Plural', 'studenten': 'Nomen, Nominativ, Maskulin, Plural, n-Deklination, Subjekt', 'lernen': 'Verb, Präsens', 'für': 'Präposition, Akkusativ', 'die': 'Artikel, Akkusativ, Feminin, Singular', 'prüfung': 'Nomen, Akkusativ, Feminin, Singular' } }
+];
+
+// ===== KAPITELTEST (20 Fragen) =====
+const nomenTest = [
+  { question: "Welcher Artikel passt zu 'Bildung'?", options: ["der","die","das"], answer: 1, explanation: "Nomen auf -ung sind feminin: die Bildung." },
+  { question: "Wie lautet der Genitiv Plural von 'die Frau'?", options: ["der Frauen","den Frauen","die Frauen","des Frauen"], answer: 0, explanation: "Im Genitiv Plural lautet der Artikel 'der': der Frauen." },
+  { question: "Welches Nomen ist ein Plurale tantum?", options: ["das Gepäck","die Kosten","der Zank","das Obst"], answer: 1, explanation: "'Kosten' kommt nur im Plural vor." },
+  { question: "Welche Endung hat der Dativ Plural von Nomen?", options: ["-s","-n","-en","-e"], answer: 1, explanation: "Im Dativ Plural erhält das Nomen -n (den Frauen)." },
+  { question: "Wie lautet der Genitiv von 'der Student'?", options: ["des Students","des Studenten","des Studentes","der Student"], answer: 1, explanation: "'Student' gehört zur n-Deklination: des Studenten." },
+  { question: "Welches Genus hat 'das Auto'?", options: ["Maskulin","Feminin","Neutrum"], answer: 2, explanation: "Nomen auf -o sind meist neutrum: das Auto." },
+  { question: "Was ist der Akkusativ von 'ein Buch'?", options: ["einem Buch","eines Buches","ein Buch","einen Buch"], answer: 2, explanation: "Im Akkusativ Neutrum bleibt 'ein Buch' unverändert." },
+  { question: "Welche Form ist geschlechtsneutral?", options: ["Teilnehmer und Teilnehmerinnen","Studierende","SchülerInnen","alle"], answer: 3, explanation: "Alle drei Formen dienen der geschlechtsneutralen Sprache." },
+  { question: "Wie fragt man nach dem Dativ?", options: ["Wer?","Wen?","Wem?","Wessen?"], answer: 2, explanation: "Der Dativ wird mit 'Wem?' erfragt." },
+  { question: "Welches Nomen hat keinen Plural?", options: ["die Leute","das Gepäck","die Ferien","die Eltern"], answer: 1, explanation: "'Gepäck' ist ein Singulare tantum." },
+  { question: "Wie lautet der Plural von 'der Bruder'?", options: ["die Bruders","die Brüder","die Bruder","die Brüdern"], answer: 1, explanation: "'Bruder' bildet den Plural mit Umlaut: die Brüder." },
+  { question: "Welcher Fall ist 'des Kindes'?", options: ["Nominativ","Akkusativ","Dativ","Genitiv"], answer: 3, explanation: "'des Kindes' ist Genitiv Singular (s-Deklination)." },
+  { question: "Welche Endung deutet auf Neutrum hin?", options: ["-ung","-chen","-heit","-schaft"], answer: 1, explanation: "Diminutive auf -chen sind immer neutrum." },
+  { question: "Wie lautet der Genitiv von 'Fritz'?", options: ["Fritzs","Fritz'","Fritzes","Fritz"], answer: 1, explanation: "Namen auf -z erhalten einen Apostroph: Fritz' Haus." },
+  { question: "Was bedeutet 'die See' (Feminin)?", options: ["Binnengewässer","Meer","Fluss","Teich"], answer: 1, explanation: "'die See' (Feminin) bedeutet Meer; 'der See' (Maskulin) bedeutet Binnengewässer." },
+  { question: "Welche Deklination haben feminine Nomen?", options: ["s-Deklination","n-Deklination","Nulldeklination","alle"], answer: 2, explanation: "Feminine Nomen haben die Nulldeklination (keine Endung im Genitiv)." },
+  { question: "Wie lautet der Dativ Singular von 'die Schule'?", options: ["die Schule","der Schule","den Schule","dem Schule"], answer: 1, explanation: "Im Dativ Feminin lautet der Artikel 'der': der Schule." },
+  { question: "Welches Nomen gehört NICHT zur n-Deklination?", options: ["der Mensch","der Student","der Baum","der Herr"], answer: 2, explanation: "'Baum' gehört zur s-Deklination, nicht zur n-Deklination." },
+  { question: "Was ist falsch?", options: ["die Handys","die Pizza's","die Autos","die Kinder"], answer: 1, explanation: "Im Deutschen gibt es keinen Plural mit Apostroph. Richtig: die Pizzas." },
+  { question: "Welcher Artikel steht im Akkusativ Feminin?", options: ["die","der","den","dem"], answer: 0, explanation: "Im Akkusativ Feminin bleibt der Artikel 'die': die Frau." }
+];
+
+// ===== FLASHCARDS (8 Karten) =====
+const nomenCards = [
+  { front: "Wie erkennt man ein Nomen?", back: "Grossschreibung + festes Genus", detail: "Nomen werden grossgeschrieben und haben ein grammatisches Geschlecht (der, die, das)." },
+  { front: "Nominativ – Frage?", back: "Wer oder was?", detail: "Der Nominativ ist der Wer-Fall. Das Nomen ist Subjekt des Satzes." },
+  { front: "Akkusativ – Frage?", back: "Wen oder was?", detail: "Der Akkusativ ist der Wen-Fall. Das Nomen ist direktes Objekt." },
+  { front: "Dativ – Frage?", back: "Wem?", detail: "Der Dativ ist der Wem-Fall. Das Nomen ist indirektes Objekt." },
+  { front: "Genitiv – Frage?", back: "Wessen?", detail: "Der Genitiv ist der Wessen-Fall. Zeigt Besitz oder Zugehörigkeit an." },
+  { front: "Pluralbildung mit Umlaut", back: "die Töchter, die Häuser", detail: "Manche Nomen bilden den Plural mit Umlaut (a→ä, o→ö, u→ü) + Endung." },
+  { front: "n-Deklination", back: "des Raben, des Menschen", detail: "Manche maskuline Nomen auf -e und Fremdwörter auf -and, -ant, -ent haben im Genitiv -n." },
+  { front: "Nur-Plural-Nomen", back: "die Eltern, die Ferien, die Leute", detail: "Diese Nomen kommen ausschliesslich im Plural vor und haben keine Singularform." }
+];
+
+// ===== INIT EXERCISES ON TAB CLICK =====
+function initAllNomenExercises() {
+  // Quiz
+  const quizEl = document.getElementById('nomen-quiz');
+  if (quizEl && !quizEl.dataset.init) {
+    new ExerciseEngine('nomen-quiz', nomenQuestions, 'nomen', 'quiz');
+    quizEl.dataset.init = '1';
+  }
+  
+  // Lückentext
+  const inputEl = document.getElementById('nomen-input');
+  if (inputEl && !inputEl.dataset.init) {
+    new InputExerciseEngine('nomen-input', nomenInputs, 'nomen', 'lueckentext');
+    inputEl.dataset.init = '1';
+  }
+  
+  // Satzanalyse
+  const saEl = document.getElementById('sa1');
+  if (saEl && !saEl.dataset.init) {
+    saData.forEach(s => {
+      new SatzanalyseTool(s.id, s.sentence, s.analysis);
+    });
+    saEl.dataset.init = '1';
+  }
+  
+  // Kapiteltest
+  const testEl = document.getElementById('nomen-test');
+  if (testEl && !testEl.dataset.init) {
+    new ExerciseEngine('nomen-test', nomenTest, 'nomen', 'kapiteltest');
+    testEl.dataset.init = '1';
+  }
+  
+  // Lernkarten
+  const flashEl = document.getElementById('nomen-flashcards');
+  if (flashEl && !flashEl.dataset.init) {
+    new FlashcardEngine('nomen-flashcards', nomenCards);
+    flashEl.dataset.init = '1';
+  }
+}
+
+// Initialize all exercises after a short delay to ensure DOM is ready
+setTimeout(initAllNomenExercises, 100);
+</script>
+</body>
+</html>

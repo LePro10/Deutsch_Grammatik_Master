@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="dark">
+<head>
+<script>
+(function() {
+  const saved = localStorage.getItem('theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const theme = saved || (prefersDark ? 'dark' : 'dark');
+  document.documentElement.setAttribute('data-theme', theme);
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pronomen – Deutsch Grammatik Master</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<div class="app">
+  <header class="header">
+    <div class="header-left">
+      <button class="nav-toggle" aria-label="Menü"><span></span><span></span><span></span></button>
+      <a href="../index.html" class="logo"><div class="logo-icon">🇩🇪</div><span>Grammatik Master</span></a>
+    </div>
+    <div class="header-right">
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="globalSearch" placeholder="Suchen...">
+        <div class="search-results" id="searchResults"></div>
+      </div>
+      <button class="btn-icon" id="themeBtn" onclick="APP.toggleTheme()" title="Theme wechseln">🌙</button>
+    </div>
+  </header>
+
+  <aside class="sidebar">
+    <div class="sidebar-section">Lernen</div>
+    <ul class="sidebar-nav">
+      <li><a href="../index.html"><span class="nav-icon">🏠</span> Dashboard</a></li>
+      <li><a href="wortarten-grundlagen.html"><span class="nav-icon">🧩</span> Wortarten Grundlagen</a></li>
+      <li><a href="nomen.html"><span class="nav-icon">📝</span> Nomen</a></li>
+      <li><a href="adjektiv.html"><span class="nav-icon">🎨</span> Adjektiv</a></li>
+      <li><a href="pronomen.html" class="active"><span class="nav-icon">👤</span> Pronomen</a></li>
+      <li><a href="partikel.html"><span class="nav-icon">🔗</span> Partikel</a></li>
+      <li><a href="verben.html"><span class="nav-icon">⚡</span> Verben</a></li>
+      <li><a href="aktiv-passiv.html"><span class="nav-icon">🔄</span> Aktiv & Passiv</a></li>
+      <li><a href="indirekte-rede.html"><span class="nav-icon">💬</span> Indirekte Rede</a></li>
+    </ul>
+    <div class="sidebar-section">Üben</div>
+    <ul class="sidebar-nav">
+      <li><a href="uebungen.html"><span class="nav-icon">✏️</span> Übungen</a></li>
+      <li><a href="pruefung.html"><span class="nav-icon">🎯</span> Prüfungssimulation</a></li>
+      <li><a href="lernplan.html"><span class="nav-icon">📅</span> Lernplan</a></li>
+      <li><a href="zusammenfassung.html"><span class="nav-icon">📚</span> Zusammenfassung</a></li>
+    </ul>
+  </aside>
+
+  <div class="sidebar-overlay"></div>
+
+  <main class="main">
+    <div class="content">
+      <nav class="breadcrumb"><a href="../index.html">Dashboard</a> <span>&gt;</span> Pronomen</nav>
+      <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;flex-wrap:wrap;">
+        <h1 style="margin:0;">👤 Pronomen</h1>
+        <span class="tag tag-outline">Personal · Possessiv · Relativ · Interrogativ · Demonstrativ · Indefinit · Reflexiv</span>
+      </div>
+
+      <div class="tabs">
+        <button class="tab active" data-tab="theorie">Theorie</button>
+        <button class="tab" data-tab="quiz">Quiz (15)</button>
+        <button class="tab" data-tab="lueckentext">Lückentext (15)</button>
+        <button class="tab" data-tab="satzanalyse">Satzanalyse (10)</button>
+        <button class="tab" data-tab="kapiteltest">Kapiteltest (20)</button>
+        <button class="tab" data-tab="lernkarten">Lernkarten (8)</button>
+      </div>
+
+      <div class="tab-panel active" id="theorie">
+        <h2>1. Personalpronomen</h2>
+        <p>Personalpronomen ersetzen Nomen und verändern sich je nach Person, Zahl und Fall.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Person</th><th>Nominativ</th><th>Akkusativ</th><th>Dativ</th><th>Genitiv</th></tr></thead>
+            <tbody>
+              <tr><td>1. Sg.</td><td>ich</td><td>mich</td><td>mir</td><td>meiner</td></tr>
+              <tr><td>2. Sg.</td><td>du</td><td>dich</td><td>dir</td><td>deiner</td></tr>
+              <tr><td>3. Sg. m</td><td>er</td><td>ihn</td><td>ihm</td><td>seiner</td></tr>
+              <tr><td>3. Sg. f</td><td>sie</td><td>sie</td><td>ihr</td><td>ihrer</td></tr>
+              <tr><td>3. Sg. n</td><td>es</td><td>es</td><td>ihm</td><td>seiner</td></tr>
+              <tr><td>1. Pl.</td><td>wir</td><td>uns</td><td>uns</td><td>unser</td></tr>
+              <tr><td>2. Pl.</td><td>ihr</td><td>euch</td><td>euch</td><td>euer</td></tr>
+              <tr><td>3. Pl.</td><td>sie</td><td>sie</td><td>ihnen</td><td>ihrer</td></tr>
+              <tr><td>Höflichkeitsform</td><td>Sie</td><td>Sie</td><td>Ihnen</td><td>Ihrer</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout callout-info">
+          <span class="callout-icon">💡</span>
+          <div class="callout-content">
+            <p><strong>Grossschreibung:</strong> Die höfliche Anrede <em>Sie</em> wird <strong>immer gross</strong> geschrieben (Sie, Ihr, Ihnen, Ihrer). Die Anrede <em>du</em> kann klein oder gross geschrieben werden.</p>
+          </div>
+        </div>
+
+        <h2>2. Possessivpronomen</h2>
+        <p>Possessivpronomen zeigen Besitz an und werden wie Adjektive dekliniert. Die folgende Tabelle zeigt die Deklination von <em>mein</em>, <em>dein</em>, <em>sein</em>, <em>ihr</em>, <em>unser</em> und <em>euer</em>.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Fall</th><th>Maskulin</th><th>Feminin</th><th>Neutrum</th><th>Plural</th></tr></thead>
+            <tbody>
+              <tr><td colspan="5"><strong>mein</strong></td></tr>
+              <tr><td>Nominativ</td><td>mein</td><td>meine</td><td>mein</td><td>meine</td></tr>
+              <tr><td>Akkusativ</td><td>meinen</td><td>meine</td><td>mein</td><td>meine</td></tr>
+              <tr><td>Dativ</td><td>meinem</td><td>meiner</td><td>meinem</td><td>meinen</td></tr>
+              <tr><td>Genitiv</td><td>meines</td><td>meiner</td><td>meines</td><td>meiner</td></tr>
+              <tr><td colspan="5"><strong>dein</strong></td></tr>
+              <tr><td>Nominativ</td><td>dein</td><td>deine</td><td>dein</td><td>deine</td></tr>
+              <tr><td>Akkusativ</td><td>deinen</td><td>deine</td><td>dein</td><td>deine</td></tr>
+              <tr><td>Dativ</td><td>deinem</td><td>deiner</td><td>deinem</td><td>deinen</td></tr>
+              <tr><td>Genitiv</td><td>deines</td><td>deiner</td><td>deines</td><td>deiner</td></tr>
+              <tr><td colspan="5"><strong>sein</strong></td></tr>
+              <tr><td>Nominativ</td><td>sein</td><td>seine</td><td>sein</td><td>seine</td></tr>
+              <tr><td>Akkusativ</td><td>seinen</td><td>seine</td><td>sein</td><td>seine</td></tr>
+              <tr><td>Dativ</td><td>seinem</td><td>seiner</td><td>seinem</td><td>seinen</td></tr>
+              <tr><td>Genitiv</td><td>seines</td><td>seiner</td><td>seines</td><td>seiner</td></tr>
+              <tr><td colspan="5"><strong>ihr</strong></td></tr>
+              <tr><td>Nominativ</td><td>ihr</td><td>ihre</td><td>ihr</td><td>ihre</td></tr>
+              <tr><td>Akkusativ</td><td>ihren</td><td>ihre</td><td>ihr</td><td>ihre</td></tr>
+              <tr><td>Dativ</td><td>ihrem</td><td>ihrer</td><td>ihrem</td><td>ihren</td></tr>
+              <tr><td>Genitiv</td><td>ihres</td><td>ihrer</td><td>ihres</td><td>ihrer</td></tr>
+              <tr><td colspan="5"><strong>unser</strong></td></tr>
+              <tr><td>Nominativ</td><td>unser</td><td>unsere</td><td>unser</td><td>unsere</td></tr>
+              <tr><td>Akkusativ</td><td>unseren</td><td>unsere</td><td>unser</td><td>unsere</td></tr>
+              <tr><td>Dativ</td><td>unserem</td><td>unserer</td><td>unserem</td><td>unseren</td></tr>
+              <tr><td>Genitiv</td><td>unseres</td><td>unserer</td><td>unseres</td><td>unserer</td></tr>
+              <tr><td colspan="5"><strong>euer</strong></td></tr>
+              <tr><td>Nominativ</td><td>euer</td><td>eure</td><td>euer</td><td>eure</td></tr>
+              <tr><td>Akkusativ</td><td>euren</td><td>eure</td><td>euer</td><td>eure</td></tr>
+              <tr><td>Dativ</td><td>eurem</td><td>eurer</td><td>eurem</td><td>euren</td></tr>
+              <tr><td>Genitiv</td><td>eures</td><td>eurer</td><td>eures</td><td>eurer</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>3. Relativpronomen</h2>
+        <p>Relativpronomen leiten Relativsätze ein und beziehen sich auf ein vorhergehendes Nomen.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Genus</th><th>Nominativ</th><th>Akkusativ</th><th>Dativ</th><th>Genitiv</th></tr></thead>
+            <tbody>
+              <tr><td>Maskulin</td><td>der / welcher</td><td>den / welchen</td><td>dem / welchem</td><td>dessen</td></tr>
+              <tr><td>Feminin</td><td>die / welche</td><td>die / welche</td><td>der / welcher</td><td>deren</td></tr>
+              <tr><td>Neutrum</td><td>das / welches</td><td>das / welches</td><td>dem / welchem</td><td>dessen</td></tr>
+              <tr><td>Plural</td><td>die / welche</td><td>die / welche</td><td>denen / welchen</td><td>deren</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout callout-warning">
+          <span class="callout-icon">⚠️</span>
+          <div class="callout-content">
+            <p><strong>das vs. dass:</strong> <em>das</em> ist ein Relativpronomen (ersetzbar durch <em>welches</em>). <em>dass</em> ist eine Konjunktion und leitet einen Nebensatz ein. Merke: Kannst du <em>welches</em> einsetzen? Dann schreibst du <strong>das</strong> mit einem s.</p>
+          </div>
+        </div>
+
+        <h2>4. Demonstrativpronomen</h2>
+        <p>Demonstrativpronomen weisen auf etwas hin und werden wie Adjektive dekliniert.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Pronomen</th><th>Maskulin</th><th>Feminin</th><th>Neutrum</th><th>Plural</th></tr></thead>
+            <tbody>
+              <tr><td>dieser</td><td>dieser</td><td>diese</td><td>dieses</td><td>diese</td></tr>
+              <tr><td>jener</td><td>jener</td><td>jene</td><td>jenes</td><td>jene</td></tr>
+              <tr><td>derselbe</td><td>derselbe</td><td>dieselbe</td><td>dasselbe</td><td>dieselben</td></tr>
+              <tr><td>derjenige</td><td>derjenige</td><td>diejenige</td><td>dasjenige</td><td>diejenigen</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>5. Interrogativpronomen</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Pronomen</th><th>Frage nach</th><th>Beispiel</th></tr></thead>
+            <tbody>
+              <tr><td>wer / wen / wem / wessen</td><td>Personen</td><td>Wer kommt? Wen siehst du? Wem gibst du das? Wessen Auto ist das?</td></tr>
+              <tr><td>was / wessen</td><td>Dingen</td><td>Was ist das? Wessen Buch ist das?</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout callout-info">
+          <span class="callout-icon">💡</span>
+          <div class="callout-content">
+            <p><strong>Wichtig:</strong> <em>wo, wann, wie, warum, wozu</em> sind <strong>Adverbien</strong> (Partikeln), keine Pronomen! Zusammengesetzte Formen wie <em>womit, woraus</em> sind stilistisch besser als <em>mit was, aus was</em>.</p>
+          </div>
+        </div>
+
+        <h2>6. Indefinitpronomen</h2>
+        <p>Unbestimmte Pronomen bezeichnen nicht genau bestimmte Personen oder Dinge.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Pronomen</th><th>Bemerkung</th><th>Beispiel</th></tr></thead>
+            <tbody>
+              <tr><td>man</td><td>Nur Nominativ! (Akk: einen, Dat: einem)</td><td>Man sollte pünktlich sein.</td></tr>
+              <tr><td>jemand / niemand</td><td>Deklinierbar: jemanden, jemandem</td><td>Ich sehe jemanden.</td></tr>
+              <tr><td>etwas, nichts, viel, wenig</td><td>Nicht deklinierbar</td><td>Ich habe etwas gesehen.</td></tr>
+              <tr><td>alle, einige, mancher</td><td>Deklinierbar wie Plural-Adjektive</td><td>Alle Menschen sind gleich.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>7. Reflexivpronomen</h2>
+        <p>Bei reflexiven Verben bezieht sich das Objekt auf das Subjekt zurück.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Person</th><th>Akkusativ</th><th>Dativ</th></tr></thead>
+            <tbody>
+              <tr><td>ich</td><td>mich</td><td>mir</td></tr>
+              <tr><td>du</td><td>dich</td><td>dir</td></tr>
+              <tr><td>er / sie / es</td><td>sich</td><td>sich</td></tr>
+              <tr><td>wir</td><td>uns</td><td>uns</td></tr>
+              <tr><td>ihr</td><td>euch</td><td>euch</td></tr>
+              <tr><td>sie / Sie (Höfl.)</td><td>sich</td><td>sich</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="example-box">
+          <div class="example-label">Beispiele</div>
+          <p>Ich freue <strong>mich</strong>. Du freust <strong>dich</strong>. Er freut <strong>sich</strong>. Wir freuen <strong>uns</strong>. Ihr freut <strong>euch</strong>. Sie freuen <strong>sich</strong>.</p>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="quiz"><div id="quiz-pronomen"></div></div>
+      <div class="tab-panel" id="lueckentext"><div id="lueckentext-pronomen"></div></div>
+      <div class="tab-panel" id="satzanalyse"><div id="satzanalyse-pronomen"></div></div>
+      <div class="tab-panel" id="kapiteltest"><div id="kapiteltest-pronomen"></div></div>
+      <div class="tab-panel" id="lernkarten"><div id="lernkarten-pronomen"></div></div>
+    </div>
+  </main>
+</div>
+<script src="../js/app.js"></script>
+<script>
+APP.init();
+APP.markVisited('pronomen');
+
+var quizData = [
+  {question:'Wie lautet der Nominativ der höflichen Anrede?', options:['Du','Sie','Ihnen','Ihrer'], answer:1, explanation:'Die höfliche Anrede lautet im Nominativ „Sie“ und wird immer gross geschrieben.'},
+  {question:'Wie lautet der Akkusativ von „er“?', options:['ihm','ihn','seiner','ihr'], answer:1, explanation:'Der Akkusativ von „er“ lautet „ihn“.'},
+  {question:'Welcher Dativ gehört zu „sie“ (Plural)?', options:['ihr','ihnen','ihm','Ihnen'], answer:1, explanation:'Der Dativ Plural von „sie“ lautet „ihnen“.'},
+  {question:'Wie lautet der Genitiv von „ich“?', options:['mein','meiner','mich','mir'], answer:1, explanation:'Der Genitiv von „ich“ lautet „meiner“.'},
+  {question:'Welche Possessivform ist korrekt: „Das ist ___ Hund.“ (ihr, Nominativ Maskulin)?', options:['ihren','ihrer','ihre','ihr'], answer:3, explanation:'Possessivartikel „ihr“ im Nominativ Maskulin bleibt unverändert: „ihr Hund“.'},
+  {question:'Wie heisst die Akkusativ-Plural-Form von „dieser“?', options:['diesen','diese','dieser','dieses'], answer:1, explanation:'Der Akkusativ Plural von „dieser“ lautet „diese“.'},
+  {question:'Welches Relativpronomen steht im Genitiv Maskulin?', options:['deren','dessen','dem','den'], answer:1, explanation:'Das Relativpronomen im Genitiv Maskulin lautet „dessen“.'},
+  {question:'„Ich habe keine Ahnung, ___ er meint.“ Welches Wort passt?', options:['das','dass','der','die'], answer:0, explanation:'Hier ist „das“ ein Relativpronomen (ersetzbar durch „welches“). „Dass“ ist eine Konjunktion.'},
+  {question:'„Wen“ fragt nach dem …?', options:['Nominativ','Dativ','Akkusativ','Genitiv'], answer:2, explanation:'„Wen“ ist das Interrogativpronomen im Akkusativ.'},
+  {question:'„Wem“ fragt nach dem …?', options:['Nominativ','Dativ','Akkusativ','Genitiv'], answer:1, explanation:'„Wem“ ist das Interrogativpronomen im Dativ.'},
+  {question:'Welches Indefinitpronomen ist nur im Nominativ gebräuchlich?', options:['jemand','man','etwas','alle'], answer:1, explanation:'„Man“ kommt nur im Nominativ vor; Akkusativ: einen, Dativ: einem.'},
+  {question:'Welches Reflexivpronomen passt zu „ihr“ (Akkusativ)?', options:['sich','uns','euch','euch'], answer:2, explanation:'Das Reflexivpronomen zu „ihr“ lautet „euch“.'},
+  {question:'„Das ist das Buch, ___ ich gelesen habe.“ (Akkusativ, Neutrum)', options:['das','dass','dem','den'], answer:0, explanation:'„Das“ ist hier das Relativpronomen im Akkusativ Neutrum.'},
+  {question:'Welches Wort ist KEIN Interrogativpronomen?', options:['wer','was','wo','wessen'], answer:2, explanation:'„Wo“ ist ein Adverb (Fragewort nach dem Ort), kein Pronomen.'},
+  {question:'Possessivpronomen „euer“ im Dativ Plural:', options:['euren','eurem','euer','eueren'], answer:0, explanation:'Der Dativ Plural von „euer“ lautet „euren“.'}
+];
+
+var lueckenData = [
+  {before:'Ich sehe', answer:'ihn', after:'im Park. (Akkusativ, er)'},
+  {before:'Sie gibt', answer:'mir', after:'das Buch. (Dativ, ich)'},
+  {before:'Ich erinnere mich', answer:'deiner', after:'. (Genitiv, du)'},
+  {before:'Wir treffen', answer:'sie', after:'. (Akkusativ, sie Plural)'},
+  {before:'Er kauft', answer:'seinem', after:'Vater ein Geschenk. (Dativ, sein)'},
+  {before:'Das ist', answer:'dieser', after:'Computer. (Nominativ, dieser)'},
+  {before:'Mit', answer:'welcher', after:'Farbe malst du? (Dativ, welcher)'},
+  {before:'Es freut mich,', answer:'dass', after:'du da bist. (Konjunktion)'},
+  {before:'Der Mann,', answer:'dem', after:'ich helfe, ist alt. (Dativ, Relativpronomen)'},
+  {before:'', answer:'Wen', after:'hast du gesehen? (Akkusativ, wer)'},
+  {before:'', answer:'Wem', after:'gehört dieser Schlüssel? (Dativ, wer)'},
+  {before:'', answer:'Man', after:'kann nicht immer gewinnen. (Indefinitpronomen)'},
+  {before:'Ich wasche', answer:'mich', after:'. (Reflexivpronomen, ich)'},
+  {before:'Er kauft', answer:'sich', after:'ein neues Auto. (Reflexivpronomen, er)'},
+  {before:'Ich habe', answer:'meinen', after:'Hund gesehen. (Akkusativ, mein)'}
+];
+
+var satzData = [
+  {sentence:'Ich gebe ihm das Buch.', analysis:{'ich':'Personalpronomen, 1. Person, Nominativ','ihm':'Personalpronomen, 3. Person, Dativ'}},
+  {sentence:'Das ist mein Freund.', analysis:{'mein':'Possessivpronomen, Nominativ Maskulin'}},
+  {sentence:'Der Mann, den ich kenne, ist Arzt.', analysis:{'den':'Relativpronomen, Akkusativ Maskulin','ich':'Personalpronomen, 1. Person, Nominativ'}},
+  {sentence:'Diese Idee ist gut.', analysis:{'diese':'Demonstrativpronomen, Nominativ Feminin'}},
+  {sentence:'Wen hast du gesehen?', analysis:{'wen':'Interrogativpronomen, Akkusativ'}},
+  {sentence:'Man sollte pünktlich sein.', analysis:{'man':'Indefinitpronomen, Nominativ'}},
+  {sentence:'Sie freut sich.', analysis:{'sich':'Reflexivpronomen, 3. Person, Akkusativ'}},
+  {sentence:'Ich wasche mich.', analysis:{'mich':'Reflexivpronomen, 1. Person, Akkusativ'}},
+  {sentence:'Das ist dasselbe Buch.', analysis:{'dasselbe':'Demonstrativpronomen, Nominativ Neutrum'}},
+  {sentence:'Ich kenne niemanden.', analysis:{'niemanden':'Indefinitpronomen, Akkusativ'}}
+];
+
+var testData = [
+  {question:'„Ich habe ___ Buch gelesen.“ (welcher, Akkusativ, Neutrum)', options:['welches','welchem','welchen','welcher'], answer:0, explanation:'„Welches“ ist das Relativ-/Interrogativpronomen im Akkusativ Neutrum.'},
+  {question:'„Das ist der Lehrer, ___ Sohn Arzt ist.“ (Genitiv)', options:['dessen','deren','dem','den'], answer:0, explanation:'Genitiv Maskulin vom Relativpronomen lautet „dessen“.'},
+  {question:'Possessivpronomen „unser“ im Dativ Feminin:', options:['unserer','unserem','unseren','unsere'], answer:0, explanation:'Dativ Feminin von „unser“ lautet „unserer“.'},
+  {question:'„Er hilft ___ (sie, Plural).“', options:['ihnen','ihr','sie','Ihnen'], answer:0, explanation:'Dativ Plural von „sie“ lautet „ihnen“.'},
+  {question:'Welche Form ist der Genitiv von „Sie“ (höflich)?', options:['Ihrer','Ihnen','Ihres','Ihr'], answer:0, explanation:'Der Genitiv der höflichen Anrede lautet „Ihrer“.'},
+  {question:'„Ich erinnere mich ___ (Sie, höflich).“', options:['Ihrer','Ihnen','Ihres','Ihr'], answer:0, explanation:'Der Genitiv der Höflichkeitsform lautet „Ihrer“.'},
+  {question:'„Die Frau, mit ___ ich spreche, ist Lehrerin.“', options:['der','die','deren','welcher'], answer:0, explanation:'Nach „mit“ folgt der Dativ; das Relativpronomen im Dativ Feminin lautet „der“.'},
+  {question:'Relativpronomen im Dativ Plural:', options:['denen','deren','den','dem'], answer:0, explanation:'Der Dativ Plural des Relativpronomens lautet „denen“.'},
+  {question:'„___ (dieser) Schuhe sind neu.“ (Nominativ Plural)', options:['Diese','Dieser','Dieses','Diesen'], answer:0, explanation:'Nominativ Plural von „dieser“ lautet „diese“.'},
+  {question:'„Ich habe ___ gesehen.“ (jemand, Akkusativ)', options:['jemanden','jemand','jemandem','jemandes'], answer:0, explanation:'Der Akkusativ von „jemand“ lautet „jemanden“.'},
+  {question:'„Gibst du ___ (ich) das Geld?“', options:['mir','mich','meiner','ich'], answer:0, explanation:'„Gibst du“ verlangt den Dativ: „mir“.'},
+  {question:'„Das Haus, ___ ich wohne, ist alt.“ (Dativ, Neutrum)', options:['in dem','in das','in welchem','A und C'], answer:3, explanation:'Sowohl „in dem“ als auch „in welchem“ sind korrekt (Dativ Neutrum).'},
+  {question:'„___ (wer, Dativ) schreibst du?“', options:['Wem','Wen','Wer','Wessen'], answer:0, explanation:'„Wem“ ist der Dativ von „wer“.'},
+  {question:'Possessivpronomen „ihr“ im Genitiv Maskulin:', options:['ihres','ihrer','ihrem','ihren'], answer:0, explanation:'Genitiv Maskulin von „ihr“ lautet „ihres“.'},
+  {question:'„Er freut ___ auf den Urlaub.“', options:['sich','ihn','ihm','sie'], answer:0, explanation:'„Sich freuen“ ist reflexiv: „er freut sich“.'},
+  {question:'„Das ist alles, ___ ich habe.“', options:['was','das','dass','welches'], answer:0, explanation:'Nach „alles“ verwendet man das Relativpronomen „was“.'},
+  {question:'„Ich sehe ___ (sie, Sg) gern.“', options:['sie','ihr','ihnen','ihm'], answer:0, explanation:'„Sehen“ verlangt den Akkusativ: „sie“.'},
+  {question:'„Mit ___ (wir) spielt er.“', options:['uns','unsere','unser','wir'], answer:0, explanation:'„Mit“ verlangt den Dativ: „uns“.'},
+  {question:'„___ (dieser) Tasche gehört mir.“ (Dativ)', options:['Dieser','Diese','Diesem','Diesen'], answer:0, explanation:'Dativ Feminin von „dieser“ lautet „dieser“.'},
+  {question:'„Das ist nicht das Problem ___ (du).“', options:['deiner','deinen','deinem','dein'], answer:0, explanation:'Genitiv von „du“ lautet „deiner“.'}
+];
+
+var flashData = [
+  {front:'ich (Akkusativ)', back:'mich'},
+  {front:'du (Dativ)', back:'dir'},
+  {front:'er (Genitiv)', back:'seiner'},
+  {front:'sie (Plural, Dativ)', back:'ihnen'},
+  {front:'Sie (höflich, Dativ)', back:'Ihnen'},
+  {front:'mein (Akkusativ Maskulin)', back:'meinen'},
+  {front:'Relativpronomen (Genitiv Plural)', back:'deren'},
+  {front:'Reflexivpronomen (3. Person)', back:'sich'}
+];
+
+function initSatzanalyse(containerId, items) {
+  var container = document.getElementById(containerId);
+  items.forEach(function(item, idx) {
+    var wrapper = document.createElement('div');
+    wrapper.className = 'satzanalyse-wrapper';
+    wrapper.style.marginBottom = '2rem';
+    var title = document.createElement('div');
+    title.className = 'example-label';
+    title.textContent = 'Satz ' + (idx + 1);
+    wrapper.appendChild(title);
+    var div = document.createElement('div');
+    div.id = containerId + '-' + idx;
+    wrapper.appendChild(div);
+    container.appendChild(wrapper);
+    new SatzanalyseTool(div.id, item.sentence, item.analysis);
+  });
+}
+
+// Initialize all exercises on page load
+setTimeout(function() {
+  if (document.getElementById('quiz-pronomen') && !document.getElementById('quiz-pronomen').dataset.init) {
+    new ExerciseEngine('quiz-pronomen', quizData, 'pronomen', 'quiz');
+    document.getElementById('quiz-pronomen').dataset.init = '1';
+  }
+  if (document.getElementById('lueckentext-pronomen') && !document.getElementById('lueckentext-pronomen').dataset.init) {
+    new InputExerciseEngine('lueckentext-pronomen', lueckenData, 'pronomen', 'lueckentext');
+    document.getElementById('lueckentext-pronomen').dataset.init = '1';
+  }
+  if (document.getElementById('satzanalyse-pronomen') && !document.getElementById('satzanalyse-pronomen').dataset.init) {
+    initSatzanalyse('satzanalyse-pronomen', satzData);
+    document.getElementById('satzanalyse-pronomen').dataset.init = '1';
+  }
+  if (document.getElementById('kapiteltest-pronomen') && !document.getElementById('kapiteltest-pronomen').dataset.init) {
+    new ExerciseEngine('kapiteltest-pronomen', testData, 'pronomen', 'kapiteltest');
+    document.getElementById('kapiteltest-pronomen').dataset.init = '1';
+  }
+  if (document.getElementById('lernkarten-pronomen') && !document.getElementById('lernkarten-pronomen').dataset.init) {
+    new FlashcardEngine('lernkarten-pronomen', flashData);
+    document.getElementById('lernkarten-pronomen').dataset.init = '1';
+  }
+}, 100);
+</script>
+</body>
+</html>

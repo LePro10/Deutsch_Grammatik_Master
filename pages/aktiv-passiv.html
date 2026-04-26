@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="dark">
+<head>
+<script>
+(function() {
+  const saved = localStorage.getItem('theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const theme = saved || (prefersDark ? 'dark' : 'dark');
+  document.documentElement.setAttribute('data-theme', theme);
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aktiv & Passiv – Deutsch Grammatik Master</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<div class="app">
+  <header class="header">
+    <div class="header-left">
+      <button class="nav-toggle" aria-label="Menü"><span></span><span></span><span></span></button>
+      <a href="../index.html" class="logo"><div class="logo-icon">🇩🇪</div><span>Grammatik Master</span></a>
+    </div>
+    <div class="header-right">
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="globalSearch" placeholder="Suchen...">
+        <div class="search-results" id="searchResults"></div>
+      </div>
+      <button class="btn-icon" id="themeBtn" onclick="APP.toggleTheme()" title="Theme wechseln">🌙</button>
+    </div>
+  </header>
+
+  <aside class="sidebar">
+    <div class="sidebar-section">Lernen</div>
+    <ul class="sidebar-nav">
+      <li><a href="../index.html"><span class="nav-icon">🏠</span> Dashboard</a></li>
+      <li><a href="wortarten-grundlagen.html"><span class="nav-icon">🧩</span> Wortarten Grundlagen</a></li>
+      <li><a href="nomen.html"><span class="nav-icon">📝</span> Nomen</a></li>
+      <li><a href="adjektiv.html"><span class="nav-icon">🎨</span> Adjektiv</a></li>
+      <li><a href="pronomen.html"><span class="nav-icon">👤</span> Pronomen</a></li>
+      <li><a href="partikel.html"><span class="nav-icon">🔗</span> Partikel</a></li>
+      <li><a href="verben.html"><span class="nav-icon">⚡</span> Verben</a></li>
+      <li><a href="aktiv-passiv.html" class="active"><span class="nav-icon">🔄</span> Aktiv & Passiv</a></li>
+      <li><a href="indirekte-rede.html"><span class="nav-icon">💬</span> Indirekte Rede</a></li>
+    </ul>
+    <div class="sidebar-section">Üben</div>
+    <ul class="sidebar-nav">
+      <li><a href="uebungen.html"><span class="nav-icon">✏️</span> Übungen</a></li>
+      <li><a href="pruefung.html"><span class="nav-icon">🎯</span> Prüfungssimulation</a></li>
+      <li><a href="lernplan.html"><span class="nav-icon">📅</span> Lernplan</a></li>
+      <li><a href="zusammenfassung.html"><span class="nav-icon">📚</span> Zusammenfassung</a></li>
+    </ul>
+  </aside>
+
+  <div class="sidebar-overlay"></div>
+
+  <main class="main">
+    <div class="content">
+      <div class="breadcrumb"><a href="../index.html">Dashboard</a><span class="breadcrumb-sep">›</span><span>Aktiv & Passiv</span></div>
+      <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;flex-wrap:wrap;">
+        <h1 style="margin:0;">🔄 Aktiv & Passiv</h1>
+        <span class="tag tag-outline">Vorgangspassiv · Zustandspassiv · Umwandlung</span>
+      </div>
+      <p>Aktivsätze sind direkter und dynamischer. Beim Passiv rückt der Handelnde in den Hintergrund. Das Passiv wird mit dem Hilfsverb <strong>werden</strong> + Partizip II gebildet.</p>
+
+      <div class="tabs">
+        <button class="tab active">Theorie</button>
+        <button class="tab">Quiz</button>
+        <button class="tab">Lückentext</button>
+        <button class="tab">Passiv-Transformer</button>
+        <button class="tab">Kapiteltest</button>
+        <button class="tab">Lernkarten</button>
+      </div>
+
+      <div class="tab-panel active">
+        <h2>1. Bildung des Passivs</h2>
+        <div class="callout callout-info">
+          <span class="callout-icon">💡</span>
+          <div class="callout-content"><p>Das Passiv besteht immer aus <strong>werden (konjugiert)</strong> + <strong>Partizip II des Vollverbs</strong>.</p></div>
+        </div>
+
+        <h3>Alle Zeitformen im Aktiv und Passiv</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Zeit</th><th>Aktiv</th><th>Passiv</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Präsens</strong></td><td>Ich wähle</td><td>Ich <strong>werde</strong> gewählt</td></tr>
+              <tr><td><strong>Präteritum</strong></td><td>Ich wählte</td><td>Ich <strong>wurde</strong> gewählt</td></tr>
+              <tr><td><strong>Perfekt</strong></td><td>Ich habe gewählt</td><td>Ich <strong>bin</strong> gewählt <strong>worden</strong></td></tr>
+              <tr><td><strong>Plusquamperfekt</strong></td><td>Ich hatte gewählt</td><td>Ich <strong>war</strong> gewählt <strong>worden</strong></td></tr>
+              <tr><td><strong>Futur I</strong></td><td>Ich werde wählen</td><td>Ich <strong>werde</strong> gewählt <strong>werden</strong></td></tr>
+              <tr><td><strong>Futur II</strong></td><td>Ich werde gewählt haben</td><td>Ich <strong>werde</strong> gewählt <strong>worden sein</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>2. Umwandlung Aktiv → Passiv</h2>
+        <div class="example-box">
+          <div class="example-label">Beispiel</div>
+          <p><strong>Aktiv:</strong> Die Polizei <span class="gram-verb">konnte</span> den Räuber kurz nach der Tat <span class="gram-verb">verhaften</span>.</p>
+          <p><strong>Passiv:</strong> Der Räuber <span class="gram-verb">konnte</span> kurz nach der Tat von der Polizei <span class="gram-verb">verhaftet werden</span>.</p>
+        </div>
+        <div class="callout callout-warning">
+          <span class="callout-icon">⚠️</span>
+          <div class="callout-content"><p><strong>Wichtig:</strong> Bei der Umwandlung ändert sich das Subjekt! Das ursprüngliche Objekt wird zum neuen Subjekt.</p></div>
+        </div>
+
+        <h3>Schritt-für-Schritt-Anleitung</h3>
+        <ol>
+          <li>Das <strong>Akkusativobjekt</strong> wird zum neuen <strong>Subjekt</strong> (Nominativ).</li>
+          <li>Das alte Subjekt wird mit <strong>von + Dativ</strong> ergänzt (oder weggelassen).</li>
+          <li>Das Verb wird ins <strong>Partizip II</strong> gesetzt.</li>
+          <li>Das Hilfsverb <strong>werden</strong> wird in der passenden Zeitform konjugiert.</li>
+        </ol>
+
+        <h2>3. Zustandspassiv</h2>
+        <p>Das Zustandspassiv beschreibt einen bereits bestehenden Zustand. Es wird mit <strong>sein + Partizip II</strong> gebildet.</p>
+        <div class="example-box">
+          <div class="example-label">Beispiele</div>
+          <p>Das Papier <strong>war zerrissen</strong>. (Zustandspassiv)</p>
+          <p>Das Büro <strong>ist ab morgen geschlossen</strong>. (Zustandspassiv)</p>
+          <p>Das Büro <strong>wird morgen geschlossen</strong>. (Vorgangspassiv)</p>
+        </div>
+        <div class="callout callout-info">
+          <span class="callout-icon">💡</span>
+          <div class="callout-content"><p><strong>Unterschied:</strong> Vorgangspassiv = etwas geschieht gerade (werden). Zustandspassiv = Zustand besteht bereits (sein).</p></div>
+        </div>
+
+        <h2>4. Passiv mit Modalverben</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Zeit</th><th>Beispiel</th></tr></thead>
+            <tbody>
+              <tr><td>Präsens</td><td>Das <strong>muss</strong> gemacht <strong>werden</strong>.</td></tr>
+              <tr><td>Präteritum</td><td>Das <strong>musste</strong> gemacht <strong>werden</strong>.</td></tr>
+              <tr><td>Perfekt</td><td>Das <strong>hat</strong> gemacht <strong>werden müssen</strong>.</td></tr>
+              <tr><td>Futur I</td><td>Das <strong>wird</strong> gemacht <strong>werden müssen</strong>.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>5. Wann verwendet man Passiv?</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Situation</th><th>Beispiel</th></tr></thead>
+            <tbody>
+              <tr><td>Urheber nicht wichtig</td><td>Die Bombe <strong>wurde entschärft</strong>.</td></tr>
+              <tr><td>Urheber unbekannt</td><td>In der Nacht <strong>wurden</strong> zwei Autos <strong>gestohlen</strong>.</td></tr>
+              <tr><td>Täter bekannt, aber Fokus auf Handlung</td><td>Spanien <strong>wurde</strong> mit 1:0 <strong>besiegt</strong>.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout callout-error">
+          <span class="callout-icon">❌</span>
+          <div class="callout-content"><p><strong>Nicht verwenden,</strong> um handelnde Personen zu «verstecken»: <em>Oft wird vor dem Fernseher gegessen</em> → besser: <em>Wir essen oft vor dem Fernseher</em>.</p></div>
+        </div>
+      </div>
+
+      <div class="tab-panel">
+        <h2>Quiz</h2>
+        <div id="ap-quiz"></div>
+      </div>
+      <div class="tab-panel">
+        <h2>Lückentext</h2>
+        <div id="ap-input"></div>
+      </div>
+      <div class="tab-panel">
+        <h2>Passiv-Transformer</h2>
+        <p>Wandle die Aktiv-Sätze in Passiv-Sätze um.</p>
+        <div id="ap-transform"></div>
+      </div>
+      <div class="tab-panel">
+        <h2>Kapiteltest</h2>
+        <div id="ap-test"></div>
+      </div>
+      <div class="tab-panel">
+        <h2>Lernkarten</h2>
+        <div id="ap-flashcards"></div>
+      </div>
+    </div>
+  </main>
+</div>
+<script src="../js/app.js"></script>
+<script>
+APP.markVisited('aktiv-passiv');
+
+const apQuestions = [
+  { question: "Wie lautet das Passiv von 'Ich sehe ihn' (Präsens)?", options: ["Er wird gesehen","Er ist gesehen","Er wurde gesehen","Er wird sehen"], answer: 0, explanation: "Präsens-Passiv: werden + Partizip." },
+  { question: "Was unterscheidet Vorgangs- und Zustandspassiv?", options: ["werden vs. sein","haben vs. sein","Modalverb vs. Vollverb","Präsens vs. Perfekt"], answer: 0, explanation: "Vorgangspassiv = werden + Partizip. Zustandspassiv = sein + Partizip." },
+  { question: "Wie lautet das Perfekt-Passiv von 'wählen'?", options: ["ich habe gewählt worden","ich bin gewählt worden","ich werde gewählt haben","ich wurde gewählt"], answer: 1, explanation: "Perfekt-Passiv: sein + Partizip + worden." },
+  { question: "Was passiert bei Aktiv→Passiv mit dem Akkusativobjekt?", options: ["Es bleibt Akkusativ","Es wird zum Subjekt (Nominativ)","Es wird weggelassen","Es wird Dativ"], answer: 1, explanation: "Das Akkusativobjekt wird zum neuen Subjekt im Nominativ." },
+  { question: "Wie wird das alte Subjekt im Passiv ergänzt?", options: ["mit Akkusativ","mit Genitiv","mit von + Dativ","es fällt weg"], answer: 2, explanation: "Das alte Subjekt wird mit 'von + Dativ' ergänzt." },
+  { question: "Welcher Satz ist Zustandspassiv?", options: ["Das Fenster wird geöffnet.","Das Fenster ist geöffnet.","Das Fenster wird geöffnet werden.","Das Fenster wurde geöffnet."], answer: 1, explanation: "'Ist geöffnet' = bestehender Zustand (sein + Partizip)." },
+  { question: "Wie lautet das Futur II Passiv?", options: ["werden + Partizip + werden","werden + Partizip + worden sein","sein + Partizip + worden","werden + Infinitiv"], answer: 1, explanation: "Futur II Passiv: werden + Partizip + worden sein." },
+  { question: "Wann sollte man Passiv NICHT verwenden?", options: ["Urheber unbekannt","Täter unbekannt","Um Täter zu verstecken","Fokus auf Handlung"], answer: 2, explanation: "Passiv nicht verwenden, um handelnde Personen zu verstecken." },
+  { question: "Aktiv: 'Der Lehrer erklärt die Regel.' → Passiv?", options: ["Die Regel wird erklärt.","Die Regel ist erklärt.","Die Regel wird vom Lehrer erklärt.","Die Regel wurde erklärt."], answer: 2, explanation: "Präsens-Passiv mit Täter: wird vom Lehrer erklärt." },
+  { question: "Wie lautet das Passiv von 'Man hilft dem Kind' (Präsens)?", options: ["Dem Kind wird geholfen.","Das Kind wird geholfen.","Dem Kind ist geholfen.","Das Kind wird von mir geholfen."], answer: 0, explanation: "Dativ-Objekt bleibt Dativ: Dem Kind wird geholfen." },
+  { question: "Welche Zeitform ist 'Die Tür war geschlossen'?", options: ["Präteritum Passiv","Plusquamperfekt Passiv","Zustandspassiv","Vorgangspassiv"], answer: 2, explanation: "'War geschlossen' = Zustandspassiv (sein + Partizip)." },
+  { question: "Wie lautet der Passiv-Satz im Perfekt? 'Er hat den Brief geschrieben.'", options: ["Der Brief ist geschrieben.","Der Brief wurde geschrieben.","Der Brief ist geschrieben worden.","Der Brief wird geschrieben worden."], answer: 2, explanation: "Perfekt-Passiv: sein + Partizip + worden." },
+  { question: "Was ist bei 'Es wird dunkel' das Verb 'werden'?", options: ["Futur","Passiv","Vollverb (unpersönlich)","Modalverb"], answer: 2, explanation: "'Es wird dunkel' = unpersönliches Vollverb, weder Futur noch Passiv." },
+  { question: "Aktiv: 'Sie müssen das Problem lösen.' → Passiv?", options: ["Das Problem muss gelöst werden.","Das Problem muss gelöst sein.","Das Problem wird gelöst müssen.","Das Problem ist gelöst worden."], answer: 0, explanation: "Modalverb + Passiv: müssen + Partizip + werden." },
+  { question: "Wie lautet das Plusquamperfekt-Passiv?", options: ["war + Partizip + worden","bin + Partizip + worden","wurde + Partizip","ist + Partizip + worden"], answer: 0, explanation: "Plusquamperfekt-Passiv: war + Partizip + worden." }
+];
+
+const apInputs = [
+  { before: "Aktiv: Die Polizei stoppt den Wagen. → Passiv: Der Wagen", answer: "wird von der Polizei gestoppt", after: "." },
+  { before: "Aktiv: Man baut ein neues Haus. → Passiv: Ein neues Haus", answer: "wird gebaut", after: "." },
+  { before: "Aktiv: Der Lehrer korrigiert die Prüfung. → Passiv: Die Prüfung", answer: "wird vom Lehrer korrigiert", after: "." },
+  { before: "Aktiv: Sie hat den Brief geschrieben. → Passiv: Der Brief", answer: "ist von ihr geschrieben worden", after: "." },
+  { before: "Aktiv: Wir werden das Problem lösen. → Passiv: Das Problem", answer: "wird von uns gelöst werden", after: "." },
+  { before: "Aktiv: Der Hund beißt den Mann. → Passiv: Der Mann", answer: "wird vom Hund gebissen", after: "." },
+  { before: "Aktiv: Man hat das Museum renoviert. → Passiv: Das Museum", answer: "ist renoviert worden", after: "." },
+  { before: "Aktiv: Der Student muss das Buch lesen. → Passiv: Das Buch", answer: "muss vom Studenten gelesen werden", after: "." },
+  { before: "Aktiv: Die Firma stellte neue Mitarbeiter ein. → Passiv: Neue Mitarbeiter", answer: "wurden von der Firma eingestellt", after: "." },
+  { before: "Aktiv: Er hatte das Fenster geöffnet. → Passiv: Das Fenster", answer: "war von ihm geöffnet worden", after: "." }
+];
+
+const apTransform = [
+  { before: "Aktiv: Die Stadt baut eine neue Schule. → Passiv:", answer: "Eine neue Schule wird von der Stadt gebaut", after: "." },
+  { before: "Aktiv: Der Arzt hat den Patienten untersucht. → Passiv:", answer: "Der Patient ist vom Arzt untersucht worden", after: "." },
+  { before: "Aktiv: Man wird das Gesetz ändern müssen. → Passiv:", answer: "Das Gesetz wird geändert werden müssen", after: "." },
+  { before: "Aktiv: Die Kinder essen den Kuchen. → Passiv:", answer: "Der Kuchen wird von den Kindern gegessen", after: "." },
+  { before: "Aktiv: Der Chef hatte die E-Mail geschrieben. → Passiv:", answer: "Die E-Mail war vom Chef geschrieben worden", after: "." }
+];
+
+const apTest = [
+  { question: "Wie lautet der Unterschied zwischen 'Das Haus wird gebaut' und 'Das Haus ist gebaut'?", options: ["Keiner","Ersteres ist Vorgangspassiv, zweites Zustandspassiv","Ersteres ist Aktiv, zweites Passiv","Ersteres ist Präsens, zweites Perfekt"], answer: 1, explanation: "'Wird gebaut' = Vorgangspassiv (geschieht gerade). 'Ist gebaut' = Zustandspassiv (bestehender Zustand)." },
+  { question: "Aktiv: 'Die Firma hat den Vertrag gekündigt.' → Passiv im Perfekt?", options: ["Der Vertrag wurde gekündigt.","Der Vertrag ist gekündigt worden.","Der Vertrag war gekündigt.","Der Vertrag wird gekündigt worden sein."], answer: 1, explanation: "Perfekt-Passiv: ist + Partizip + worden." },
+  { question: "Welches Hilfsverb braucht man für das Vorgangspassiv?", options: ["haben","sein","werden","Modalverb"], answer: 2, explanation: "Das Vorgangspassiv wird mit 'werden' gebildet." },
+  { question: "Aktiv: 'Du sollst dein Zimmer aufräumen.' → Passiv?", options: ["Dein Zimmer soll aufgeräumt werden.","Dein Zimmer soll aufgeräumt sein.","Dein Zimmer wird aufgeräumt werden sollen.","Dein Zimmer ist aufgeräumt worden."], answer: 0, explanation: "Modalverb + Passiv: sollen + Partizip + werden." },
+  { question: "Wie lautet das Futur I Passiv von 'reparieren'?", options: ["ich werde repariert","ich werde repariert werden","ich werde reparieren","ich bin repariert worden"], answer: 1, explanation: "Futur I Passiv: werden + Partizip + werden." },
+  { question: "Aktiv: 'Die Polizei konnte den Dieb fangen.' → Passiv?", options: ["Der Dieb konnte von der Polizei gefangen werden.","Der Dieb wurde von der Polizei gefangen.","Der Dieb ist von der Polizei gefangen worden.","Der Dieb konnte gefangen werden."], answer: 0, explanation: "Modalverb bleibt erhalten: konnte + Partizip + werden." },
+  { question: "Welcher Satz ist KEIN Passiv?", options: ["Das Buch wird gelesen.","Das Buch ist gelesen.","Das Buch liest.","Das Buch wurde gelesen."], answer: 2, explanation: "'Das Buch liest' ist Aktiv (das Buch liest nicht selbst!)." },
+  { question: "Wie lautet das Plusquamperfekt Passiv?", options: ["wurde + Partizip","ist + Partizip + worden","war + Partizip + worden","werde + Partizip + worden sein"], answer: 2, explanation: "Plusquamperfekt Passiv: war + Partizip + worden." },
+  { question: "Aktiv: 'Der Wind hat die Tür geöffnet.' → Zustandspassiv?", options: ["Die Tür wird geöffnet.","Die Tür ist geöffnet.","Die Tür wurde geöffnet.","Die Tür war geöffnet worden."], answer: 1, explanation: "Zustandspassiv beschreibt den Zustand: ist geöffnet." },
+  { question: "Wie bildet man das Passiv bei Verben mit Dativobjekt?", options: ["Dativ bleibt Dativ","Dativ wird Nominativ","Dativ wird Akkusativ","Dativ fällt weg"], answer: 0, explanation: "Bei Verben mit Dativ bleibt das Dativobjekt Dativ: Mir wird geholfen." }
+];
+
+const apCards = [
+  { front: "Passiv-Bildung", back: "werden + Partizip II", detail: "Immer! In allen Zeitformen." },
+  { front: "Präsens Passiv", back: "werde/wirst/wird/werden/werdet/werden + Partizip", detail: "Ich werde gewählt. Du wirst gesehen." },
+  { front: "Perfekt Passiv", back: "bin/bist/ist/sind/seid/sind + Partizip + worden", detail: "Ich bin gewählt worden." },
+  { front: "Futur I Passiv", back: "werden + Partizip + werden", detail: "Ich werde gewählt werden." },
+  { front: "Futur II Passiv", back: "werden + Partizip + worden sein", detail: "Ich werde gewählt worden sein." },
+  { front: "Zustandspassiv", back: "sein + Partizip II", detail: "Das Büro ist geschlossen. = Zustand besteht bereits." },
+  { front: "Aktiv → Passiv", back: "Akkusativobjekt → neues Subjekt", detail: "Altes Subjekt → von + Dativ." },
+  { front: "Passiv mit Modalverb", back: "Modalverb + Partizip + werden", detail: "Das muss gemacht werden." }
+];
+
+// Tab init
+// Initialize all exercises on page load
+setTimeout(function() {
+  if (document.getElementById('ap-quiz') && !document.getElementById('ap-quiz').dataset.init) {
+    new ExerciseEngine('ap-quiz', apQuestions, 'aktivpassiv', 'quiz');
+    document.getElementById('ap-quiz').dataset.init = '1';
+  }
+  if (document.getElementById('ap-input') && !document.getElementById('ap-input').dataset.init) {
+    new InputExerciseEngine('ap-input', apInputs, 'aktivpassiv', 'lueckentext');
+    document.getElementById('ap-input').dataset.init = '1';
+  }
+  if (document.getElementById('sa1') && !document.getElementById('sa1').dataset.init) {
+    if (typeof saData !== 'undefined') {
+      saData.forEach(s => {
+        new SatzanalyseTool(s.id, s.sentence, s.analysis);
+      });
+      document.getElementById('sa1').dataset.init = '1';
+    }
+  }
+  if (document.getElementById('ap-test') && !document.getElementById('ap-test').dataset.init) {
+    new ExerciseEngine('ap-test', apTest, 'aktivpassiv', 'kapiteltest');
+    document.getElementById('ap-test').dataset.init = '1';
+  }
+  if (document.getElementById('ap-flashcards') && !document.getElementById('ap-flashcards').dataset.init) {
+    new FlashcardEngine('ap-flashcards', apCards);
+    document.getElementById('ap-flashcards').dataset.init = '1';
+  }
+}, 100);
+</script>
+</body>
+</html>

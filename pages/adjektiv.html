@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="dark">
+<head>
+<script>
+(function() {
+  const saved = localStorage.getItem('theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const theme = saved || (prefersDark ? 'dark' : 'dark');
+  document.documentElement.setAttribute('data-theme', theme);
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adjektiv – Deutsch Grammatik Master</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<div class="app">
+  <header class="header">
+    <div class="header-left">
+      <button class="nav-toggle" aria-label="Menü"><span></span><span></span><span></span></button>
+      <a href="../index.html" class="logo"><div class="logo-icon">🇩🇪</div><span>Grammatik Master</span></a>
+    </div>
+    <div class="header-right">
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="globalSearch" placeholder="Suchen...">
+        <div id="searchResults" class="search-results"></div>
+      </div>
+      <button class="btn-icon" id="themeBtn" onclick="APP.toggleTheme()" title="Theme wechseln">🌙</button>
+    </div>
+  </header>
+
+  <aside class="sidebar">
+    <div class="sidebar-section">Lernen</div>
+    <ul class="sidebar-nav">
+      <li><a href="../index.html"><span class="nav-icon">🏠</span> Dashboard</a></li>
+      <li><a href="wortarten-grundlagen.html"><span class="nav-icon">🧩</span> Wortarten Grundlagen</a></li>
+      <li><a href="nomen.html"><span class="nav-icon">📝</span> Nomen</a></li>
+      <li><a href="adjektiv.html" class="active"><span class="nav-icon">🎨</span> Adjektiv</a></li>
+      <li><a href="pronomen.html"><span class="nav-icon">👤</span> Pronomen</a></li>
+      <li><a href="partikel.html"><span class="nav-icon">🔗</span> Partikel</a></li>
+      <li><a href="verben.html"><span class="nav-icon">⚡</span> Verben</a></li>
+      <li><a href="aktiv-passiv.html"><span class="nav-icon">🔄</span> Aktiv & Passiv</a></li>
+      <li><a href="indirekte-rede.html"><span class="nav-icon">💬</span> Indirekte Rede</a></li>
+    </ul>
+    <div class="sidebar-section">Üben</div>
+    <ul class="sidebar-nav">
+      <li><a href="uebungen.html"><span class="nav-icon">✏️</span> Übungen</a></li>
+      <li><a href="pruefung.html"><span class="nav-icon">🎯</span> Prüfungssimulation</a></li>
+      <li><a href="lernplan.html"><span class="nav-icon">📅</span> Lernplan</a></li>
+      <li><a href="zusammenfassung.html"><span class="nav-icon">📚</span> Zusammenfassung</a></li>
+    </ul>
+  </aside>
+
+  <div class="sidebar-overlay"></div>
+
+  <main class="main">
+    <div class="content">
+      <div class="breadcrumb">
+        <a href="../index.html">Dashboard</a>
+        <span class="breadcrumb-sep">/</span>
+        <span>Adjektiv</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;flex-wrap:wrap;">
+        <h1 style="margin:0;">🎨 Adjektiv</h1>
+        <span class="tag tag-outline">Bildung · Steigerung · Deklination</span>
+      </div>
+      <p>Adjektive beschreiben Nomen näher. Sie sind steigerbar und müssen oft dekliniert werden. Du erkennst sie daran, dass du sie zwischen Artikel und Nomen setzen kannst.</p>
+
+      <div class="tabs">
+        <button class="tab active">Theorie</button>
+        <button class="tab">Quiz</button>
+        <button class="tab">Lückentext</button>
+        <button class="tab">Satzanalyse</button>
+        <button class="tab">Kapiteltest</button>
+        <button class="tab">Lernkarten</button>
+      </div>
+
+      <div class="tab-panel active">
+        <h2>1. Funktion und Erkennung</h2>
+        <div class="example-box">
+          <div class="example-label">Beispiel</div>
+          <p>An einem <strong>sonnigen</strong> Morgen verliess ich mein Bett, trank eine Tasse <strong>starken, duftenden</strong> Kaffee und ass <strong>genüsslich</strong> ein <strong>knuspriges</strong> Brötchen.</p>
+        </div>
+        <p>Adjektive vermitteln nicht nur Fakten, sondern auch Stimmungen und Bewertungen. Grammatikalisch gehören sie zur Gruppe der <strong>deklinierbaren Wörter</strong>. Du erkennst ein Adjektiv daran, dass es steigerbar ist und zwischen Artikel und Nomen gestellt werden kann.</p>
+
+        <h2>2. Bildung von Adjektiven</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Art der Bildung</th><th>Erklärung</th><th>Beispiele</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Nomen + Suffix</strong></td><td>Adjektiv wird von einem Nomen abgeleitet</td><td>Wunder → <strong>wunderbar</strong>, Fehler → <strong>fehlerhaft</strong>, Gold → <strong>golden</strong></td></tr>
+              <tr><td><strong>Nomen + Adjektiv</strong></td><td>Zusammensetzung aus Nomen und Adjektiv</td><td>leserfreundlich, diensteifrig, kinderlieb</td></tr>
+              <tr><td><strong>Partizip I</strong></td><td>Ableitung aus Verben (aktiv, laufend)</td><td>tropfen → <strong>tropfend</strong> (der tropfende Wasserhahn)</td></tr>
+              <tr><td><strong>Partizip II</strong></td><td>Ableitung aus Verben (passiv, abgeschlossen)</td><td>drucken → <strong>gedruckt</strong> (der gedruckte Text)</td></tr>
+              <tr><td><strong>Verstärkung</strong></td><td>Durch ein anderes Wort verstärkt</td><td>kalt → <strong>eiskalt</strong>, müde → <strong>hundemüde</strong>, reich → <strong>steinreich</strong>, schwer → <strong>bleischwer</strong>, schwarz → <strong>pechschwarz</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>3. Deklination</h2>
+        <p>Adjektive ändern ihre Endung je nach Artikel und Fall. Es gibt drei Deklinationstypen:</p>
+
+        <h3>Mit bestimmtem Artikel (der, die, das)</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Fall</th><th>Maskulin</th><th>Feminin</th><th>Neutrum</th><th>Plural</th></tr></thead>
+            <tbody>
+              <tr><td>Nom.</td><td>der <strong>junge</strong> Mann</td><td>die <strong>kluge</strong> Frau</td><td>das <strong>kleine</strong> Kind</td><td>die <strong>netten</strong> Leute</td></tr>
+              <tr><td>Akk.</td><td>den <strong>jungen</strong> Mann</td><td>die <strong>kluge</strong> Frau</td><td>das <strong>kleine</strong> Kind</td><td>die <strong>netten</strong> Leute</td></tr>
+              <tr><td>Dat.</td><td>dem <strong>jungen</strong> Mann</td><td>der <strong>klugen</strong> Frau</td><td>dem <strong>kleinen</strong> Kind</td><td>den <strong>netten</strong> Leuten</td></tr>
+              <tr><td>Gen.</td><td>des <strong>jungen</strong> Mannes</td><td>der <strong>klugen</strong> Frau</td><td>des <strong>kleinen</strong> Kindes</td><td>der <strong>netten</strong> Leute</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout callout-info">
+          <span class="callout-icon">💡</span>
+          <div class="callout-content">
+            <p><strong>Merke:</strong> Nach dem bestimmten Artikel endet das Adjektiv im Nominativ/Akkusativ auf <strong>-e</strong>, im Dativ/Genitiv auf <strong>-en</strong> (Plural und Maskulin/Akkusativ ebenfalls -en).</p>
+          </div>
+        </div>
+
+        <h3>Mit unbestimmtem Artikel (ein, eine, ein)</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Fall</th><th>Maskulin</th><th>Feminin</th><th>Neutrum</th><th>Plural</th></tr></thead>
+            <tbody>
+              <tr><td>Nom.</td><td>ein <strong>junger</strong> Mann</td><td>eine <strong>kluge</strong> Frau</td><td>ein <strong>kleines</strong> Kind</td><td><strong>Nette</strong> Leute</td></tr>
+              <tr><td>Akk.</td><td>einen <strong>jungen</strong> Mann</td><td>eine <strong>kluge</strong> Frau</td><td>ein <strong>kleines</strong> Kind</td><td><strong>Nette</strong> Leute</td></tr>
+              <tr><td>Dat.</td><td>einem <strong>jungen</strong> Mann</td><td>einer <strong>klugen</strong> Frau</td><td>einem <strong>kleinen</strong> Kind</td><td><strong>Netten</strong> Leuten</td></tr>
+              <tr><td>Gen.</td><td>eines <strong>jungen</strong> Mannes</td><td>einer <strong>klugen</strong> Frau</td><td>eines <strong>kleinen</strong> Kindes</td><td><strong>Netter</strong> Leute</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Ohne Artikel</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Fall</th><th>Maskulin</th><th>Feminin</th><th>Neutrum</th><th>Plural</th></tr></thead>
+            <tbody>
+              <tr><td>Nom.</td><td><strong>Junger</strong> Mann</td><td><strong>Kluge</strong> Frau</td><td><strong>Kleines</strong> Kind</td><td><strong>Nette</strong> Leute</td></tr>
+              <tr><td>Akk.</td><td><strong>Jungen</strong> Mann</td><td><strong>Kluge</strong> Frau</td><td><strong>Kleines</strong> Kind</td><td><strong>Nette</strong> Leute</td></tr>
+              <tr><td>Dat.</td><td><strong>Jungen</strong> Mann</td><td><strong>Kluger</strong> Frau</td><td><strong>Kleinem</strong> Kind</td><td><strong>Netten</strong> Leuten</td></tr>
+              <tr><td>Gen.</td><td><strong>Jungen</strong> Mannes</td><td><strong>Kluger</strong> Frau</td><td><strong>Kleinen</strong> Kindes</td><td><strong>Netter</strong> Leute</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>4. Steigerung</h2>
+        <p>Adjektive haben drei Steigerungsstufen:</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Stufe</th><th>Bildung</th><th>Beispiel</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Positiv</strong></td><td>Grundstufe</td><td>schön, nett, arm, hoch, gut</td></tr>
+              <tr><td><strong>Komparativ</strong></td><td>+ -er (ggf. Umlaut)</td><td>schöner, netter, ärmer, höher, besser</td></tr>
+              <tr><td><strong>Superlativ</strong></td><td>am …-sten</td><td>am schönsten, am nettesten, am ärmsten, am höchsten, am besten</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Regelmässige und unregelmässige Steigerung</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Positiv</th><th>Komparativ</th><th>Superlativ</th><th>Bemerkung</th></tr></thead>
+            <tbody>
+              <tr><td>schön</td><td>schöner</td><td>am schönsten</td><td>regelmässig</td></tr>
+              <tr><td>nett</td><td>netter</td><td>am nettesten</td><td>Doppel-t vor -st</td></tr>
+              <tr><td>arm</td><td>ärmer</td><td>am ärmsten</td><td>Umlaut</td></tr>
+              <tr><td>kurz</td><td>kürzer</td><td>am kürzesten</td><td>Umlaut</td></tr>
+              <tr><td>hoch</td><td>höher</td><td>am höchsten</td><td>Umlaut + c fällt weg</td></tr>
+              <tr><td>gut</td><td>besser</td><td>am besten</td><td>unregelmässig</td></tr>
+              <tr><td>viel</td><td>mehr</td><td>am meisten</td><td>unregelmässig</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout callout-warning">
+          <span class="callout-icon">⚠️</span>
+          <div class="callout-content">
+            <p><strong>Nicht steigerbar:</strong> Absoluter Zustand (tot, schwanger, viereckig), Höchststufe (optimal, perfekt, maximal), bereits verstärkte Wörter (steinreich, eiskalt, pechschwarz).</p>
+          </div>
+        </div>
+
+        <h3>Vergleich mit «wie» und «als»</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Stufe</th><th>Wort</th><th>Beispiel</th></tr></thead>
+            <tbody>
+              <tr><td>Positiv (Gleichheit)</td><td>wie</td><td>Die Fahrt dauerte <strong>so lange wie</strong> gestern.</td></tr>
+              <tr><td>Komparativ (Ungleichheit)</td><td>als</td><td>Die Fahrt dauerte <strong>länger als</strong> gestern.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>5. Steigerung bei Kombinationen</h2>
+        <p>Wenn ein Adjektiv mit einem Partizip oder Adverb kombiniert wird, bildet sich der Komparativ und Superlativ oft zusammen:</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Positiv</th><th>Komparativ</th><th>Superlativ</th></tr></thead>
+            <tbody>
+              <tr><td>eine viel gelesene Zeitung</td><td>eine mehr gelesene Zeitung</td><td>die <strong>meistgelesene</strong> Zeitung</td></tr>
+              <tr><td>ein gut erzogenes Kind</td><td>ein besser erzogenes Kind</td><td>das <strong>best-erzogene</strong> Kind</td></tr>
+              <tr><td>ein oft besuchtes Museum</td><td>ein öfter besuchtes Museum</td><td>das <strong>am öftesten besuchte</strong> Museum</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>6. Nomen → Adjektiv-Bildung</h2>
+        <p>Viele Adjektive werden aus Nomen gebildet, indem Suffixe angehängt oder die Wortstruktur verändert wird:</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Nomen</th><th>Adjektiv</th><th>Bedeutung</th></tr></thead>
+            <tbody>
+              <tr><td>die Welt</td><td><strong>weltweit</strong></td><td>über die ganze Welt</td></tr>
+              <tr><td>der Mund</td><td><strong>mundgerecht</strong></td><td>so, dass es passt</td></tr>
+              <tr><td>das Risiko</td><td><strong>risikobereit</strong></td><td>bereit, Risiken einzugehen</td></tr>
+              <tr><td>die Folge</td><td><strong>folgenreich</strong></td><td>mit vielen Folgen</td></tr>
+              <tr><td>der Freund</td><td><strong>freundlich</strong></td><td>wie ein Freund</td></tr>
+              <tr><td>die Schönheit</td><td><strong>schön</strong></td><td>(Rückbildung)</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>7. Grammatikalisch vs. Sprachgefühl</h2>
+        <p>Manchmal widerspricht das Sprachgefühl der rein grammatikalischen Regel. Besonders beim Komparativ gibt es Unsicherheiten:</p>
+        <div class="example-box">
+          <div class="example-label">Beispiel</div>
+          <p>Grammatikalisch korrekt: <strong>Ein älterer Mann</strong> betrat den Raum. (Komparativ, weil Vergleich mit anderen Männern impliziert)</p>
+          <p>Sprachgefühl: Manchmal sagt man umgangssprachlich «ein alter Mann», obwohl «älterer Mann» grammatikalisch präziser wäre, wenn eine Alterungsstufe gemeint ist.</p>
+        </div>
+        <div class="callout callout-info">
+          <span class="callout-icon">💡</span>
+          <div class="callout-content">
+            <p><strong>Merke:</strong> In der Schriftsprache solltest du die grammatikalische Form verwenden. Der Komparativ wird immer dann gebraucht, wenn ein Vergleich oder eine Abstufung gemeint ist.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel">
+        <h2>🎯 Quiz: Adjektiv (15 Fragen)</h2>
+        <div id="adj-quiz"></div>
+      </div>
+
+      <div class="tab-panel">
+        <h2>✏️ Lückentext: Adjektiv (15 Sätze)</h2>
+        <div id="adj-input"></div>
+      </div>
+
+      <div class="tab-panel">
+        <h2>🔍 Satzanalyse (10 Sätze)</h2>
+        <p>Fahre mit der Maus über die farbigen Wörter, um die grammatische Analyse zu sehen.</p>
+        <div style="margin-top:1.5rem;">
+          <h4>Satz 1</h4>
+          <div id="sa1"></div>
+        </div>
+        <div style="margin-top:1.5rem;">
+          <h4>Satz 2</h4>
+          <div id="sa2"></div>
+        </div>
+        <div style="margin-top:1.5rem;">
+          <h4>Satz 3</h4>
+          <div id="sa3"></div>
+        </div>
+        <div style="margin-top:1.5rem;">
+          <h4>Satz 4</h4>
+          <div id="sa4"></div>
+        </div>
+        <div style="margin-top:1.5rem;">
+          <h4>Satz 5</h4>
+          <div id="sa5"></div>
+        </div>
+        <div style="margin-top:1.5rem;">
+          <h4>Satz 6</h4>
+          <div id="sa6"></div>
+        </div>
+        <div style="margin-top:1.5rem;">
+          <h4>Satz 7</h4>
+          <div id="sa7"></div>
+        </div>
+        <div style="margin-top:1.5rem;">
+          <h4>Satz 8</h4>
+          <div id="sa8"></div>
+        </div>
+        <div style="margin-top:1.5rem;">
+          <h4>Satz 9</h4>
+          <div id="sa9"></div>
+        </div>
+        <div style="margin-top:1.5rem;">
+          <h4>Satz 10</h4>
+          <div id="sa10"></div>
+        </div>
+      </div>
+
+      <div class="tab-panel">
+        <h2>🎓 Kapiteltest: Adjektiv (20 Fragen)</h2>
+        <div id="adj-test"></div>
+      </div>
+
+      <div class="tab-panel">
+        <h2>🃏 Lernkarten (8 Karten)</h2>
+        <div id="adj-flashcards"></div>
+      </div>
+    </div>
+  </main>
+</div>
+<script src="../js/app.js"></script>
+<script>
+APP.markVisited('adjektiv');
+APP.init();
+
+// ===== QUIZ (15 Fragen) =====
+const adjQuestions = [
+  { question: "Welche Endung hat das Adjektiv nach 'der' im Nominativ Maskulin?", options: ["-er","-e","-en","-es"], answer: 1, explanation: "Nach dem bestimmten Artikel lautet die Endung im Nominativ -e: der junge Mann." },
+  { question: "Wie heisst der Superlativ von 'gut'?", options: ["am gutesten","am besten","am gutsten","gutest"], answer: 1, explanation: "'gut' ist unregelmässig: gut – besser – am besten." },
+  { question: "Welches Adjektiv ist NICHT steigerbar?", options: ["schnell","tot","schön","gross"], answer: 1, explanation: "'tot' beschreibt einen absoluten Zustand und ist nicht steigerbar." },
+  { question: "Wie lautet der Komparativ von 'hoch'?", options: ["höcher","höher","hocher","höchst"], answer: 1, explanation: "'hoch' bildet den Komparativ mit Umlaut und wegfallendem c: höher." },
+  { question: "Welches Wort verbindet man im Komparativ?", options: ["wie","als","so","wie als"], answer: 1, explanation: "Im Komparativ verwendet man 'als': grösser ALS gestern." },
+  { question: "Wie heisst die Deklination ohne Artikel im Dativ Feminin?", options: ["junge Frau","jungen Frau","junger Frau","jungem Frau"], answer: 2, explanation: "Ohne Artikel heisst es im Dativ Feminin: junger Frau (Genitiv/Dativ Feminin: -er)." },
+  { question: "Was ist ein Partizip II als Adjektiv?", options: ["tropfend","laufend","gedruckt","schnell"], answer: 2, explanation: "'gedruckt' ist das Partizip II von 'drucken' und wird als Adjektiv verwendet." },
+  { question: "Welche Steigerung von 'nett' ist richtig?", options: ["netter – am nettesten","netter – am netsten","nett – nettesten","netter – nettest"], answer: 0, explanation: "Bei Adjektiven auf -t wird im Superlativ ein Doppel-t geschrieben: nettesten." },
+  { question: "Welche Endung hat das Adjektiv nach 'ein' im Nominativ Neutrum?", options: ["-er","-e","-en","-es"], answer: 3, explanation: "Nach dem unbestimmten Artikel im Nominativ Neutrum lautet die Endung -es: ein kleines Kind." },
+  { question: "Was ist die Verstärkung von 'kalt'?", options: ["eiskalt","steinreich","bleischwer","pechschwarz"], answer: 0, explanation: "'eiskalt' ist die Verstärkung von 'kalt'." },
+  { question: "Welches Adjektiv ist aus einem Nomen + Suffix gebildet?", options: ["leserfreundlich","wunderbar","tropfend","eiskalt"], answer: 1, explanation: "'wunderbar' besteht aus dem Nomen 'Wunder' + dem Suffix '-bar'." },
+  { question: "Warum ist 'optimal' nicht steigerbar?", options: ["Es ist ein Partizip.","Es beschreibt bereits die Höchststufe.","Es ist ein Nomen.","Es ist ein Adverb."], answer: 1, explanation: "'optimal' bedeutet bereits 'am besten' und beschreibt daher die Höchststufe." },
+  { question: "Wie lautet der Komparativ von 'viel'?", options: ["vieler","mehr","meiste","vielster"], answer: 1, explanation: "'viel' ist unregelmässig: viel – mehr – am meisten." },
+  { question: "Welche Endung hat das Adjektiv nach dem bestimmten Artikel im Dativ Plural?", options: ["-e","-er","-en","-es"], answer: 2, explanation: "Nach dem bestimmten Artikel endet das Adjektiv im Dativ Plural auf -en: den netten Leuten." },
+  { question: "Welches Adjektiv wird aus dem Nomen 'Welt' gebildet?", options: ["weltlich","weltweit","weltbar","weltreich"], answer: 1, explanation: "Aus 'Welt' wird das Adjektiv 'weltweit' gebildet." }
+];
+
+// ===== LÜCKENTEXT (15 Sätze) =====
+const adjInputs = [
+  { before: "Ich sehe den", answer: "jungen", after: "Mann. (Akk. Mask. nach best. Artikel)" },
+  { before: "Mit der", answer: "klugen", after: "Frau spreche ich oft. (Dat. Fem. nach best. Artikel)" },
+  { before: "Ein", answer: "gutes", after: "Buch liegt auf dem Tisch. (Nom. Neutr. nach unbest. Artikel)" },
+  { before: "Die", answer: "netten", after: "Leute helfen mir. (Nom. Plural nach best. Artikel)" },
+  { before: "Er ist", answer: "grösser", after: "als sein Bruder. (Komparativ)" },
+  { before: "Das ist das", answer: "schönste", after: "Gebäude der Stadt. (Superlativ)" },
+  { before: "", answer: "Junger", after: "Mann geht über die Strasse. (Nom. Mask. ohne Artikel)" },
+  { before: "Ich trinke", answer: "eiskaltes", after: "Wasser. (Verstärkung als Adjektiv)" },
+  { before: "Sie ist", answer: "hundemüde", after: "nach der Arbeit. (Verstärkung)" },
+  { before: "Er hat ein", answer: "risikobereites", after: "Team. (Nomen→Adjektiv)" },
+  { before: "Der", answer: "gedruckte", after: "Text liegt auf dem Tisch. (Partizip II)" },
+  { before: "Das Wasser ist", answer: "tropfend", after: "kalt. (Partizip I)" },
+  { before: "Sie fährt eine", answer: "weltweite", after: "Tournee. (Nomen→Adjektiv)" },
+  { before: "Er ist", answer: "besser", after: "als ich. (Komparativ unregelmässig)" },
+  { before: "Das ist die", answer: "meistgelesene", after: "Zeitung. (Steigerung bei Kombination)" }
+];
+
+// ===== SATZANALYSE (10 Sätze) =====
+const saData = [
+  { id: 'sa1', sentence: 'Der junge Mann liest ein gutes Buch.', analysis: { 'der': 'Artikel, Nominativ, Maskulin, Singular', 'junge': 'Adjektiv, Nominativ, Maskulin, Singular, Endung -e', 'mann': 'Nomen, Nominativ, Maskulin, Singular, Subjekt', 'liest': 'Verb, Präsens', 'ein': 'Artikel, Akkusativ, Neutrum, Singular', 'gutes': 'Adjektiv, Akkusativ, Neutrum, Singular, Endung -es', 'buch': 'Nomen, Akkusativ, Neutrum, Singular, Objekt' } },
+  { id: 'sa2', sentence: 'Mit der klugen Frau spreche ich oft.', analysis: { 'mit': 'Präposition, Dativ', 'der': 'Artikel, Dativ, Feminin, Singular', 'klugen': 'Adjektiv, Dativ, Feminin, Singular, Endung -en', 'frau': 'Nomen, Dativ, Feminin, Singular', 'spreche': 'Verb, Präsens', 'ich': 'Personalpronomen, Nominativ, Singular, Subjekt', 'oft': 'Adverb' } },
+  { id: 'sa3', sentence: 'Das ist das schönste Gebäude der Stadt.', analysis: { 'das': 'Artikel, Nominativ, Neutrum, Singular', 'ist': 'Verb, Präsens', 'das': 'Artikel, Nominativ, Neutrum, Singular', 'schönste': 'Adjektiv, Superlativ, Nominativ, Neutrum, Singular, Endung -e', 'gebäude': 'Nomen, Nominativ, Neutrum, Singular, Subjekt', 'der': 'Artikel, Genitiv, Feminin, Singular', 'stadt': 'Nomen, Genitiv, Feminin, Singular' } },
+  { id: 'sa4', sentence: 'Er ist grösser als sein Bruder.', analysis: { 'er': 'Personalpronomen, Nominativ, Singular, Subjekt', 'ist': 'Verb, Präsens', 'grösser': 'Adjektiv, Komparativ, Prädikativ', 'als': 'Komparativpartikel', 'sein': 'Possessivartikel, Nominativ, Maskulin, Singular', 'bruder': 'Nomen, Nominativ, Maskulin, Singular' } },
+  { id: 'sa5', sentence: 'Ich trinke eiskaltes Wasser.', analysis: { 'ich': 'Personalpronomen, Nominativ, Singular, Subjekt', 'trinke': 'Verb, Präsens', 'eiskaltes': 'Adjektiv, verstärkt, Akkusativ, Neutrum, Singular, Endung -es', 'wasser': 'Nomen, Akkusativ, Neutrum, Singular, Objekt' } },
+  { id: 'sa6', sentence: 'Die netten Leute helfen dem alten Mann.', analysis: { 'die': 'Artikel, Nominativ, Plural', 'netten': 'Adjektiv, Nominativ, Plural, Endung -en', 'leute': 'Nomen, Nominativ, Plural, Subjekt', 'helfen': 'Verb, Präsens', 'dem': 'Artikel, Dativ, Maskulin, Singular', 'alten': 'Adjektiv, Dativ, Maskulin, Singular, Endung -en', 'mann': 'Nomen, Dativ, Maskulin, Singular, Objekt' } },
+  { id: 'sa7', sentence: 'Junger Mann geht über die Strasse.', analysis: { 'junger': 'Adjektiv, ohne Artikel, Nominativ, Maskulin, Singular, Endung -er', 'mann': 'Nomen, Nominativ, Maskulin, Singular, Subjekt', 'geht': 'Verb, Präsens', 'über': 'Präposition, Akkusativ', 'die': 'Artikel, Akkusativ, Feminin, Singular', 'strasse': 'Nomen, Akkusativ, Feminin, Singular' } },
+  { id: 'sa8', sentence: 'Der gedruckte Text liegt auf dem Tisch.', analysis: { 'der': 'Artikel, Nominativ, Maskulin, Singular', 'gedruckte': 'Partizip II als Adjektiv, Nominativ, Maskulin, Singular, Endung -e', 'text': 'Nomen, Nominativ, Maskulin, Singular, Subjekt', 'liegt': 'Verb, Präsens', 'auf': 'Präposition, Dativ', 'dem': 'Artikel, Dativ, Maskulin, Singular', 'tisch': 'Nomen, Dativ, Maskulin, Singular' } },
+  { id: 'sa9', sentence: 'Sie fährt eine weltweite Tournee.', analysis: { 'sie': 'Personalpronomen, Nominativ, Singular, Subjekt', 'fährt': 'Verb, Präsens', 'eine': 'Artikel, Akkusativ, Feminin, Singular', 'weltweite': 'Adjektiv, Akkusativ, Feminin, Singular, Endung -e', 'tournee': 'Nomen, Akkusativ, Feminin, Singular, Objekt' } },
+  { id: 'sa10', sentence: 'Er ist besser als ich.', analysis: { 'er': 'Personalpronomen, Nominativ, Singular, Subjekt', 'ist': 'Verb, Präsens', 'besser': 'Adjektiv, Komparativ, unregelmässig, Prädikativ', 'als': 'Komparativpartikel', 'ich': 'Personalpronomen, Nominativ, Singular' } }
+];
+
+// ===== KAPITELTEST (20 Fragen) =====
+const adjTest = [
+  { question: "Welche Endung hat das Adjektiv nach 'die' im Akkusativ Feminin?", options: ["-e","-er","-en","-es"], answer: 0, explanation: "Nach dem bestimmten Artikel im Akkusativ Feminin endet das Adjektiv auf -e: die kluge Frau." },
+  { question: "Wie lautet der Superlativ von 'hoch'?", options: ["am höchsten","am höchersten","am hochsten","am höchesten"], answer: 0, explanation: "'hoch' bildet den Superlativ mit Umlaut und wegfallendem c: am höchsten." },
+  { question: "Welches Adjektiv ist ein Partizip I?", options: ["gedruckt","tropfend","eiskalt","weltweit"], answer: 1, explanation: "'tropfend' ist Partizip I von 'tropfen' und beschreibt einen aktiven, laufenden Vorgang." },
+  { question: "Welche Endung hat das Adjektiv nach 'ein' im Dativ Maskulin?", options: ["-e","-er","-en","-em"], answer: 2, explanation: "Nach dem unbestimmten Artikel im Dativ Maskulin endet das Adjektiv auf -en: einem jungen Mann." },
+  { question: "Welches Adjektiv ist NICHT steigerbar?", options: ["reich","optimal","müde","schwer"], answer: 1, explanation: "'optimal' beschreibt bereits die Höchststufe und ist daher nicht steigerbar." },
+  { question: "Wie bildet man den Komparativ von 'viel'?", options: ["vieler","mehr","meiste","vielster"], answer: 1, explanation: "'viel' ist unregelmässig: viel – mehr – am meisten." },
+  { question: "Welche Konstruktion verwendet man für Gleichheit?", options: ["als","wie","so...als","mehr als"], answer: 1, explanation: "Für Gleichheit im Positiv verwendet man 'wie': so gross wie." },
+  { question: "Wie heisst das Adjektiv zu 'Mund'?", options: ["mundlich","mundgerecht","mundbar","mundreich"], answer: 1, explanation: "Aus 'Mund' wird das Adjektiv 'mundgerecht' gebildet." },
+  { question: "Welche Endung hat das Adjektiv ohne Artikel im Genitiv Neutrum?", options: ["-e","-er","-en","-es"], answer: 2, explanation: "Ohne Artikel endet das Adjektiv im Genitiv Neutrum auf -en: kleinen Kindes." },
+  { question: "Was ist die Verstärkung von 'schwarz'?", options: ["eisschwarz","pechschwarz","bleischwarz","steinschwarz"], answer: 1, explanation: "'pechschwarz' ist die Verstärkung von 'schwarz'." },
+  { question: "Welches Adjektiv ist aus einem Nomen + Suffix gebildet?", options: ["leserfreundlich","tropfend","eiskalt","besser"], answer: 0, explanation: "'leserfreundlich' besteht aus dem Nomen 'Leser' und dem Adjektiv 'freundlich'." },
+  { question: "Wie lautet der Komparativ von 'gern'?", options: ["gerner","lieber","am liebsten","gernster"], answer: 1, explanation: "'gern' bildet den Komparativ unregelmässig: lieber." },
+  { question: "Welche Endung hat das Adjektiv nach 'den' im Dativ Plural?", options: ["-e","-er","-en","-es"], answer: 2, explanation: "Nach dem bestimmten Artikel im Dativ Plural endet das Adjektiv auf -en: den netten Leuten." },
+  { question: "Was ist ein Beispiel für Steigerung bei Kombinationen?", options: ["viel gelesene Zeitung → meistgelesene","gut gelesene Zeitung → besser gelesene","oft gelesen → öfter gelesen","alle"], answer: 3, explanation: "Alle genannten Formen sind möglich; 'meistgelesene' ist die gebräuchlichste Superlativform bei Kombinationen." },
+  { question: "Welches Adjektiv wird aus 'Folge' gebildet?", options: ["folglich","folgenreich","folgsam","folgbar"], answer: 1, explanation: "Aus 'Folge' wird das Adjektiv 'folgenreich' gebildet." },
+  { question: "Warum sagt man grammatikalisch 'ein älterer Mann' statt 'ein alter Mann'?", options: ["Weil es höflicher ist.","Weil der Komparativ einen Vergleich ausdrückt.","Weil es ein anderer Mann ist.","Beides ist falsch."], answer: 1, explanation: "Der Komparativ drückt eine Abstufung oder einen Vergleich aus und ist daher grammatikalisch präziser." },
+  { question: "Welche Endung hat das Adjektiv nach 'das' im Nominativ Neutrum?", options: ["-e","-er","-en","-es"], answer: 0, explanation: "Nach dem bestimmten Artikel im Nominativ Neutrum endet das Adjektiv auf -e: das kleine Kind." },
+  { question: "Welches Adjektiv ist ein Partizip II?", options: ["laufend","tropfend","gedruckt","schnell"], answer: 2, explanation: "'gedruckt' ist das Partizip II von 'drucken' und wird als Adjektiv verwendet." },
+  { question: "Wie lautet der Superlativ von 'müde'?", options: ["am müdesten","am müdtesten","am müdesten","am müdste"], answer: 0, explanation: "'müde' bildet den Superlativ regelmässig: am müdesten (oder umgangssprachlich am müdtesten, beides akzeptiert)." },
+  { question: "Welche Endung hat das Adjektiv ohne Artikel im Nominativ Plural?", options: ["-e","-er","-en","-es"], answer: 0, explanation: "Ohne Artikel endet das Adjektiv im Nominativ Plural auf -e: Nette Leute." }
+];
+
+// ===== FLASHCARDS (8 Karten) =====
+const adjCards = [
+  { front: "Wie erkennt man ein Adjektiv?", back: "Zwischen Artikel und Nomen stellbar", detail: "Adjektive beschreiben Nomen näher und sind steigerbar." },
+  { front: "Adjektiv-Endung nach 'der' (Nom. Sg.)", back: "immer -e", detail: "der junge Mann, die kluge Frau, das kleine Kind" },
+  { front: "Adjektiv-Endung nach 'der' (Dat./Gen.)", back: "meist -en", detail: "dem jungen Mann, der klugen Frau, des jungen Mannes" },
+  { front: "Adjektiv ohne Artikel (Nom. Mask.)", back: "Junger Mann", detail: "Ohne Artikel trägt das Adjektiv die Endung: -er, -e, -es, -e" },
+  { front: "Komparativ-Endung", back: "-er", detail: "schön → schöner, arm → ärmer (oft mit Umlaut)" },
+  { front: "Superlativ-Endung", back: "-(e)st + am", detail: "schön → am schönsten, nett → am nettesten" },
+  { front: "Unregelmässig: gut", back: "gut – besser – am besten", detail: "Völlig unregelmässige Steigerung!" },
+  { front: "Unregelmässig: viel", back: "viel – mehr – am meisten", detail: "Auch viel und gern sind unregelmässig." }
+];
+
+// Initialize all exercises on page load
+setTimeout(function() {
+  if (document.getElementById('adj-quiz') && !document.getElementById('adj-quiz').dataset.init) {
+    new ExerciseEngine('adj-quiz', adjQuestions, 'adjektiv', 'quiz');
+    document.getElementById('adj-quiz').dataset.init = '1';
+  }
+  if (document.getElementById('adj-input') && !document.getElementById('adj-input').dataset.init) {
+    new InputExerciseEngine('adj-input', adjInputs, 'adjektiv', 'lueckentext');
+    document.getElementById('adj-input').dataset.init = '1';
+  }
+  if (document.getElementById('sa1') && !document.getElementById('sa1').dataset.init) {
+    saData.forEach(s => {
+      new SatzanalyseTool(s.id, s.sentence, s.analysis);
+    });
+    document.getElementById('sa1').dataset.init = '1';
+  }
+  if (document.getElementById('adj-test') && !document.getElementById('adj-test').dataset.init) {
+    new ExerciseEngine('adj-test', adjTest, 'adjektiv', 'kapiteltest');
+    document.getElementById('adj-test').dataset.init = '1';
+  }
+  if (document.getElementById('adj-flashcards') && !document.getElementById('adj-flashcards').dataset.init) {
+    new FlashcardEngine('adj-flashcards', adjCards);
+    document.getElementById('adj-flashcards').dataset.init = '1';
+  }
+}, 100);
+</script>
+</body>
+</html>

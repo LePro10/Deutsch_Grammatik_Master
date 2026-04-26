@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="dark">
+<head>
+<script>
+(function() {
+  const saved = localStorage.getItem('theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const theme = saved || (prefersDark ? 'dark' : 'dark');
+  document.documentElement.setAttribute('data-theme', theme);
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prüfungssimulation – Deutsch Grammatik Master</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<div class="app">
+  <header class="header">
+    <div class="header-left">
+      <button class="nav-toggle" aria-label="Menü"><span></span><span></span><span></span></button>
+      <a href="../index.html" class="logo"><div class="logo-icon">🇩🇪</div><span>Grammatik Master</span></a>
+    </div>
+    <div class="header-right">
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="globalSearch" placeholder="Suchen...">
+        <div id="searchResults" class="search-results"></div>
+      </div>
+      <button class="btn-icon" id="themeBtn" onclick="APP.toggleTheme()" title="Theme wechseln">🌙</button>
+    </div>
+  </header>
+
+  <aside class="sidebar">
+    <div class="sidebar-section">Lernen</div>
+    <ul class="sidebar-nav">
+      <li><a href="../index.html"><span class="nav-icon">🏠</span> Dashboard</a></li>
+      <li><a href="wortarten-grundlagen.html"><span class="nav-icon">🧩</span> Wortarten Grundlagen</a></li>
+      <li><a href="nomen.html"><span class="nav-icon">📝</span> Nomen</a></li>
+      <li><a href="adjektiv.html"><span class="nav-icon">🎨</span> Adjektiv</a></li>
+      <li><a href="pronomen.html"><span class="nav-icon">👤</span> Pronomen</a></li>
+      <li><a href="partikel.html"><span class="nav-icon">🔗</span> Partikel</a></li>
+      <li><a href="verben.html"><span class="nav-icon">⚡</span> Verben</a></li>
+      <li><a href="aktiv-passiv.html"><span class="nav-icon">🔄</span> Aktiv & Passiv</a></li>
+      <li><a href="indirekte-rede.html"><span class="nav-icon">💬</span> Indirekte Rede</a></li>
+    </ul>
+    <div class="sidebar-section">Üben</div>
+    <ul class="sidebar-nav">
+      <li><a href="uebungen.html"><span class="nav-icon">✏️</span> Übungen</a></li>
+      <li><a href="pruefung.html" class="active"><span class="nav-icon">🎯</span> Prüfungssimulation</a></li>
+      <li><a href="lernplan.html"><span class="nav-icon">📅</span> Lernplan</a></li>
+      <li><a href="zusammenfassung.html"><span class="nav-icon">📚</span> Zusammenfassung</a></li>
+    </ul>
+  </aside>
+
+  <div class="sidebar-overlay"></div>
+
+  <main class="main">
+    <div class="content">
+      <div class="breadcrumb">
+        <a href="../index.html">Dashboard</a>
+        <span class="breadcrumb-sep">/</span>
+        <span>Prüfungssimulation</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;flex-wrap:wrap;">
+        <h1 style="margin:0;">🎯 Prüfungssimulation</h1>
+        <span class="tag tag-outline">40 Fragen · alle Themen</span>
+      </div>
+      <p>40 gemischte Fragen aus allen Bereichen. Das ist dein Endtest – zeig, was du kannst!</p>
+
+      <div class="callout callout-info" style="margin:1.5rem 0;">
+        <span class="callout-icon">⏱️</span>
+        <div class="callout-content">
+          <p><strong>Tipp:</strong> Nimm dir ca. 45–60 Minuten Zeit. In der echten Prüfung hast du 60 Minuten für alle Themen.</p>
+        </div>
+      </div>
+
+      <div id="pruefung-container" style="margin-top:2rem;"></div>
+    </div>
+  </main>
+</div>
+<script src="../js/app.js"></script>
+<script>
+APP.markVisited('pruefung');
+
+const pruefungFragen = [
+  // === NOMEN (8 Fragen) ===
+  { question: "Welches Genus hat 'die Freiheit'?", options: ["Maskulin","Feminin","Neutrum"], answer: 1, explanation: "Endung -heit ist immer feminin." },
+  { question: "Wie lautet der Dativ Plural von 'das Kind'?", options: ["die Kindern","den Kindern","den Kinder","die Kinder"], answer: 1, explanation: "Dativ Plural: den Kindern (mit -n)." },
+  { question: "Welche Endung hat der Genitiv Singular bei 'der Baum' (s-Deklination)?", options: ["-n","-s","-es","-en"], answer: 2, explanation: "s-Deklination: des Baumes (oder des Baums)." },
+  { question: "Welches Nomen hat keinen Plural?", options: ["das Auto","der Schnee","die Blume","die Stadt"], answer: 1, explanation: "Nicht zählbare Nomen wie Schnee, Milch, Gold haben oft keinen Plural." },
+  { question: "Wie lautet der Akkusativ Singular von 'eine kluge Frau'?", options: ["einer klugen Frau","eine kluge Frau","einem klugen Frau","einen klugen Frau"], answer: 1, explanation: "Unbestimmter Artikel + Adjektiv im Akkusativ Feminin: eine kluge Frau." },
+  { question: "Welche Endung hat der Nominativ Plural bei schwachen Maskulina?", options: ["-e","-en","-er","-s"], answer: 1, explanation: "Schwache Maskulina (der Student, der Mensch) bilden den Plural auf -en." },
+  { question: "Wie lautet der Dativ Singular von 'das Kind' (mit Artikel)?", options: ["dem Kind","den Kind","des Kindes","das Kind"], answer: 0, explanation: "Neutrum Dativ Singular: dem Kind (schwache Deklination)." },
+  { question: "Welche Präposition verlangt den Genitiv?", options: ["mit","für","wegen","durch"], answer: 2, explanation: "Wegen verlangt den Genitiv." },
+
+  // === ADJEKTIV (6 Fragen) ===
+  { question: "Welche Adjektiv-Endung folgt auf 'eine' im Nominativ Feminin?", options: ["-er","-e","-es","-en"], answer: 1, explanation: "Nach unbestimmtem Artikel: eine kluge Frau (-e)." },
+  { question: "Wie heisst der Superlativ von 'viel'?", options: ["am meisten","am vielsten","meist","vielst"], answer: 0, explanation: "Unregelmässig: viel – mehr – am meisten." },
+  { question: "Welches Adjektiv ist unregelmässig gesteigert?", options: ["schnell","gross","gut","schön"], answer: 2, explanation: "Gut – besser – am besten (unregelmässig)." },
+  { question: "Wie lautet die Steigerung von 'hoch'?", options: ["höher – am höchsten","hocher – am hochsten","höcher – am höchsten","höher – am höchersten"], answer: 0, explanation: "Hoch – höher – am höchsten (Umlaut + e-Einschub)." },
+  { question: "Welche Endung hat das Adjektiv nach 'kein' im Dativ Plural?", options: ["-e","-en","-er","-es"], answer: 1, explanation: "Nach kein im Dativ Plural: keinen kleinen Kindern (-en)." },
+  { question: "Was ist ein 'steigerbares Adverb'?", options: ["Ein Adverb, das kompariert werden kann","Ein Adjektiv im Adverbialgebrauch","Ein unveränderliches Adverb","Ein Modaladverb"], answer: 0, explanation: "Einige Adverbien sind steigerbar: oft – öfter – am öftesten; bald – eher – am ehesten." },
+
+  // === PRONOMEN (5 Fragen) ===
+  { question: "Wie lautet das Relativpronomen im Akkusativ Feminin?", options: ["die","welche","der","welcher"], answer: 1, explanation: "Relativpronomen Akkusativ Feminin: die / welche." },
+  { question: "Welches Indefinitpronomen ist NICHT deklinierbar?", options: ["jemand","alle","nichts","mancher"], answer: 2, explanation: "Nichts, etwas, viel, wenig sind nicht deklinierbar." },
+  { question: "Wie lautet das Possessivpronomen im Nominativ Plural (wir)?", options: ["unser","unsere","unseren","unserer"], answer: 1, explanation: "Possessivpronomen Nominativ Plural: unsere." },
+  { question: "Welches Demonstrativpronomen steht im Genitiv Feminin?", options: ["dieser","dieses","dieser","diesem"], answer: 2, explanation: "Demonstrativpronomen Genitiv Feminin: dieser." },
+  { question: "Wie lautet das Reflexivpronomen im Akkusativ (er)?", options: ["sich","ihn","ihm","sich selbst"], answer: 0, explanation: "Das Reflexivpronomen in der 3. Person ist immer 'sich'." },
+
+  // === PARTIKEL (4 Fragen) ===
+  { question: "Welche Konjunktion ist unterordnend?", options: ["und","aber","weil","oder"], answer: 2, explanation: "'Weil' leitet einen Nebensatz ein." },
+  { question: "Welche Präposition ist eine Wechselpräposition?", options: ["mit","für","in","seit"], answer: 2, explanation: "'In' kann Akkusativ (Wohin?) oder Dativ (Wo?) verlangen." },
+  { question: "Welches Adverb drückt eine Zeit aus?", options: ["hier","oft","jetzt","dort"], answer: 2, explanation: "'Jetzt' ist ein Temporaladverb (Zeit)." },
+  { question: "Welche Interjektion drückt Freude aus?", options: ["Au!","Hurra!","Pfui!","Ach!"], answer: 1, explanation: "'Hurra!' drückt Freude oder Begeisterung aus." },
+
+  // === VERBEN (8 Fragen) ===
+  { question: "Wie lautet das Partizip Perfekt von 'fliegen'?", options: ["gefliegt","geflogen","geflieg","gefliegend"], answer: 1, explanation: "Starkes Verb: fliegen – flog – geflogen." },
+  { question: "Welche Zeit ist 'ich war gegangen'?", options: ["Perfekt","Plusquamperfekt","Präteritum","Futur II"], answer: 1, explanation: "war + Partizip = Plusquamperfekt." },
+  { question: "Wie lautet der Imperativ von 'fahren' (Du-Form)?", options: ["Fahre!","Fahr!","Fähr!","Fahrest!"], answer: 1, explanation: "Bei Umlaut im Indikativ fällt der Umlaut im Imperativ weg: Fahr!" },
+  { question: "Wie bildet man das Perfekt von Modalverben mit Vollverb?", options: ["Partizip + Modalverb","Infinitiv + Infinitiv","haben + Partizip","werden + Infinitiv"], answer: 1, explanation: "Ich habe es nicht lösen können (Infinitiv + Infinitiv)." },
+  { question: "Wie lautet der Konjunktiv II von 'ich kann'?", options: ["ich könne","ich könnte","ich käme","ich könnte"], answer: 1, explanation: "'Können' bildet den Konjunktiv II mit Umlaut: könnte." },
+  { question: "Welche Zeit drückt Vorzeitigkeit zur Basiszeit 'Präsens' aus?", options: ["Perfekt","Präteritum","Plusquamperfekt","Futur I"], answer: 0, explanation: "Zur Basiszeit Präsens drückt das Perfekt Vorzeitigkeit aus." },
+  { question: "Wie lautet das Präteritum von 'werden'?", options: ["wurde","ward","wird","werdet"], answer: 0, explanation: "Das Präteritum von werden ist unregelmässig: ich/er wurde." },
+  { question: "Welches Verb ist gemischt?", options: ["rennen","laufen","machen","singen"], answer: 0, explanation: "Rennen hat Vokalwechsel wie ein starkes Verb, aber schwache Endungen: rennen – rannte – gerannt." },
+
+  // === AKTIV/PASSIV (5 Fragen) ===
+  { question: "Wie lautet das Perfekt-Passiv?", options: ["werden + Partizip","sein + Partizip + worden","haben + Partizip","werden + Infinitiv"], answer: 1, explanation: "Perfekt-Passiv: sein + Partizip + worden." },
+  { question: "Was ist das Zustandspassiv?", options: ["werden + Partizip","sein + Partizip","haben + Partizip","Modalverb + Partizip"], answer: 1, explanation: "Zustandspassiv = sein + Partizip (bestehender Zustand)." },
+  { question: "Aktiv: 'Der Lehrer erklärt die Regel.' → Passiv?", options: ["Die Regel wird erklärt.","Die Regel ist erklärt.","Die Regel wird vom Lehrer erklärt.","Die Regel wurde erklärt."], answer: 2, explanation: "Präsens-Passiv mit Angabe des Täters: wird vom Lehrer erklärt." },
+  { question: "Wie lautet das Passiv von 'Man hat das Haus gebaut'?", options: ["Das Haus wird gebaut.","Das Haus ist gebaut worden.","Das Haus wurde gebaut.","Das Haus ist gebaut."], answer: 1, explanation: "Perfekt-Passiv: Das Haus ist gebaut worden." },
+  { question: "Welcher Satz ist im Vorgangspassiv?", options: ["Das Fenster ist geöffnet.","Das Fenster wird geöffnet.","Das Fenster wurde geöffnet.","Das Fenster hat geöffnet."], answer: 1, explanation: "Vorgangspassiv = werden + Partizip: Das Fenster wird geöffnet." },
+
+  // === INDIREKTE REDE (4 Fragen) ===
+  { question: "Wie lautet der Konjunktiv I von 'wir kommen'?", options: ["wir kämen","wir kommen","wir kommet","wir kämet"], answer: 1, explanation: "Konjunktiv I von 'wir kommen' = wir kommen (= Indikativ → Ausweich auf Konj. II)." },
+  { question: "Direkt: 'Ich habe Zeit.' → Indirekt?", options: ["Er sagt, er habe Zeit.","Er sagt, er hätte Zeit.","Er sagt, er habe Zeit.","Er sagt, er habe Zeit."], answer: 0, explanation: "'Er habe' = Konjunktiv I, unterscheidbar vom Indikativ." },
+  { question: "Welche Form ist standardsprachlich korrekt in der indirekten Rede?", options: ["Sie sagt, sie wäre krank.","Sie sagt, sie sei krank.","Sie sagt, sie ist krank.","Sie sagt, sie wäre gewesen krank."], answer: 1, explanation: "Konjunktiv I ('sei') ist standardsprachlich korrekt, wenn er unterscheidbar ist." },
+  { question: "Wie lautet die indirekte Rede von: 'Er wird kommen' (Konjunktiv I)?", options: ["Er sagt, er werde kommen.","Er sagt, er würde kommen.","Er sagt, er werde kommen.","Er sagt, er wird kommen."], answer: 0, explanation: "Futur I im Konjunktiv I: er werde kommen." }
+];
+
+new ExerciseEngine('pruefung-container', pruefungFragen, 'pruefung');
+</script>
+</body>
+</html>

@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard - Deutsch Grammatik Master</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script>
+(function() {
+  const saved = localStorage.getItem('theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const theme = saved || (prefersDark ? 'dark' : 'dark');
+  document.documentElement.setAttribute('data-theme', theme);
+})();
+</script>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app">
+  <!-- Header -->
+  <header class="header">
+    <div class="header-left">
+      <button class="nav-toggle" aria-label="Menü"><span></span><span></span><span></span></button>
+      <a href="index.html" class="logo"><div class="logo-icon">🇩🇪</div><span>Grammatik Master</span></a>
+    </div>
+    <div class="header-right">
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="globalSearch" placeholder="Suchen...">
+        <div id="searchResults" class="search-results"></div>
+      </div>
+      <button class="btn-icon" id="themeBtn" onclick="APP.toggleTheme()" title="Theme wechseln">🌙</button>
+    </div>
+  </header>
+
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-section">Lernen</div>
+    <ul class="sidebar-nav">
+      <li><a href="index.html" class="active"><span class="nav-icon">🏠</span> Dashboard</a></li>
+      <li><a href="pages/wortarten-grundlagen.html"><span class="nav-icon">🧩</span> Wortarten Grundlagen</a></li>
+      <li><a href="pages/nomen.html"><span class="nav-icon">📝</span> Nomen</a></li>
+      <li><a href="pages/adjektiv.html"><span class="nav-icon">🎨</span> Adjektiv</a></li>
+      <li><a href="pages/pronomen.html"><span class="nav-icon">👤</span> Pronomen</a></li>
+      <li><a href="pages/partikel.html"><span class="nav-icon">🔗</span> Partikel</a></li>
+      <li><a href="pages/verben.html"><span class="nav-icon">⚡</span> Verben</a></li>
+      <li><a href="pages/aktiv-passiv.html"><span class="nav-icon">🔄</span> Aktiv &amp; Passiv</a></li>
+      <li><a href="pages/indirekte-rede.html"><span class="nav-icon">💬</span> Indirekte Rede</a></li>
+    </ul>
+    <div class="sidebar-section">Üben</div>
+    <ul class="sidebar-nav">
+      <li><a href="pages/uebungen.html"><span class="nav-icon">✏️</span> Übungen</a></li>
+      <li><a href="pages/pruefung.html"><span class="nav-icon">🎯</span> Prüfungssimulation</a></li>
+      <li><a href="pages/lernplan.html"><span class="nav-icon">📅</span> Lernplan</a></li>
+      <li><a href="pages/zusammenfassung.html"><span class="nav-icon">📚</span> Zusammenfassung</a></li>
+    </ul>
+  </aside>
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <!-- Main -->
+  <main class="main">
+    <div class="content">
+      <!-- Hero -->
+      <section class="hero">
+        <div class="hero-blobs">
+          <div class="hero-blob"></div>
+          <div class="hero-blob"></div>
+          <div class="hero-blob"></div>
+        </div>
+        <div class="hero-content">
+          <h1 class="hero-title">Deutsch Grammatik Master</h1>
+          <p class="hero-subtitle">Dein interaktiver Wegweiser durch die deutsche Grammatik – von den Grundlagen bis zur Pruefung.</p>
+          <div class="hero-actions">
+            <a href="pages/wortarten-grundlagen.html" class="btn btn-primary">Jetzt starten</a>
+            <a href="pages/uebungen.html" class="btn btn-secondary">Uebungen</a>
+            <a href="pages/pruefung.html" class="btn btn-secondary">Pruefung</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Heute lernen -->
+      <section class="card">
+        <h2>Heute lernen</h2>
+        <p id="weekTopics">Lade Wochenplan...</p>
+        <div style="margin-top:1rem;">
+          <a href="pages/lernplan.html" class="btn btn-sm btn-outline">Zum Lernplan →</a>
+        </div>
+      </section>
+
+      <!-- Stats -->
+      <section class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-value" data-stat="visited">0</div>
+          <div class="stat-label">Kapitel besucht</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" data-stat="totalExercises">0</div>
+          <div class="stat-label">Aufgaben geloest</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" data-stat="streak">0</div>
+          <div class="stat-label">Tage in Folge</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" data-stat="wrongCount">0</div>
+          <div class="stat-label">Fehler zu ueben</div>
+        </div>
+      </section>
+
+      <!-- Heatmap -->
+      <section class="card">
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;margin-bottom:1rem;">
+          <h2 style="margin:0;">🔥 Lern-Aktivität</h2>
+          <a href="pages/lernplan.html" class="btn btn-sm btn-outline">Lernplan ansehen</a>
+        </div>
+        <p style="color:var(--text-secondary);font-size:0.9rem;">Jeder farbige Tag zeigt, dass du gelernt hast. Ziel: Eine möglichst lange grüne Kette!</p>
+        <div id="dashHeatmap" style="margin-top:1rem;overflow-x:auto;"></div>
+        <div style="display:flex;gap:1rem;margin-top:0.75rem;flex-wrap:wrap;font-size:0.8rem;color:var(--text-muted);">
+          <span><span style="display:inline-block;width:12px;height:12px;background:var(--border-color);border-radius:2px;margin-right:4px;"></span>Kein Lernen</span>
+          <span><span style="display:inline-block;width:12px;height:12px;background:rgba(13,148,136,0.25);border-radius:2px;margin-right:4px;"></span>1–5</span>
+          <span><span style="display:inline-block;width:12px;height:12px;background:rgba(13,148,136,0.5);border-radius:2px;margin-right:4px;"></span>6–10</span>
+          <span><span style="display:inline-block;width:12px;height:12px;background:rgba(13,148,136,0.75);border-radius:2px;margin-right:4px;"></span>11–20</span>
+          <span><span style="display:inline-block;width:12px;height:12px;background:var(--primary);border-radius:2px;margin-right:4px;"></span>20+</span>
+        </div>
+      </section>
+
+      <!-- Themen -->
+      <section>
+        <h2>Themen</h2>
+        <div class="card-grid">
+          <a href="pages/wortarten-grundlagen.html" class="topic-card">
+            <div class="card-icon">🧩</div>
+            <h3>Wortarten Grundlagen</h3>
+            <p class="card-meta">Die 5 Hauptwortarten kennenlernen</p>
+          </a>
+          <a href="pages/nomen.html" class="topic-card">
+            <div class="card-icon">📛</div>
+            <h3>Nomen</h3>
+            <p class="card-meta">Artikel, Genus, Kasus &amp; Plural</p>
+          </a>
+          <a href="pages/adjektiv.html" class="topic-card">
+            <div class="card-icon">🎨</div>
+            <h3>Adjektiv</h3>
+            <p class="card-meta">Deklination, Komparation &amp; Steigerung</p>
+          </a>
+          <a href="pages/pronomen.html" class="topic-card">
+            <div class="card-icon">🪞</div>
+            <h3>Pronomen</h3>
+            <p class="card-meta">Personal-, Possessiv-, Relativ- &amp; mehr</p>
+          </a>
+          <a href="pages/partikel.html" class="topic-card">
+            <div class="card-icon">✨</div>
+            <h3>Partikel</h3>
+            <p class="card-meta">Adverb, Praeposition, Konjunktion, Interjektion</p>
+          </a>
+          <a href="pages/verben.html" class="topic-card">
+            <div class="card-icon">⚡</div>
+            <h3>Verben</h3>
+            <p class="card-meta">Konjugation, Tempus, Modus &amp; mehr</p>
+          </a>
+          <a href="pages/aktiv-passiv.html" class="topic-card">
+            <div class="card-icon">🔄</div>
+            <h3>Aktiv &amp; Passiv</h3>
+            <p class="card-meta">Vorgangs- &amp; Zustandspassiv bilden</p>
+          </a>
+          <a href="pages/indirekte-rede.html" class="topic-card">
+            <div class="card-icon">💬</div>
+            <h3>Indirekte Rede</h3>
+            <p class="card-meta">Konjunktiv I &amp; II in der Redewiedergabe</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- Lernpfad -->
+      <section class="card">
+        <h2>Lernpfad</h2>
+        <ol class="learning-path">
+          <li><strong>Woche 1:</strong> Wortarten Grundlagen &amp; Nomen</li>
+          <li><strong>Woche 2:</strong> Adjektiv &amp; Pronomen</li>
+          <li><strong>Woche 3:</strong> Partikel &amp; Verben</li>
+          <li><strong>Woche 4:</strong> Aktiv &amp; Passiv, Indirekte Rede</li>
+          <li><strong>Woche 5:</strong> Pruefungstraining &amp; Simulation</li>
+        </ol>
+        <a href="pages/lernplan.html" class="btn btn-outline" style="margin-top:1rem;">Detailplan ansehen</a>
+      </section>
+
+      <!-- Features -->
+      <section>
+        <h2>Features</h2>
+        <div class="card-grid">
+          <a href="pages/uebungen.html" class="topic-card">
+            <div class="card-icon">📝</div>
+            <h3>Interaktive Uebungen</h3>
+            <p class="card-meta">Lerne durch Quizze, Lueckentexte und Satzanalysen</p>
+          </a>
+          <a href="pages/uebungen.html" class="topic-card">
+            <div class="card-icon">🗂️</div>
+            <h3>Lernkarten</h3>
+            <p class="card-meta">Wiederhole wichtige Begriffe mit Flip-Cards</p>
+          </a>
+            <div class="card-icon">💪</div>
+            <h3>Schwaechen trainieren</h3>
+            <p class="card-meta">Gezielte Wiederholung deiner Fehler</p>
+          </a>
+          <a href="pages/pruefung.html" class="topic-card">
+            <div class="card-icon">🎯</div>
+            <h3>Pruefungssimulation</h3>
+            <p class="card-meta">40 gemischte Fragen unter Pruefungsbedingungen</p>
+          </a>
+          <a href="pages/lernplan.html" class="topic-card">
+            <div class="card-icon">📅</div>
+            <h3>Lernplan &amp; Heatmap</h3>
+            <p class="card-meta">Behalte deinen Lernrhythmus im Blick</p>
+          </a>
+          <div class="topic-card">
+            <div class="card-icon">🌙</div>
+            <h3>Dunkelmodus</h3>
+            <p class="card-meta">Lerne bei Tag und Nacht mit angenehmem Design</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Fortschritt -->
+      <section class="progress-section card">
+        <h2>Fortschritt pro Thema</h2>
+        <div style="margin-bottom:0.5rem;">
+          <div class="progress-section-label">Wortarten Grundlagen</div>
+          <div class="progress-section-bar">
+            <div class="progress-bar" data-progress-category="wortarten"><div class="progress-bar-fill" style="width:0%"></div></div>
+          </div>
+        </div>
+        <div style="margin-bottom:0.5rem;">
+          <div class="progress-section-label">Nomen</div>
+          <div class="progress-section-bar">
+            <div class="progress-bar" data-progress-category="nomen"><div class="progress-bar-fill" style="width:0%"></div></div>
+          </div>
+        </div>
+        <div style="margin-bottom:0.5rem;">
+          <div class="progress-section-label">Adjektiv</div>
+          <div class="progress-section-bar">
+            <div class="progress-bar" data-progress-category="adjektiv"><div class="progress-bar-fill" style="width:0%"></div></div>
+          </div>
+        </div>
+        <div style="margin-bottom:0.5rem;">
+          <div class="progress-section-label">Pronomen</div>
+          <div class="progress-section-bar">
+            <div class="progress-bar" data-progress-category="pronomen"><div class="progress-bar-fill" style="width:0%"></div></div>
+          </div>
+        </div>
+        <div style="margin-bottom:0.5rem;">
+          <div class="progress-section-label">Partikel</div>
+          <div class="progress-section-bar">
+            <div class="progress-bar" data-progress-category="partikel"><div class="progress-bar-fill" style="width:0%"></div></div>
+          </div>
+        </div>
+        <div style="margin-bottom:0.5rem;">
+          <div class="progress-section-label">Verben</div>
+          <div class="progress-section-bar">
+            <div class="progress-bar" data-progress-category="verben"><div class="progress-bar-fill" style="width:0%"></div></div>
+          </div>
+        </div>
+        <div style="margin-bottom:0.5rem;">
+          <div class="progress-section-label">Aktiv &amp; Passiv</div>
+          <div class="progress-section-bar">
+            <div class="progress-bar" data-progress-category="aktiv-passiv"><div class="progress-bar-fill" style="width:0%"></div></div>
+          </div>
+        </div>
+        <div style="margin-bottom:0.5rem;">
+          <div class="progress-section-label">Indirekte Rede</div>
+          <div class="progress-section-bar">
+            <div class="progress-bar" data-progress-category="indirekte-rede"><div class="progress-bar-fill" style="width:0%"></div></div>
+          </div>
+        </div>
+        <div style="margin-top:1rem;">
+          <button class="btn btn-sm btn-outline" onclick="APP.resetProgress()">Fortschritt zuruecksetzen</button>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+
+<script src="js/app.js"></script>
+<script>
+APP.init();
+APP.markVisited('index');
+
+(function() {
+  var plan = [
+    ['Wortarten Grundlagen', 'Nomen'],
+    ['Adjektiv', 'Pronomen'],
+    ['Partikel', 'Verben'],
+    ['Aktiv & Passiv', 'Indirekte Rede'],
+    ['Pruefungstraining']
+  ];
+  var start = new Date(2026, 0, 5);
+  var now = new Date();
+  var diff = Math.floor((now - start) / (7 * 24 * 60 * 60 * 1000));
+  var week = Math.max(0, Math.min(diff, 4));
+  var topics = plan[week];
+  var el = document.getElementById('weekTopics');
+  if (el) {
+    el.innerHTML = '<strong>Woche ' + (week + 1) + ':</strong> ' + topics.join(', ') + '<br><span style="color:var(--text-muted);font-size:0.9rem;">Ca. 20–30 Minuten pro Tag empfohlen</span>';
+  }
+})();
+
+(function() {
+  // Streak calculation
+  const days = APP.progress._days || {};
+  const dates = Object.keys(days).sort();
+  let streak = 0;
+  if (dates.length > 0) {
+    const today = new Date().toISOString().split('T')[0];
+    const yesterday = new Date(Date.now() - 86400000).toISOString().split('T')[0];
+    let check = days[today] ? today : (days[yesterday] ? yesterday : null);
+    if (check) {
+      while (true) {
+        const d = new Date(check);
+        d.setDate(d.getDate() - 1);
+        const prev = d.toISOString().split('T')[0];
+        if (days[prev]) {
+          streak++;
+          check = prev;
+        } else {
+          streak++;
+          break;
+        }
+      }
+    }
+  }
+  const streakEl = document.querySelector('[data-stat="streak"]');
+  if (streakEl) streakEl.textContent = streak;
+
+  // Wrong count
+  const wrong = APP.progress._wrong || [];
+  const wrongEl = document.querySelector('[data-stat="wrongCount"]');
+  if (wrongEl) wrongEl.textContent = wrong.length;
+
+  // Heatmap
+  const hmContainer = document.getElementById('dashHeatmap');
+  if (hmContainer) {
+    const today = new Date();
+    const start = new Date();
+    start.setDate(today.getDate() - 90); // Last 90 days
+    let html = '<div class="heatmap" style="grid-template-columns: repeat(13, 1fr);">';
+    for (let d = new Date(start); d <= today; d.setDate(d.getDate() + 1)) {
+      const key = d.toISOString().split('T')[0];
+      const count = days[key] || 0;
+      let level = '';
+      if (count >= 20) level = 'level-4';
+      else if (count >= 11) level = 'level-3';
+      else if (count >= 6) level = 'level-2';
+      else if (count >= 1) level = 'level-1';
+      html += '<div class="heatmap-day ' + level + '" title="' + key + ': ' + count + ' Aufgabe' + (count !== 1 ? 'n' : '') + '"></div>';
+    }
+    html += '</div>';
+    hmContainer.innerHTML = html;
+  }
+})();
+</script>
+</body>
+</html>

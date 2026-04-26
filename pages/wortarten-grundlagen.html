@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="dark">
+<head>
+<script>
+(function() {
+  const saved = localStorage.getItem('theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const theme = saved || (prefersDark ? 'dark' : 'dark');
+  document.documentElement.setAttribute('data-theme', theme);
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wortarten Grundlagen - Deutsch Grammatik Master</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<div class="app">
+  <!-- Header -->
+  <header class="header">
+    <div class="header-left">
+      <button class="nav-toggle" aria-label="Menü"><span></span><span></span><span></span></button>
+      <a href="../index.html" class="logo"><div class="logo-icon">🇩🇪</div><span>Grammatik Master</span></a>
+    </div>
+    <div class="header-right">
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="globalSearch" placeholder="Suchen...">
+        <div id="searchResults" class="search-results"></div>
+      </div>
+      <button class="btn-icon" id="themeBtn" onclick="APP.toggleTheme()" title="Theme wechseln">🌙</button>
+    </div>
+  </header>
+
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-section">Lernen</div>
+    <ul class="sidebar-nav">
+      <li><a href="../index.html"><span class="nav-icon">🏠</span> Dashboard</a></li>
+      <li><a href="wortarten-grundlagen.html" class="active"><span class="nav-icon">🧩</span> Wortarten Grundlagen</a></li>
+      <li><a href="nomen.html"><span class="nav-icon">📝</span> Nomen</a></li>
+      <li><a href="adjektiv.html"><span class="nav-icon">🎨</span> Adjektiv</a></li>
+      <li><a href="pronomen.html"><span class="nav-icon">👤</span> Pronomen</a></li>
+      <li><a href="partikel.html"><span class="nav-icon">🔗</span> Partikel</a></li>
+      <li><a href="verben.html"><span class="nav-icon">⚡</span> Verben</a></li>
+      <li><a href="aktiv-passiv.html"><span class="nav-icon">🔄</span> Aktiv &amp; Passiv</a></li>
+      <li><a href="indirekte-rede.html"><span class="nav-icon">💬</span> Indirekte Rede</a></li>
+    </ul>
+    <div class="sidebar-section">Üben</div>
+    <ul class="sidebar-nav">
+      <li><a href="uebungen.html"><span class="nav-icon">✏️</span> Übungen</a></li>
+      <li><a href="pruefung.html"><span class="nav-icon">🎯</span> Prüfungssimulation</a></li>
+      <li><a href="lernplan.html"><span class="nav-icon">📅</span> Lernplan</a></li>
+      <li><a href="zusammenfassung.html"><span class="nav-icon">📚</span> Zusammenfassung</a></li>
+    </ul>
+  </aside>
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <!-- Main -->
+  <main class="main">
+    <div class="content">
+      <nav class="breadcrumb">
+        <a href="../index.html">Dashboard</a>
+        <span> &gt; </span>
+        <span>Wortarten Grundlagen</span>
+      </nav>
+
+      <h1>🧩 Wortarten Grundlagen</h1>
+
+      <p>Die deutsche Grammatik kennt <strong>5 Hauptwortarten</strong>. Wörter werden nicht nach ihrer Bedeutung, sondern nach <strong>formalen Merkmalen</strong> wie Deklination, Konjugation oder Unveränderlichkeit klassifiziert.</p>
+
+      <!-- Schema -->
+      <section class="card">
+        <h2>Die 5 Wortarten im Überblick</h2>
+        <div class="schema" style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin:1.5rem 0;">
+          <div class="schema-item" style="text-align:center;padding:1rem 1.5rem;border-radius:0.75rem;background:var(--accent);color:#fff;font-weight:700;">Nomen</div>
+          <div class="schema-item" style="text-align:center;padding:1rem 1.5rem;border-radius:0.75rem;background:var(--accent);color:#fff;font-weight:700;">Adjektiv</div>
+          <div class="schema-item" style="text-align:center;padding:1rem 1.5rem;border-radius:0.75rem;background:var(--accent);color:#fff;font-weight:700;">Pronomen</div>
+          <div class="schema-item" style="text-align:center;padding:1rem 1.5rem;border-radius:0.75rem;background:var(--accent);color:#fff;font-weight:700;">Verb</div>
+          <div class="schema-item" style="text-align:center;padding:1rem 1.5rem;border-radius:0.75rem;background:var(--accent);color:#fff;font-weight:700;">
+            Partikel
+            <div style="margin-top:0.5rem;display:flex;flex-wrap:wrap;gap:0.5rem;justify-content:center;">
+              <span style="background:rgba(255,255,255,0.2);padding:0.25rem 0.5rem;border-radius:0.5rem;font-size:0.85rem;">Adverb</span>
+              <span style="background:rgba(255,255,255,0.2);padding:0.25rem 0.5rem;border-radius:0.5rem;font-size:0.85rem;">Praeposition</span>
+              <span style="background:rgba(255,255,255,0.2);padding:0.25rem 0.5rem;border-radius:0.5rem;font-size:0.85rem;">Konjunktion</span>
+              <span style="background:rgba(255,255,255,0.2);padding:0.25rem 0.5rem;border-radius:0.5rem;font-size:0.85rem;">Interjektion</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Erkennungskriterien -->
+      <section class="card">
+        <h2>Erkennungskriterien</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Wortart</th>
+                <th>Merkmale</th>
+                <th>Beispiele</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Nomen</strong></td>
+                <td>Deklinierbar, bestimmbar durch Artikel, schreibt man gross</td>
+                <td>der Tisch, die Freude, das Buch</td>
+              </tr>
+              <tr>
+                <td><strong>Adjektiv</strong></td>
+                <td>Deklinierbar, steigerbar, attributiv / prädikativ / adverbial</td>
+                <td>schoen, gross, schnell</td>
+              </tr>
+              <tr>
+                <td><strong>Pronomen</strong></td>
+                <td>Deklinierbar, tritt anstelle eines Nomens auf</td>
+                <td>ich, du, dieser, meiner</td>
+              </tr>
+              <tr>
+                <td><strong>Verb</strong></td>
+                <td>Konjugierbar, regiert Kasus, bildet den Satzrahmen</td>
+                <td>gehen, lesen, sein</td>
+              </tr>
+              <tr>
+                <td><strong>Partikel</strong></td>
+                <td>Unveränderlich, vielfältige Funktionen</td>
+                <td>hier, wegen, und, ach</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Beispielsatz -->
+      <section class="card">
+        <h2>Beispielsatz</h2>
+        <div class="example-box">
+          <p class="example-label">Farbkodierung</p>
+          <p style="font-size:1.15rem;line-height:1.8;">
+            <span class="gram-pron">Ich</span>
+            <span class="gram-verb">gebe</span>
+            <span class="gram-adj">meinem</span>
+            <span class="gram-nomen">Bruder</span>
+            <span class="gram-adv">morgen</span>
+            <span class="gram-prep">in</span>
+            <span class="gram-adj">der</span>
+            <span class="gram-nomen">Stadt</span>
+            <span class="gram-adj">ein</span>
+            <span class="gram-adj">schoenes</span>
+            <span class="gram-nomen">Buch</span>
+            <span class="gram-konj">und</span>
+            <span class="gram-pron">er</span>
+            <span class="gram-verb">freut</span>
+            <span class="gram-pron">sich</span>
+            <span class="gram-part">darueber</span>
+            <span class="gram-part">.</span>
+          </p>
+          <div style="margin-top:1rem;display:flex;flex-wrap:wrap;gap:0.5rem;">
+            <span class="tag" style="background:#e74c3c;color:#fff;">Nomen</span>
+            <span class="tag" style="background:#f39c12;color:#fff;">Adjektiv</span>
+            <span class="tag" style="background:#9b59b6;color:#fff;">Pronomen</span>
+            <span class="tag" style="background:#3498db;color:#fff;">Verb</span>
+            <span class="tag" style="background:#2ecc71;color:#fff;">Partikel</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tabs -->
+      <section class="tabs" id="theoryTabs">
+        <div class="tab active" data-tab="theorie">Theorie</div>
+        <div class="tab" data-tab="uebungen">Uebungen</div>
+        <div class="tab" data-tab="lernkarten">Lernkarten</div>
+      </section>
+
+      <!-- Tab 1: Theorie -->
+      <div class="tab-panel active" id="panel-theorie">
+        <div class="card">
+          <h2>Nomen (Substantiv)</h2>
+          <p>Nomen bezeichnen Dinge, Personen, Orte oder Abstraktes. Sie werden immer grossgeschrieben und können dekliniert werden (Kasus, Numerus, Genus). Ein Artikel kann vorangestellt werden.</p>
+          <div class="callout">
+            <span class="callout-icon">💡</span>
+            <div class="callout-content">Merke: Jedes Nomen hat ein Genus (maskulin, feminin, neutral).</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Adjektiv</h2>
+          <p>Adjektive beschreiben Nomen näher. Sie sind steigerbar und können attributiv (vor dem Nomen), prädikativ (nach dem Verb) oder adverbial (als Umstand) verwendet werden. Attributive Adjektive werden dekliniert.</p>
+          <div class="example-box">
+            <p class="example-label">Beispiele</p>
+            <ul>
+              <li>Attributiv: <em>das <strong>schoene</strong> Haus</em></li>
+              <li>Prädikativ: <em>Das Haus ist <strong>schoen</strong>.</em></li>
+              <li>Adverbial: <em>Sie singt <strong>schoen</strong>.</em></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Pronomen</h2>
+          <p>Pronomen treten an die Stelle von Nomen oder begleiten sie. Sie werden dekliniert und umfassen Personalpronomen, Possessivpronomen, Demonstrativpronomen, Relativpronomen und mehr.</p>
+          <div class="example-box">
+            <p class="example-label">Beispiele</p>
+            <p><em><strong>Ich</strong> sehe <strong>dich</strong>. Das ist <strong>mein</strong> Buch.</em></p>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Verb</h2>
+          <p>Verben drücken Tätigkeiten, Vorgänge oder Zustände aus. Sie sind konjugierbar (Person, Numerus, Tempus, Modus) und bilden den Kern des Satzgefueges. Sie regieren bestimmte Kasus oder Praepositionen.</p>
+          <div class="callout">
+            <span class="callout-icon">💡</span>
+            <div class="callout-content">Merke: Das Verb bestimmt weitgehend die Satzstruktur.</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Partikel</h2>
+          <p>Partikeln sind unveränderlich und erfuellen verschiedene Funktionen. Sie lassen sich unterteilen in:</p>
+          <ul>
+            <li><strong>Adverb</strong>: beschreibt Umstände (wo, wann, wie) – <em>heute, dort, langsam</em></li>
+            <li><strong>Praeposition</strong> steht vor einem Nomen und regiert einen Kasus – <em>in, mit, wegen</em></li>
+            <li><strong>Konjunktion</strong> verbindet Wörter oder Satzteile – <em>und, aber, weil</em></li>
+            <li><strong>Interjektion</strong> drückt einen Ausruf aus – <em>ach, oh, hurra</em></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Tab 2: Uebungen -->
+      <div class="tab-panel" id="panel-uebungen">
+        <div class="card">
+          <h2>Übung 1: Wortarten zuordnen</h2>
+          <p>Sortiere die Wörter des Satzes in die richtigen Spalten.</p>
+          <div id="wordSorter"></div>
+        </div>
+
+        <div class="card">
+          <h2>Übung 2: Wortarten erkennen</h2>
+          <div id="wordTypeQuiz"></div>
+        </div>
+      </div>
+
+      <!-- Tab 3: Lernkarten -->
+      <div class="tab-panel" id="panel-lernkarten">
+        <div class="card">
+          <h2>Lernkarten: Die 5 Wortarten</h2>
+          <div id="flashcards"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="../js/app.js"></script>
+<script>
+APP.init();
+APP.markVisited('wortarten-grundlagen');
+
+/* Tabs */
+(function() {
+  var tabs = document.querySelectorAll('#theoryTabs .tab');
+  var panels = document.querySelectorAll('.tab-panel');
+  tabs.forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      var target = tab.getAttribute('data-tab');
+      tabs.forEach(function(t) { t.classList.remove('active'); });
+      panels.forEach(function(p) { p.classList.remove('active'); });
+      tab.classList.add('active');
+      document.getElementById('panel-' + target).classList.add('active');
+    });
+  });
+})();
+
+/* WordSorter */
+var sentenceWords = ['Die', 'kleine', 'Katze', 'schlaeft', 'sehr', 'gemuetlich', 'auf', 'dem', 'warmen', 'Sofa', 'und', 'schnarcht'];
+var sorterCategories = {
+  'Nomen': ['Katze', 'Sofa'],
+  'Adjektiv': ['kleine', 'warmen'],
+  'Pronomen': ['Die', 'dem'],
+  'Verb': ['schlaeft', 'schnarcht'],
+  'Partikel': ['sehr', 'gemuetlich', 'auf', 'und']
+};
+new WordSorter('wordSorter', sentenceWords, sorterCategories, 'wortarten', 'wortarten-grundlagen');
+
+/* Quiz */
+var quizQuestions = [
+  { question: 'Welche Wortart ist "der Tisch"?', options: ['Nomen', 'Adjektiv', 'Verb', 'Partikel'], correct: 0 },
+  { question: 'Welche Wortart ist "schoen"?', options: ['Nomen', 'Adjektiv', 'Verb', 'Partikel'], correct: 1 },
+  { question: 'Welche Wortart ist "laufen"?', options: ['Nomen', 'Adjektiv', 'Verb', 'Partikel'], correct: 2 },
+  { question: 'Welche Wortart ist "und"?', options: ['Nomen', 'Adjektiv', 'Verb', 'Partikel'], correct: 3 },
+  { question: 'Welche Wortart ist "ich"?', options: ['Nomen', 'Pronomen', 'Verb', 'Partikel'], correct: 1 },
+  { question: 'Welche Wortart ist "wegen"?', options: ['Nomen', 'Adjektiv', 'Verb', 'Partikel'], correct: 3 },
+  { question: 'Welche Wortart ist "Hund"?', options: ['Nomen', 'Adjektiv', 'Verb', 'Partikel'], correct: 0 },
+  { question: 'Welche Wortart ist "schnell" (als Umstand)?', options: ['Nomen', 'Adjektiv', 'Verb', 'Partikel'], correct: 3 }
+];
+new ExerciseEngine('wordTypeQuiz', quizQuestions, 'wortarten', 'wortarten-grundlagen');
+
+/* Flashcards */
+var flashcardsData = [
+  { front: 'Nomen', back: 'Deklinierbar, grossgeschrieben, mit Artikel bestimmbar. Beispiel: der Tisch' },
+  { front: 'Adjektiv', back: 'Beschreibt Nomen, steigerbar, attributiv/praedikativ/adverbial. Beispiel: schoen' },
+  { front: 'Pronomen', back: 'Tritt anstelle eines Nomens auf, deklinierbar. Beispiel: ich, dieser, meiner' },
+  { front: 'Verb', back: 'Drueckt Taetigkeit/Vorgang/Zustand aus, konjugierbar. Beispiel: gehen, sein' },
+  { front: 'Partikel', back: 'Unveraenderlich. Umfasst Adverb, Praeposition, Konjunktion, Interjektion.' },
+  { front: 'Partikel-Unterarten', back: 'Adverb (hier), Praeposition (in), Konjunktion (und), Interjektion (ach)' }
+];
+new FlashcardEngine('flashcards', flashcardsData);
+// Initialize all exercises on page load
+setTimeout(function() {
+}, 100);
+</script>
+</body>
+</html>

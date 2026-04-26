@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="dark">
+<head>
+<script>
+(function() {
+  const saved = localStorage.getItem('theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const theme = saved || (prefersDark ? 'dark' : 'dark');
+  document.documentElement.setAttribute('data-theme', theme);
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zusammenfassung – Deutsch Grammatik Master</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<div class="app">
+  <header class="header">
+    <div class="header-left">
+      <button class="nav-toggle" aria-label="Menü"><span></span><span></span><span></span></button>
+      <a href="../index.html" class="logo"><div class="logo-icon">🇩🇪</div><span>Grammatik Master</span></a>
+    </div>
+    <div class="header-right">
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="globalSearch" placeholder="Suchen...">
+        <div id="searchResults" class="search-results"></div>
+      </div>
+      <button class="btn-icon" id="themeBtn" onclick="APP.toggleTheme()" title="Theme wechseln">🌙</button>
+    </div>
+  </header>
+
+  <aside class="sidebar">
+    <div class="sidebar-section">Lernen</div>
+    <ul class="sidebar-nav">
+      <li><a href="../index.html"><span class="nav-icon">🏠</span> Dashboard</a></li>
+      <li><a href="wortarten-grundlagen.html"><span class="nav-icon">🧩</span> Wortarten Grundlagen</a></li>
+      <li><a href="nomen.html"><span class="nav-icon">📝</span> Nomen</a></li>
+      <li><a href="adjektiv.html"><span class="nav-icon">🎨</span> Adjektiv</a></li>
+      <li><a href="pronomen.html"><span class="nav-icon">👤</span> Pronomen</a></li>
+      <li><a href="partikel.html"><span class="nav-icon">🔗</span> Partikel</a></li>
+      <li><a href="verben.html"><span class="nav-icon">⚡</span> Verben</a></li>
+      <li><a href="aktiv-passiv.html"><span class="nav-icon">🔄</span> Aktiv & Passiv</a></li>
+      <li><a href="indirekte-rede.html"><span class="nav-icon">💬</span> Indirekte Rede</a></li>
+    </ul>
+    <div class="sidebar-section">Üben</div>
+    <ul class="sidebar-nav">
+      <li><a href="uebungen.html"><span class="nav-icon">✏️</span> Übungen</a></li>
+      <li><a href="pruefung.html"><span class="nav-icon">🎯</span> Prüfungssimulation</a></li>
+      <li><a href="lernplan.html"><span class="nav-icon">📅</span> Lernplan</a></li>
+      <li><a href="zusammenfassung.html" class="active"><span class="nav-icon">📚</span> Zusammenfassung</a></li>
+    </ul>
+  </aside>
+
+  <div class="sidebar-overlay"></div>
+
+  <main class="main">
+    <div class="content">
+      <h1>📚 Zusammenfassung</h1>
+      <p>Alles auf einen Blick – die kompakteste Zusammenfassung aller Prüfungsthemen. Perfekt zum Kurz-vor-der-Prüfung-Lernen!</p>
+
+      <div class="tabs">
+        <button class="tab active">Nomen</button>
+        <button class="tab">Adjektiv</button>
+        <button class="tab">Pronomen</button>
+        <button class="tab">Partikel</button>
+        <button class="tab">Verben</button>
+        <button class="tab">Aktiv/Passiv</button>
+        <button class="tab">Indirekte Rede</button>
+      </div>
+
+      <div class="tab-panel active">
+        <h3>Nomen – Die wichtigsten Regeln</h3>
+        <ul>
+          <li><strong>Genus erkennen:</strong> Der/die/das. Endungen wie -ung, -heit, -keit, -schaft = feminin. Diminutive (-chen, -lein) = neutrum.</li>
+          <li><strong>4 Fälle:</strong> Nominativ (Wer?), Akkusativ (Wen?), Dativ (Wem?), Genitiv (Wessen?)</li>
+          <li><strong>Pluralbildung:</strong> Ohne Endung, mit -e/-er/-en, mit Umlaut, nur Singular, nur Plural.</li>
+          <li><strong>Deklination:</strong> Nulldeklination (Feminin), s-Deklination (Maskulin/Neutrum), n-Deklination (manche Maskulina).</li>
+          <li><strong>Genitiv bei Eigennamen:</strong> -s ohne Apostroph (Erikas Büro), Apostroph bei -s-Lauten (Max' Buch).</li>
+        </ul>
+      </div>
+
+      <div class="tab-panel">
+        <h3>Adjektiv – Die wichtigsten Regeln</h3>
+        <ul>
+          <li><strong>Erkennung:</strong> Zwischen Artikel und Nomen stellbar, steigerbar.</li>
+          <li><strong>Deklination nach bestimmtem Artikel:</strong> Nom./Akk. meist -e, Dat./Gen. und Plural meist -en.</li>
+          <li><strong>Deklination ohne Artikel:</strong> Adjektiv trägt die Endung (-er, -e, -es, -e).</li>
+          <li><strong>Steigerung:</strong> Positiv → Komparativ (-er) → Superlativ (am … -sten).</li>
+          <li><strong>Unregelmässig:</strong> gut – besser – am besten; viel – mehr – am meisten; hoch – höher – am höchsten.</li>
+          <li><strong>Vergleich:</strong> Positiv mit «wie», Komparativ mit «als».</li>
+        </ul>
+      </div>
+
+      <div class="tab-panel">
+        <h3>Pronomen – Die wichtigsten Regeln</h3>
+        <ul>
+          <li><strong>Personalpronomen:</strong> ich/mich/mir, du/dich/dir, er/ihn/ihm, sie/ihr/ihnen, Sie/Ihnen.</li>
+          <li><strong>Höflichkeitsform:</strong> Immer gross schreiben (Sie, Ihr, Ihnen).</li>
+          <li><strong>Possessivpronomen:</strong> mein, dein, sein, ihr, unser, euer – wie Adjektive dekliniert.</li>
+          <li><strong>Relativpronomen:</strong> der/die/das, welcher/welche/welches. Genitiv: dessen/deren.</li>
+          <li><strong>das vs. dass:</strong> «Das» = Relativpronomen (ersetzbar durch welches). «Dass» = Konjunktion.</li>
+          <li><strong>Indefinitpronomen:</strong> man (nur Nom.), etwas/nichts (nicht deklinierbar), jemand (deklinierbar).</li>
+        </ul>
+      </div>
+
+      <div class="tab-panel">
+        <h3>Partikel – Die wichtigsten Regeln</h3>
+        <ul>
+          <li><strong>Adverb:</strong> Unveränderbar. 4 Arten: Ort, Zeit, Art und Weise, Grund.</li>
+          <li><strong>Konjunktion:</strong> Beiordnend (und, aber, denn, sondern) = gleichrangig. Unterordnend (dass, weil, wenn, obwohl) = Nebensatz.</li>
+          <li><strong>Doppelkonjunktionen:</strong> nicht nur … sondern auch, zwar … aber, sowohl … als auch, weder … noch, entweder … oder.</li>
+          <li><strong>Präposition + Akkusativ:</strong> durch, für, gegen, ohne, um.</li>
+          <li><strong>Präposition + Dativ:</strong> aus, bei, mit, nach, seit, von, zu.</li>
+          <li><strong>Präposition + Genitiv:</strong> wegen, trotz, während, statt.</li>
+          <li><strong>Wechselpräpositionen:</strong> an, auf, hinter, in, neben, über, unter, vor, zwischen. Wo? = Dativ. Wohin? = Akkusativ.</li>
+          <li><strong>Interjektion:</strong> Ausserhalb von Sätzen: ja, ach, aua, miau.</li>
+        </ul>
+      </div>
+
+      <div class="tab-panel">
+        <h3>Verben – Die wichtigsten Regeln</h3>
+        <ul>
+          <li><strong>3 Stammformen:</strong> Infinitiv – Präteritum – Partizip Perfekt.</li>
+          <li><strong>Schwach:</strong> -te/-t, kein Vokalwechsel (spielen – spielte – gespielt).</li>
+          <li><strong>Stark:</strong> Vokalwechsel, Partizip auf -en (fahren – fuhr – gefahren).</li>
+          <li><strong>Gemischt:</strong> Vokalwechsel + schwache Endungen (rennen – rannte – gerannt).</li>
+          <li><strong>6 Zeiten:</strong> Präsens, Präteritum, Perfekt, Plusquamperfekt, Futur I, Futur II.</li>
+          <li><strong>Perfekt mit haben:</strong> transitive, unpersönliche Verben. Mit sein: Orts-/Zustandsänderung.</li>
+          <li><strong>Modalverben:</strong> können, müssen, dürfen, sollen, wollen, mögen. Perfekt: Infinitiv + Infinitiv (wenn Vollverb dabei).</li>
+          <li><strong>Imperativ:</strong> Du-Form ohne -st (Nimm!), Ihr-Form (Nehmt!), Sie-Form (Nehmen Sie!).</li>
+        </ul>
+      </div>
+
+      <div class="tab-panel">
+        <h3>Aktiv & Passiv – Die wichtigsten Regeln</h3>
+        <ul>
+          <li><strong>Passiv-Bildung:</strong> werden + Partizip II.</li>
+          <li><strong>Perfekt-Passiv:</strong> sein + Partizip + worden.</li>
+          <li><strong>Futur I Passiv:</strong> werden + Partizip + werden.</li>
+          <li><strong>Futur II Passiv:</strong> werden + Partizip + worden sein.</li>
+          <li><strong>Zustandspassiv:</strong> sein + Partizip (bestehender Zustand).</li>
+          <li><strong>Aktiv→Passiv:</strong> Akkusativobjekt → neues Subjekt. Altes Subjekt → von + Dativ.</li>
+          <li><strong>Modalverb + Passiv:</strong> Modalverb + Partizip + werden (Das muss gemacht werden).</li>
+        </ul>
+      </div>
+
+      <div class="tab-panel">
+        <h3>Indirekte Rede – Die wichtigsten Regeln</h3>
+        <ul>
+          <li><strong>Konjunktiv I</strong> ist die Hauptform für die indirekte Rede (vom Infinitivstamm abgeleitet).</li>
+          <li><strong>Konjunktiv II</strong> als Ausweichform, wenn Konj. I = Indikativ (bei ich, wir, sie).</li>
+          <li><strong>gemischter Konjunktiv:</strong> Konj. I wo möglich, sonst Konj. II.</li>
+          <li><strong>Präteritum → Konjunktiv Perfekt:</strong> «Ich kam» → Er sagt, er sei gekommen.</li>
+          <li><strong>Ort ändern:</strong> hier → dort. Zeit ändern: heute → an diesem Tag.</li>
+          <li><strong>Person ändern:</strong> 1. Person → 3. Person.</li>
+          <li><strong>würde-Form:</strong> Ersatz für Konjunktiv II bei schwachen Verben (wenn nicht unterscheidbar).</li>
+          <li><strong>Keine Anführungszeichen</strong> in der indirekten Rede!</li>
+        </ul>
+      </div>
+
+      <div style="margin-top:3rem; padding:2rem; background:linear-gradient(135deg, var(--primary-bg), var(--accent-bg)); border-radius:var(--radius-xl); text-align:center;">
+        <h2 style="margin-top:0;">🎓 Bereit für die Prüfung?</h2>
+        <p style="margin-bottom:1.5rem;">Teste dein Wissen jetzt in der Prüfungssimulation!</p>
+        <a href="pruefung.html" class="btn btn-primary btn-lg">🎯 Zur Prüfungssimulation</a>
+      </div>
+    </div>
+  </main>
+</div>
+<script src="../js/app.js"></script>
+</body>
+</html>

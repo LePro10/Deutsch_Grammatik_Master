@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="dark">
+<head>
+<script>
+(function() {
+  const saved = localStorage.getItem('theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const theme = saved || (prefersDark ? 'dark' : 'dark');
+  document.documentElement.setAttribute('data-theme', theme);
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Schwächen trainieren – Deutsch Grammatik Master</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<div class="app">
+  <header class="header">
+    <div class="header-left">
+      <button class="nav-toggle" aria-label="Menü"><span></span><span></span><span></span></button>
+      <a href="../index.html" class="logo"><div class="logo-icon">🇩🇪</div><span>Grammatik Master</span></a>
+    </div>
+    <div class="header-right">
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="globalSearch" placeholder="Suchen...">
+        <div id="searchResults" class="search-results"></div>
+      </div>
+      <button class="btn-icon" id="themeBtn" onclick="APP.toggleTheme()" title="Theme wechseln">🌙</button>
+    </div>
+  </header>
+
+  <aside class="sidebar">
+    <div class="sidebar-section">Lernen</div>
+    <ul class="sidebar-nav">
+      <li><a href="../index.html"><span class="nav-icon">🏠</span> Dashboard</a></li>
+      <li><a href="wortarten-grundlagen.html"><span class="nav-icon">🧩</span> Wortarten Grundlagen</a></li>
+      <li><a href="nomen.html"><span class="nav-icon">📝</span> Nomen</a></li>
+      <li><a href="adjektiv.html"><span class="nav-icon">🎨</span> Adjektiv</a></li>
+      <li><a href="pronomen.html"><span class="nav-icon">👤</span> Pronomen</a></li>
+      <li><a href="partikel.html"><span class="nav-icon">🔗</span> Partikel</a></li>
+      <li><a href="verben.html"><span class="nav-icon">⚡</span> Verben</a></li>
+      <li><a href="aktiv-passiv.html"><span class="nav-icon">🔄</span> Aktiv & Passiv</a></li>
+      <li><a href="indirekte-rede.html"><span class="nav-icon">💬</span> Indirekte Rede</a></li>
+    </ul>
+    <div class="sidebar-section">Üben</div>
+    <ul class="sidebar-nav">
+      <li><a href="uebungen.html"><span class="nav-icon">✏️</span> Übungen</a></li>
+      <li><a href="pruefung.html"><span class="nav-icon">🎯</span> Prüfungssimulation</a></li>
+      <li><a href="lernplan.html"><span class="nav-icon">📅</span> Lernplan</a></li>
+      <li><a href="zusammenfassung.html"><span class="nav-icon">📚</span> Zusammenfassung</a></li>
+    </ul>
+  </aside>
+
+  <div class="sidebar-overlay"></div>
+
+  <main class="main">
+    <div class="content">
+      <div class="breadcrumb">
+        <a href="../index.html">Dashboard</a>
+        <span class="breadcrumb-sep">/</span>
+        <span>Schwächen trainieren</span>
+      </div>
+      <h1>💪 Schwächen trainieren</h1>
+      <p>Hier siehst du alle Fragen, die du bisher falsch beantwortet hast. Trainiere sie gezielt, um deine Lücken zu schliessen!</p>
+
+      <div id="schwaechen-stats" style="margin:1.5rem 0;"></div>
+
+      <div id="schwaechen-container"></div>
+
+      <div id="schwaechen-quiz" style="margin-top:2rem;display:none;"></div>
+    </div>
+  </main>
+</div>
+<script src="../js/app.js"></script>
+<script>
+// Initialize APP if needed and mark visited
+try {
+  if (typeof APP !== 'undefined' && APP.markVisited) {
+    APP.markVisited('schwaechen');
+  }
+} catch (e) {
+  console.error('APP initialization error:', e);
+}
+
+const topicLinks = {
+  nomen: 'nomen.html',
+  adjektiv: 'adjektiv.html',
+  pronomen: 'pronomen.html',
+  partikel: 'partikel.html',
+  verben: 'verben.html',
+  'aktiv-passiv': 'aktiv-passiv.html',
+  'indirekte-rede': 'indirekte-rede.html',
+  pruefung: 'pruefung.html'
+};
+
+const topicNames = {
+  nomen: 'Nomen',
+  adjektiv: 'Adjektiv',
+  pronomen: 'Pronomen',
+  partikel: 'Partikel',
+  verben: 'Verben',
+  'aktiv-passiv': 'Aktiv & Passiv',
+  'indirekte-rede': 'Indirekte Rede',
+  pruefung: 'Prüfung'
+};
+
+function renderSchwaechen() {
+  const container = document.getElementById('schwaechen-container');
+  const stats = document.getElementById('schwaechen-stats');
+  
+  // Check if APP is available
+  if (typeof APP === 'undefined' || !APP.progress) {
+    stats.innerHTML = '<div class="callout callout-info"><span class="callout-icon">ℹ️</span><div class="callout-content"><p>Übungsdaten werden geladen...</p></div></div>';
+    container.innerHTML = '';
+    return;
+  }
+  
+  const wrong = (APP.progress._wrong || []).slice().reverse();
+
+  if (wrong.length === 0) {
+    stats.innerHTML = '<div class="callout callout-success"><span class="callout-icon">🎉</span><div class="callout-content"><p><strong>Super!</strong> Du hast noch keine Fragen falsch beantwortet. Weiter so!</p></div></div>';
+    container.innerHTML = '';
+    return;
+  }
+
+  // Stats by category
+  const byCat = {};
+  wrong.forEach(w => { byCat[w.category] = (byCat[w.category] || 0) + 1; });
+
+  let statsHtml = '<div class="card-grid">';
+  Object.entries(byCat).forEach(([cat, count]) => {
+    statsHtml += '<div class="stat-card"><div class="stat-value">' + count + '</div><div class="stat-label">' + (topicNames[cat] || cat) + '</div></div>';
+  });
+  statsHtml += '</div>';
+  stats.innerHTML = statsHtml;
+
+  // List unique questions (keep only latest per question text)
+  const seen = new Set();
+  const unique = [];
+  wrong.forEach(w => {
+    const key = w.question;
+    if (!seen.has(key)) {
+      seen.add(key);
+      unique.push(w);
+    }
+  });
+
+  let html = '<div style="display:flex;justify-content:space-between;align-items:center;margin:1.5rem 0;flex-wrap:wrap;gap:1rem;">';
+  html += '<h2 style="margin:0;">' + unique.length + ' falsche Frage' + (unique.length !== 1 ? 'n' : '') + '</h2>';
+  if (unique.length >= 5) {
+    html += '<button class="btn btn-primary" onclick="startSchwaechenQuiz()">🔄 Diese Fragen als Quiz üben</button>';
+  }
+  html += '</div>';
+
+  html += '<div class="card-grid">';
+  unique.forEach((w, i) => {
+    html += '<div class="card" style="position:relative;">';
+    html += '<div style="position:absolute;top:0;left:0;right:0;height:4px;background:var(--error);"></div>';
+    html += '<div style="display:flex;justify-content:space-between;align-items:flex-start;gap:0.5rem;margin-bottom:0.75rem;">';
+    html += '<span class="tag tag-error">' + (topicNames[w.category] || w.category) + '</span>';
+    html += '<span style="font-size:0.8rem;color:var(--text-muted);">#' + (i + 1) + '</span>';
+    html += '</div>';
+    html += '<p style="font-weight:600;color:var(--text-primary);margin-bottom:0.5rem;">' + w.question + '</p>';
+    html += '<p style="font-size:0.9rem;color:var(--success);margin-bottom:0.5rem;"><strong>Richtige Antwort:</strong> ' + w.correctAnswer + '</p>';
+    if (w.explanation) {
+      html += '<p style="font-size:0.85rem;color:var(--text-secondary);margin:0;">' + w.explanation + '</p>';
+    }
+    if (topicLinks[w.category]) {
+      html += '<a href="' + topicLinks[w.category] + '" class="btn btn-sm btn-outline" style="margin-top:0.75rem;">Zum Thema →</a>';
+    }
+    html += '</div>';
+  });
+  html += '</div>';
+
+  container.innerHTML = html;
+}
+
+function startSchwaechenQuiz() {
+  if (typeof APP === 'undefined' || !APP.progress) {
+    alert('Fehler: APP nicht initialisiert');
+    return;
+  }
+  const wrong = (APP.progress._wrong || []).slice().reverse();
+  const seen = new Set();
+  const unique = [];
+  wrong.forEach(w => {
+    const key = w.question;
+    if (!seen.has(key)) {
+      seen.add(key);
+      unique.push(w);
+    }
+  });
+
+  // Convert to ExerciseEngine format (need options - we don't have them stored)
+  // So instead show a simple review mode
+  document.getElementById('schwaechen-container').style.display = 'none';
+  document.getElementById('schwaechen-stats').style.display = 'none';
+  const quizContainer = document.getElementById('schwaechen-quiz');
+  quizContainer.style.display = 'block';
+
+  let html = '<div class="exercise-card">';
+  html += '<h2>🔄 Wiederholungs-Quiz</h2>';
+  html += '<p style="color:var(--text-secondary);margin-bottom:1.5rem;">Beantworte die Fragen erneut. Viel Erfolg!</p>';
+
+  unique.forEach((w, i) => {
+    html += '<div class="input-row" style="margin-bottom:1rem;align-items:flex-start;flex-direction:column;gap:0.5rem;">';
+    html += '<p style="font-weight:600;color:var(--text-primary);margin:0;">' + (i + 1) + '. ' + w.question + '</p>';
+    html += '<input type="text" data-answer="' + w.correctAnswer + '" placeholder="Deine Antwort..." style="width:100%;max-width:400px;">';
+    html += '</div>';
+  });
+
+  html += '<div class="exercise-actions"><button class="btn btn-primary" id="checkSchwaechen">Antworten prüfen</button></div>';
+  html += '<div id="schwaechenFeedback" style="margin-top:1.5rem;"></div>';
+  html += '</div>';
+
+  quizContainer.innerHTML = html;
+
+  document.getElementById('checkSchwaechen').addEventListener('click', () => {
+    const inputs = quizContainer.querySelectorAll('input[data-answer]');
+    let correct = 0;
+    inputs.forEach(input => {
+      const ans = input.dataset.answer.toLowerCase().trim();
+      const val = input.value.toLowerCase().trim();
+      const isCorrect = val === ans && val !== '';
+      input.classList.remove('correct', 'incorrect');
+      input.classList.add(isCorrect ? 'correct' : 'incorrect');
+      if (!isCorrect) {
+        input.title = 'Richtig: ' + input.dataset.answer;
+      }
+      if (isCorrect) correct++;
+    });
+    const fb = document.getElementById('schwaechenFeedback');
+    const pct = Math.round((correct / inputs.length) * 100);
+    const color = pct >= 80 ? 'success' : pct >= 60 ? 'warning' : 'error';
+    const msg = pct >= 80 ? 'Hervorragend! Du hast deine Schwächen überwunden!' : pct >= 60 ? 'Gut, aber wiederhole noch einmal.' : 'Nicht aufgeben! Schau dir die Erklärungen an.';
+    fb.innerHTML = '<div class="callout callout-' + color + '"><span class="callout-icon">' + (pct >= 80 ? '✅' : '⚠️') + '</span><div class="callout-content"><p><strong>' + correct + '/' + inputs.length + ' richtig</strong> (' + pct + '%) – ' + msg + '</p></div></div>';
+  });
+}
+
+// Wait for APP to be initialized
+document.addEventListener('DOMContentLoaded', function() {
+  setTimeout(renderSchwaechen, 100);
+});
+</script>
+</body>
+</html>

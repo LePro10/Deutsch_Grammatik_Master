@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="dark">
+<head>
+<script>
+(function() {
+  const saved = localStorage.getItem('theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const theme = saved || (prefersDark ? 'dark' : 'dark');
+  document.documentElement.setAttribute('data-theme', theme);
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lernplan – Deutsch Grammatik Master</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<div class="app">
+  <header class="header">
+    <div class="header-left">
+      <button class="nav-toggle" aria-label="Menü"><span></span><span></span><span></span></button>
+      <a href="../index.html" class="logo"><div class="logo-icon">🇩🇪</div><span>Grammatik Master</span></a>
+    </div>
+    <div class="header-right">
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="globalSearch" placeholder="Suchen...">
+        <div id="searchResults" class="search-results"></div>
+      </div>
+      <button class="btn-icon" id="themeBtn" onclick="APP.toggleTheme()" title="Theme wechseln">🌙</button>
+    </div>
+  </header>
+
+  <aside class="sidebar">
+    <div class="sidebar-section">Lernen</div>
+    <ul class="sidebar-nav">
+      <li><a href="../index.html"><span class="nav-icon">🏠</span> Dashboard</a></li>
+      <li><a href="wortarten-grundlagen.html"><span class="nav-icon">🧩</span> Wortarten Grundlagen</a></li>
+      <li><a href="nomen.html"><span class="nav-icon">📝</span> Nomen</a></li>
+      <li><a href="adjektiv.html"><span class="nav-icon">🎨</span> Adjektiv</a></li>
+      <li><a href="pronomen.html"><span class="nav-icon">👤</span> Pronomen</a></li>
+      <li><a href="partikel.html"><span class="nav-icon">🔗</span> Partikel</a></li>
+      <li><a href="verben.html"><span class="nav-icon">⚡</span> Verben</a></li>
+      <li><a href="aktiv-passiv.html"><span class="nav-icon">🔄</span> Aktiv & Passiv</a></li>
+      <li><a href="indirekte-rede.html"><span class="nav-icon">💬</span> Indirekte Rede</a></li>
+    </ul>
+    <div class="sidebar-section">Üben</div>
+    <ul class="sidebar-nav">
+      <li><a href="uebungen.html"><span class="nav-icon">✏️</span> Übungen</a></li>
+      <li><a href="pruefung.html"><span class="nav-icon">🎯</span> Prüfungssimulation</a></li>
+      <li><a href="lernplan.html" class="active"><span class="nav-icon">📅</span> Lernplan</a></li>
+      <li><a href="zusammenfassung.html"><span class="nav-icon">📚</span> Zusammenfassung</a></li>
+    </ul>
+  </aside>
+
+  <div class="sidebar-overlay"></div>
+
+  <main class="main">
+    <div class="content">
+      <div class="breadcrumb">
+        <a href="../index.html">Dashboard</a>
+        <span class="breadcrumb-sep">/</span>
+        <span>Lernplan</span>
+      </div>
+      <h1>📅 Lernplan</h1>
+      <p>Dein strukturierter 5-Wochen-Plan von 0% Wissen bis zur Prüfungsreife. Jede Woche baut auf der vorherigen auf.</p>
+
+      <div class="callout callout-info" style="margin:1.5rem 0;">
+        <span class="callout-icon">💡</span>
+        <div class="callout-content">
+          <p><strong>Tipp:</strong> Lerne täglich 20–30 Minuten statt einmal pro Woche 3 Stunden. Kurze, regelmässige Einheiten bleiben besser im Gedächtnis!</p>
+        </div>
+      </div>
+
+      <div id="lernplan-container"></div>
+
+      <div class="card" style="margin-top:2rem;">
+        <h2>📊 Dein Lern-Heatmap</h2>
+        <p style="color:var(--text-secondary);">Jeder Tag, an dem du übst, wird farblich markiert. Ziel: Ein möglichst durchgehendes Grün!</p>
+        <div id="lernplan-heatmap" style="margin-top:1rem;"></div>
+        <div style="display:flex;gap:1rem;margin-top:0.75rem;flex-wrap:wrap;font-size:0.8rem;color:var(--text-muted);">
+          <span><span style="display:inline-block;width:12px;height:12px;background:var(--border-color);border-radius:2px;margin-right:4px;"></span>Kein Lernen</span>
+          <span><span style="display:inline-block;width:12px;height:12px;background:rgba(13,148,136,0.25);border-radius:2px;margin-right:4px;"></span>1–5 Aufgaben</span>
+          <span><span style="display:inline-block;width:12px;height:12px;background:rgba(13,148,136,0.5);border-radius:2px;margin-right:4px;"></span>6–10 Aufgaben</span>
+          <span><span style="display:inline-block;width:12px;height:12px;background:rgba(13,148,136,0.75);border-radius:2px;margin-right:4px;"></span>11–20 Aufgaben</span>
+          <span><span style="display:inline-block;width:12px;height:12px;background:var(--primary);border-radius:2px;margin-right:4px;"></span>20+ Aufgaben</span>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<script src="../js/app.js"></script>
+<script>
+APP.markVisited('lernplan');
+
+const plan = [
+  {
+    week: 1,
+    title: 'Woche 1: Grundlagen & Nomen',
+    topics: ['Wortarten Grundlagen', 'Nomen'],
+    days: [
+      { day: 'Mo', task: 'Wortarten Grundlagen – Theorie lesen', link: 'wortarten-grundlagen.html' },
+      { day: 'Di', task: 'Wortarten – Quiz & Lückentext', link: 'wortarten-grundlagen.html' },
+      { day: 'Mi', task: 'Nomen – Theorie: Genus & Plural', link: 'nomen.html' },
+      { day: 'Do', task: 'Nomen – Theorie: 4 Fälle & Deklination', link: 'nomen.html' },
+      { day: 'Fr', task: 'Nomen – Quiz & Lückentext', link: 'nomen.html' },
+      { day: 'Sa', task: 'Wiederholung: Wortarten + Nomen', link: 'nomen.html' },
+      { day: 'So', task: 'Frei / Nachholen', link: null }
+    ]
+  },
+  {
+    week: 2,
+    title: 'Woche 2: Adjektiv & Pronomen',
+    topics: ['Adjektiv', 'Pronomen'],
+    days: [
+      { day: 'Mo', task: 'Adjektiv – Theorie: Bildung & Steigerung', link: 'adjektiv.html' },
+      { day: 'Di', task: 'Adjektiv – Theorie: Deklination', link: 'adjektiv.html' },
+      { day: 'Mi', task: 'Adjektiv – Quiz & Lückentext', link: 'adjektiv.html' },
+      { day: 'Do', task: 'Pronomen – Theorie: Personal & Possessiv', link: 'pronomen.html' },
+      { day: 'Fr', task: 'Pronomen – Theorie: Relativ & Indefinit', link: 'pronomen.html' },
+      { day: 'Sa', task: 'Pronomen – Quiz & Lückentext', link: 'pronomen.html' },
+      { day: 'So', task: 'Frei / Nachholen', link: null }
+    ]
+  },
+  {
+    week: 3,
+    title: 'Woche 3: Partikel & Verben',
+    topics: ['Partikel', 'Verben'],
+    days: [
+      { day: 'Mo', task: 'Partikel – Theorie: Adverb & Konjunktion', link: 'partikel.html' },
+      { day: 'Di', task: 'Partikel – Theorie: Präposition & Interjektion', link: 'partikel.html' },
+      { day: 'Mi', task: 'Partikel – Quiz & Lückentext', link: 'partikel.html' },
+      { day: 'Do', task: 'Verben – Theorie: Stammformen & Zeiten', link: 'verben.html' },
+      { day: 'Fr', task: 'Verben – Theorie: Modalverben & Imperativ', link: 'verben.html' },
+      { day: 'Sa', task: 'Verben – Theorie: Konjunktiv I & II', link: 'verben.html' },
+      { day: 'So', task: 'Verben – Quiz & Kapiteltest', link: 'verben.html' }
+    ]
+  },
+  {
+    week: 4,
+    title: 'Woche 4: Aktiv & Passiv',
+    topics: ['Aktiv & Passiv', 'Indirekte Rede'],
+    days: [
+      { day: 'Mo', task: 'Aktiv/Passiv – Theorie: Vorgangs- & Zustandspassiv', link: 'aktiv-passiv.html' },
+      { day: 'Di', task: 'Aktiv/Passiv – Quiz & Umwandlung', link: 'aktiv-passiv.html' },
+      { day: 'Mi', task: 'Indirekte Rede – Theorie: Konjunktiv I', link: 'indirekte-rede.html' },
+      { day: 'Do', task: 'Indirekte Rede – Theorie: Konjunktiv II & Ersatzformen', link: 'indirekte-rede.html' },
+      { day: 'Fr', task: 'Indirekte Rede – Quiz & Lückentext', link: 'indirekte-rede.html' },
+      { day: 'Sa', task: 'Wiederholung: Aktiv/Passiv + Indirekte Rede', link: 'aktiv-passiv.html' },
+      { day: 'So', task: 'Frei / Nachholen', link: null }
+    ]
+  },
+  {
+    week: 5,
+    title: 'Woche 5: Prüfungstraining',
+    topics: ['Alle Themen', 'Prüfungssimulation'],
+    days: [
+      { day: 'Di', task: 'Gemischtes Quiz (alle Themen)', link: 'uebungen.html' },
+      { day: 'Mi', task: 'Zusammenfassung lesen', link: 'zusammenfassung.html' },
+      { day: 'Do', task: 'Erste Prüfungssimulation (40 Fragen)', link: 'pruefung.html' },
+      { day: 'Sa', task: 'Zweite Prüfungssimulation', link: 'pruefung.html' },
+      { day: 'So', task: 'Letzte Wiederholung & Entspannung', link: 'zusammenfassung.html' }
+    ]
+  }
+];
+
+function renderPlan() {
+  const container = document.getElementById('lernplan-container');
+  const now = new Date();
+  const start = new Date(2026, 0, 5); // Start date
+  const diffWeeks = Math.floor((now - start) / (7 * 24 * 60 * 60 * 1000));
+
+  let html = '';
+  plan.forEach((w, i) => {
+    const isActive = i === Math.max(0, Math.min(diffWeeks, 4));
+    html += '<div class="study-week ' + (isActive ? 'active' : '') + '">';
+    html += '<div class="study-week-header">';
+    html += '<div><div class="study-week-title">' + w.title + '</div>';
+    html += '<div class="study-week-topics" style="margin-top:0.5rem;">';
+    w.topics.forEach(t => html += '<span class="tag tag-outline">' + t + '</span>');
+    html += '</div></div>';
+    if (isActive) html += '<span class="tag tag-primary">Aktuell</span>';
+    html += '</div>';
+    html += '<div class="table-wrap" style="margin:0.75rem 0 0;">';
+    html += '<table><thead><tr><th>Tag</th><th>Aufgabe</th></tr></thead><tbody>';
+    w.days.forEach(d => {
+      html += '<tr>';
+      html += '<td style="width:60px;font-weight:700;color:var(--text-muted);">' + d.day + '</td>';
+      if (d.link) {
+        html += '<td><a href="' + d.link + '">' + d.task + '</a></td>';
+      } else {
+        html += '<td style="color:var(--text-muted);">' + d.task + '</td>';
+      }
+      html += '</tr>';
+    });
+    html += '</tbody></table>';
+    html += '</div>';
+    html += '</div>';
+  });
+
+  container.innerHTML = html;
+}
+
+function renderHeatmap() {
+  const container = document.getElementById('lernplan-heatmap');
+  const days = APP.progress._days || {};
+  const today = new Date();
+  const start = new Date();
+  start.setDate(today.getDate() - 364);
+
+  let html = '<div class="heatmap">';
+  for (let d = new Date(start); d <= today; d.setDate(d.getDate() + 1)) {
+    const key = d.toISOString().split('T')[0];
+    const count = days[key] || 0;
+    let level = '';
+    if (count >= 20) level = 'level-4';
+    else if (count >= 11) level = 'level-3';
+    else if (count >= 6) level = 'level-2';
+    else if (count >= 1) level = 'level-1';
+    html += '<div class="heatmap-day ' + level + '" title="' + key + ': ' + count + ' Aufgabe' + (count !== 1 ? 'n' : '') + '"></div>';
+  }
+  html += '</div>';
+  container.innerHTML = html;
+}
+
+renderPlan();
+renderHeatmap();
+</script>
+</body>
+</html>

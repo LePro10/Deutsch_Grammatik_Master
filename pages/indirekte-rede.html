@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="dark">
+<head>
+<script>
+(function() {
+  const saved = localStorage.getItem('theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const theme = saved || (prefersDark ? 'dark' : 'dark');
+  document.documentElement.setAttribute('data-theme', theme);
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Indirekte Rede – Deutsch Grammatik Master</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<div class="app">
+  <header class="header">
+    <div class="header-left">
+      <button class="nav-toggle" aria-label="Menü"><span></span><span></span><span></span></button>
+      <a href="../index.html" class="logo"><div class="logo-icon">🇩🇪</div><span>Grammatik Master</span></a>
+    </div>
+    <div class="header-right">
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="globalSearch" placeholder="Suchen...">
+        <div class="search-results" id="searchResults"></div>
+      </div>
+      <button class="btn-icon" id="themeBtn" onclick="APP.toggleTheme()" title="Theme wechseln">🌙</button>
+    </div>
+  </header>
+
+  <aside class="sidebar">
+    <div class="sidebar-section">Lernen</div>
+    <ul class="sidebar-nav">
+      <li><a href="../index.html"><span class="nav-icon">🏠</span> Dashboard</a></li>
+      <li><a href="wortarten-grundlagen.html"><span class="nav-icon">🧩</span> Wortarten Grundlagen</a></li>
+      <li><a href="nomen.html"><span class="nav-icon">📝</span> Nomen</a></li>
+      <li><a href="adjektiv.html"><span class="nav-icon">🎨</span> Adjektiv</a></li>
+      <li><a href="pronomen.html"><span class="nav-icon">👤</span> Pronomen</a></li>
+      <li><a href="partikel.html"><span class="nav-icon">🔗</span> Partikel</a></li>
+      <li><a href="verben.html"><span class="nav-icon">⚡</span> Verben</a></li>
+      <li><a href="aktiv-passiv.html"><span class="nav-icon">🔄</span> Aktiv & Passiv</a></li>
+      <li><a href="indirekte-rede.html" class="active"><span class="nav-icon">💬</span> Indirekte Rede</a></li>
+    </ul>
+    <div class="sidebar-section">Üben</div>
+    <ul class="sidebar-nav">
+      <li><a href="uebungen.html"><span class="nav-icon">✏️</span> Übungen</a></li>
+      <li><a href="pruefung.html"><span class="nav-icon">🎯</span> Prüfungssimulation</a></li>
+      <li><a href="lernplan.html"><span class="nav-icon">📅</span> Lernplan</a></li>
+      <li><a href="zusammenfassung.html"><span class="nav-icon">📚</span> Zusammenfassung</a></li>
+    </ul>
+  </aside>
+
+  <div class="sidebar-overlay"></div>
+
+  <main class="main">
+    <div class="content">
+      <div class="breadcrumb"><a href="../index.html">Dashboard</a><span class="breadcrumb-sep">›</span><span>Indirekte Rede</span></div>
+      <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;flex-wrap:wrap;">
+        <h1 style="margin:0;">💬 Indirekte Rede</h1>
+        <span class="tag tag-outline">Konjunktiv I · Konjunktiv II · Gemischter Konjunktiv</span>
+      </div>
+      <p>Die indirekte Rede verwendest du, wenn du Aussagen einer anderen Person sinngemäss wiedergibst – nicht wörtlich. Dafür brauchst du den <strong>Konjunktiv</strong>. Keine Anführungszeichen!</p>
+
+      <div class="tabs">
+        <button class="tab active">Theorie</button>
+        <button class="tab">Quiz</button>
+        <button class="tab">Lückentext</button>
+        <button class="tab">Konjunktiv-Builder</button>
+        <button class="tab">Kapiteltest</button>
+        <button class="tab">Lernkarten</button>
+      </div>
+
+      <div class="tab-panel active">
+        <h2>1. Konjunktiv I</h2>
+        <p>Der Konjunktiv I leitet sich vom Infinitivstamm ab. Er ist die Hauptform für die indirekte Rede.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Person</th><th>Indikativ</th><th>Konjunktiv I</th></tr></thead>
+            <tbody>
+              <tr><td>ich</td><td>ich gehe</td><td>ich gehe *</td></tr>
+              <tr><td>du</td><td>du gehst</td><td>du gehest</td></tr>
+              <tr><td>er/sie/es</td><td>er geht</td><td>er gehe</td></tr>
+              <tr><td>wir</td><td>wir gehen</td><td>wir gehen *</td></tr>
+              <tr><td>ihr</td><td>ihr geht</td><td>ihr gehet</td></tr>
+              <tr><td>sie/Sie</td><td>sie gehen</td><td>sie gehen *</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout callout-warning">
+          <span class="callout-icon">⚠️</span>
+          <div class="callout-content"><p><strong>Problem:</strong> Bei «ich», «wir» und «sie/Sie» ist Konjunktiv I = Indikativ (*). Deshalb weicht man auf <strong>Konjunktiv II</strong> aus!</p></div>
+        </div>
+
+        <h2>2. Konjunktiv II</h2>
+        <p>Der Konjunktiv II leitet sich vom Präteritum ab. Bei starken Verben tritt ein Umlaut auf.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Indikativ Prät.</th><th>Konjunktiv II</th><th>Indikativ Prät.</th><th>Konjunktiv II</th></tr></thead>
+            <tbody>
+              <tr><td>ich kam</td><td>ich käme</td><td>ich sah</td><td>ich sähe</td></tr>
+              <tr><td>du kamst</td><td>du kämest</td><td>du gingst</td><td>du gingest</td></tr>
+              <tr><td>er kam</td><td>er käme</td><td>er ging</td><td>er ginge</td></tr>
+              <tr><td>wir kamen</td><td>wir kämen</td><td>wir gingen</td><td>wir gingen *</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>* Bei «wir» und «sie» ohne Umlaut ist Konjunktiv II = Indikativ. Auch hier weicht man auf die <strong>würde-Form</strong> aus.</p>
+
+        <h2>3. Der gemischte Konjunktiv</h2>
+        <p>In der indirekten Rede verwendet man Konjunktiv I, wo er vom Indikativ unterscheidbar ist. Wo nicht, weicht man auf Konjunktiv II aus.</p>
+        <div class="example-box">
+          <div class="example-label">Beispiel</div>
+          <p><strong>Direkt:</strong> Sie sagt: «Ich komme um acht Uhr.»</p>
+          <p><strong>Indirekt:</strong> Sie sagt, sie <strong>komme</strong> um acht Uhr. (Konj. I funktioniert)</p>
+          <p><strong>Direkt:</strong> Sie sagt: «Wir kommen um acht Uhr.»</p>
+          <p><strong>Indirekt:</strong> Sie sagt, sie <strong>kämen</strong> um acht Uhr. (Konj. I = Indikativ → Konj. II)</p>
+        </div>
+
+        <h2>4. Die würde-Form</h2>
+        <p>Wenn Konjunktiv II und Indikativ identisch sind, verwendet man die <strong>würde-Form</strong>:</p>
+        <div class="example-box">
+          <div class="example-label">Beispiel</div>
+          <p>Wenn ich ihn fragte, <strong>würde</strong> er nicht antworten. (statt: antwortete – nicht unterscheidbar)</p>
+        </div>
+        <div class="callout callout-info">
+          <span class="callout-icon">💡</span>
+          <div class="callout-content"><p><strong>Stilistik:</strong> Nicht alle Verben mit «würde» bilden. Mindestens ein Verb im echten Konjunktiv II.</p></div>
+        </div>
+
+        <h2>5. Weitere Änderungen</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Änderung</th><th>Direkte Rede</th><th>Indirekte Rede</th></tr></thead>
+            <tbody>
+              <tr><td>1. → 3. Person</td><td>Ich komme …</td><td>Sie sagt, sie komme …</td></tr>
+              <tr><td>Ort</td><td>Ich wohne <strong>hier</strong>.</td><td>Sie sagt, sie wohne <strong>dort</strong>.</td></tr>
+              <tr><td>Zeit</td><td>Ich komme <strong>heute</strong>.</td><td>Sie sagt, sie komme <strong>an diesem Tag</strong>.</td></tr>
+              <tr><td>Präteritum → Konj. Perfekt</td><td>Ich <strong>kam</strong> zu spät.</td><td>Er sagt, er <strong>sei</strong> zu spät <strong>gekommen</strong>.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>6. Konjunktiv II für Wünsche und Höflichkeit</h2>
+        <div class="example-box">
+          <div class="example-label">Beispiele</div>
+          <p><strong>Wunsch:</strong> Wenn sie nur endlich <strong>käme</strong>!</p>
+          <p><strong>Höflichkeit:</strong> <strong>Könnten</strong> Sie bitte das Fenster öffnen?</p>
+          <p><strong>Bedingung:</strong> Ich <strong>hätte</strong> grosse Freude, wenn ich <strong>gewänne</strong>.</p>
+        </div>
+
+        <h2>7. Fragesätze und Ausrufesätze</h2>
+        <div class="example-box">
+          <div class="example-label">Beispiele</div>
+          <p><strong>Frage:</strong> Sie fragt: «Kommst du mit?» → Sie fragt, <strong>ob</strong> ich <strong>mitkomme</strong>.</p>
+          <p><strong>Frage nach Objekt:</strong> Er fragt: «Wen hast du gesehen?» → Er fragt, <strong>wen</strong> ich <strong>gesehen habe</strong>.</p>
+          <p><strong>Ausruf:</strong> Er rief: «Das ist ja unglaublich!» → Er rief, das <strong>sei</strong> ja unglaublich.</p>
+        </div>
+      </div>
+
+      <div class="tab-panel"><h2>Quiz</h2><div id="ir-quiz"></div></div>
+      <div class="tab-panel"><h2>Lückentext</h2><div id="ir-input"></div></div>
+      <div class="tab-panel"><h2>Konjunktiv-Builder</h2><div id="ir-builder"></div></div>
+      <div class="tab-panel"><h2>Kapiteltest</h2><div id="ir-test"></div></div>
+      <div class="tab-panel"><h2>Lernkarten</h2><div id="ir-flashcards"></div></div>
+    </div>
+  </main>
+</div>
+<script src="../js/app.js"></script>
+<script>
+APP.markVisited('indirekte-rede');
+
+const irQuestions = [
+  { question: "Welche Form verwendet man in der indirekten Rede normalerweise?", options: ["Indikativ","Konjunktiv I","Konjunktiv II","Imperativ"], answer: 1, explanation: "Konjunktiv I ist die Hauptform, wo er unterscheidbar ist." },
+  { question: "Wie lautet der Konjunktiv I von 'er kommt'?", options: ["er kommt","er käme","er komme","er kämme"], answer: 2, explanation: "Konjunktiv I: er komme." },
+  { question: "Wann weicht man auf Konjunktiv II aus?", options: ["Immer","Nie","Wenn Konj. I = Indikativ","Im Präteritum"], answer: 2, explanation: "Wenn Konjunktiv I nicht vom Indikativ zu unterscheiden ist." },
+  { question: "Wie lautet der Konjunktiv II von 'ich sah'?", options: ["ich sähe","ich sahe","ich sehe","ich säh"], answer: 0, explanation: "Starkes Verb: sah → sähe (mit Umlaut)." },
+  { question: "Direkt: 'Ich wohne hier.' → Indirekt?", options: ["Er sagt, er wohne hier.","Er sagt, er wohne dort.","Er sagt, er wohne heute.","Er sagt, er wohne morgen."], answer: 1, explanation: "'Hier' wird zu 'dort'." },
+  { question: "Direkt: 'Ich kam zu spät.' → Indirekt?", options: ["Er sagt, er käme zu spät.","Er sagt, er sei zu spät gekommen.","Er sagt, er wäre zu spät.","Er sagt, er komme zu spät."], answer: 1, explanation: "Präteritum → Konjunktiv Perfekt: sei ... gekommen." },
+  { question: "Was ist die würde-Form?", options: ["Ersatz für Konjunktiv I","Ersatz für Konjunktiv II","Futurform","Imperativ"], answer: 1, explanation: "würde + Infinitiv ersetzt Konjunktiv II bei schwachen Verben." },
+  { question: "Wie lautet der Konjunktiv II von 'ich gehe'?", options: ["ich ginge","ich gingest","ich ginge","ich ginge"], answer: 0, explanation: "Stark: ging → ginge." },
+  { question: "Direkt: 'Wir haben keine Zeit.' → Indirekt?", options: ["Er sagt, wir haben keine Zeit.","Er sagt, sie hätten keine Zeit.","Er sagt, sie haben keine Zeit.","Er sagt, sie haben keine Zeit."], answer: 1, explanation: "'Wir haben' → Konj. II (hätten), da Konj. I = Indikativ." },
+  { question: "Direkt: 'Ich werde kommen.' → Indirekt?", options: ["Er sagt, er werde kommen.","Er sagt, er würde kommen.","Er sagt, er käme.","Er sagt, er komme."], answer: 0, explanation: "Futur im Konjunktiv I: er werde kommen." },
+  { question: "Wie lautet der Konjunktiv I von 'du bist'?", options: ["du bist","du seiest","du sei","du wärest"], answer: 1, explanation: "Konjunktiv I von sein: du seiest." },
+  { question: "Direkt: 'Das ist ja unglaublich!' → Indirekt?", options: ["Er sagt, das sei ja unglaublich.","Er sagt, das wäre ja unglaublich.","Er sagt, das ist ja unglaublich.","Er sagt, das sei unglaublich gewesen."], answer: 0, explanation: "Ausrufesätze: Konjunktiv I." },
+  { question: "Wie lautet der Konjunktiv II von 'ich kann'?", options: ["ich könne","ich könnte","ich käme","ich könnte"], answer: 1, explanation: "können → könnte (mit Umlaut)." },
+  { question: "Direkt: 'Kommst du mit?' → Indirekt?", options: ["Er fragt, ob ich mitkomme.","Er fragt, ob ich mitkäme.","Er fragt, ob ich mitkommen.","Er fragt, ob ich mitgehe."], answer: 0, explanation: "Ja/Nein-Fragen: ob + Konjunktiv I." },
+  { question: "Welche Form ist standardsprachlich korrekt?", options: ["Sie sagt, sie wäre krank.","Sie sagt, sie sei krank.","Sie sagt, sie ist krank.","Sie sagt, sie wäre gewesen krank."], answer: 1, explanation: "Konjunktiv I ('sei') ist korrekt, wenn unterscheidbar." }
+];
+
+const irInputs = [
+  { before: "Direkt: 'Ich bin müde.' → Indirekt: Er sagt, er", answer: "sei müde", after: "." },
+  { before: "Direkt: 'Wir gehen ins Kino.' → Indirekt: Sie sagt, sie", answer: "gingen ins Kino|gingen ins Kino", after: "." },
+  { before: "Direkt: 'Ich habe das Buch gelesen.' → Indirekt: Er sagt, er", answer: "habe das Buch gelesen", after: "." },
+  { before: "Direkt: 'Das war ein Fehler.' → Indirekt: Sie sagt, das", answer: "sei ein Fehler gewesen", after: "." },
+  { before: "Direkt: 'Ich kann nicht kommen.' → Indirekt: Er sagt, er", answer: "könne nicht kommen", after: "." },
+  { before: "Direkt: 'Wir werden helfen.' → Indirekt: Sie sagt, sie", answer: "werden helfen", after: "." },
+  { before: "Direkt: 'Ich wohne hier seit 5 Jahren.' → Indirekt: Er sagt, er", answer: "wohne dort seit 5 Jahren", after: "." },
+  { before: "Direkt: 'Das habe ich gestern gemacht.' → Indirekt: Sie sagt, sie", answer: "habe das am Vortag gemacht", after: "." },
+  { before: "Direkt: 'Ich muss lernen.' → Indirekt: Er sagt, er", answer: "müsse lernen", after: "." },
+  { before: "Direkt: 'Wir sind gestern angekommen.' → Indirekt: Sie sagt, sie", answer: "seien gestern angekommen", after: "." }
+];
+
+const irBuilder = [
+  { before: "Konjunktiv I von 'ich gehe':", answer: "ich gehe", after: "" },
+  { before: "Konjunktiv I von 'du läufst':", answer: "du laufest", after: "" },
+  { before: "Konjunktiv I von 'er ist':", answer: "er sei", after: "" },
+  { before: "Konjunktiv II von 'ich kam':", answer: "ich käme", after: "" },
+  { before: "Konjunktiv II von 'du gingst':", answer: "du gingest", after: "" },
+  { before: "Konjunktiv II von 'er sah':", answer: "er sähe", after: "" },
+  { before: "Konjunktiv II von 'wir hatten':", answer: "wir hätten", after: "" },
+  { before: "würde-Form von 'ich antworte':", answer: "ich würde antworten", after: "" },
+  { before: "Konjunktiv I von 'sie werden':", answer: "sie werden", after: " (= Indikativ → Konj. II)" },
+  { before: "Konjunktiv II von 'ich kann':", answer: "ich könnte", after: "" }
+];
+
+const irTest = [
+  { question: "Direkt: 'Ich habe keine Lust.' → Indirekt mit Konjunktiv I?", options: ["Er sagt, er habe keine Lust.","Er sagt, er hätte keine Lust.","Er sagt, er habe keine Lust.","Er sagt, er hat keine Lust."], answer: 0, explanation: "Perfekt: habe (Konj. I von haben)." },
+  { question: "Direkt: 'Wir waren erfolgreich.' → Indirekt?", options: ["Er sagt, sie seien erfolgreich.","Er sagt, sie waren erfolgreich.","Er sagt, sie wären erfolgreich.","Er sagt, sie sein erfolgreich."], answer: 0, explanation: "Konjunktiv I von sein: seien (unterscheidbar von waren)." },
+  { question: "Direkt: 'Ich werde das morgen erledigen.' → Indirekt?", options: ["Er sagt, er werde das am nächsten Tag erledigen.","Er sagt, er würde das morgen erledigen.","Er sagt, er wird das morgen erledigen.","Er sagt, er hätte das am nächsten Tag erledigt."], answer: 0, explanation: "Futur → Konj. I: werde. Morgen → am nächsten Tag." },
+  { question: "Welcher Satz enthält den gemischten Konjunktiv korrekt?", options: ["Er sagt, er komme. Er sagt, wir kämen.","Er sagt, er käme. Er sagt, wir kommen.","Er sagt, er kommt. Er sagt, wir kämen.","Er sagt, er käme. Er sagt, wir kämen."], answer: 0, explanation: "Er komme (Konj. I, unterscheidbar). Wir kämen (Konj. II, da Konj. I = Indikativ)." },
+  { question: "Direkt: 'Das darfst du nicht tun!' → Indirekt?", options: ["Er sagt, das dürfe ich nicht tun.","Er sagt, das dürfte ich nicht tun.","Er sagt, das darf ich nicht tun.","Er sagt, das dürfe ich nicht getan haben."], answer: 0, explanation: "Konjunktiv I von dürfen: dürfe." },
+  { question: "Wann verwendet man Konjunktiv II in der indirekten Rede?", options: ["Immer","Nie","Wenn Konj. I nicht vom Indikativ unterscheidbar ist","Nur bei schwachen Verben"], answer: 2, explanation: "Konjunktiv II als Ausweichform bei ich/wir/sie." },
+  { question: "Direkt: 'Ich hatte das schon gewusst.' → Indirekt?", options: ["Er sagt, er habe das schon gewusst.","Er sagt, er hätte das schon gewusst.","Er sagt, er hatte das schon gewusst.","Er sagt, er wisse das schon."], answer: 1, explanation: "Plusquamperfekt → Konj. II Perfekt: hätte ... gewusst." },
+  { question: "Wie heisst der Konjunktiv I von 'es gibt'?", options: ["es gebe","es gäbe","es gibt","es gebt"], answer: 0, explanation: "Konjunktiv I von geben: es gebe." },
+  { question: "Direkt: 'Wohin fahrt ihr?' → Indirekt?", options: ["Er fragt, wohin sie fahren.","Er fragt, wohin sie führen.","Er fragt, wohin sie führen.","Er fragt, wohin sie fahren würden."], answer: 0, explanation: "W-Fragen: Fragewort bleibt + Konjunktiv I." },
+  { question: "Welche Änderung tritt in der indirekten Rede NICHT auf?", options: ["hier → dort","heute → an diesem Tag","ich → er","? → !"], answer: 3, explanation: "Satzzeichen ändern sich nicht grundsätzlich." }
+];
+
+const irCards = [
+  { front: "Konjunktiv I Bildung", back: "Infinitivstamm + Konjunktivendung", detail: "ich gehe → ich gehe (*), du gehst → du gehest, er geht → er gehe" },
+  { front: "Konjunktiv II Bildung", back: "Präteritumstamm + Umlaut + Endung", detail: "kam → käme, sah → sähe, fuhr → führe" },
+  { front: "Gemischter Konjunktiv", back: "Konj. I wo möglich, sonst Konj. II", detail: "Sie sagt, sie komme (Konj. I). Sie sagt, sie kämen (Konj. II)." },
+  { front: "Präteritum → Indirekte Rede", back: "Konjunktiv Perfekt", detail: "'Ich kam' → Er sagt, er sei gekommen." },
+  { front: "Ort ändern", back: "hier → dort", detail: "'Ich wohne hier' → Sie sagt, sie wohne dort." },
+  { front: "Zeit ändern", back: "heute → an diesem Tag", detail: "'Ich komme heute' → Sie sagt, sie komme an diesem Tag." },
+  { front: "würde-Form", back: "würde + Infinitiv", detail: "Ersatz für Konjunktiv II bei schwachen Verben." },
+  { front: "Konjunktiv II: Höflichkeit", back: "Könnten Sie? / Hätten Sie?", detail: "Konjunktiv II drückt auch Höflichkeit aus." }
+];
+
+// Initialize all exercises on page load
+setTimeout(function() {
+  if (document.getElementById('ir-quiz') && !document.getElementById('ir-quiz').dataset.init) {
+    new ExerciseEngine('ir-quiz', irQuestions, 'indirekte', 'quiz');
+    document.getElementById('ir-quiz').dataset.init = '1';
+  }
+  if (document.getElementById('ir-input') && !document.getElementById('ir-input').dataset.init) {
+    new InputExerciseEngine('ir-input', irInputs, 'indirekte', 'lueckentext');
+    document.getElementById('ir-input').dataset.init = '1';
+  }
+  if (document.getElementById('sa1') && !document.getElementById('sa1').dataset.init) {
+    if (typeof saData !== 'undefined') {
+      saData.forEach(s => {
+        new SatzanalyseTool(s.id, s.sentence, s.analysis);
+      });
+      document.getElementById('sa1').dataset.init = '1';
+    }
+  }
+  if (document.getElementById('ir-test') && !document.getElementById('ir-test').dataset.init) {
+    new ExerciseEngine('ir-test', irTest, 'indirekte', 'kapiteltest');
+    document.getElementById('ir-test').dataset.init = '1';
+  }
+  if (document.getElementById('ir-flashcards') && !document.getElementById('ir-flashcards').dataset.init) {
+    new FlashcardEngine('ir-flashcards', irCards);
+    document.getElementById('ir-flashcards').dataset.init = '1';
+  }
+}, 100);
+</script>
+</body>
+</html>

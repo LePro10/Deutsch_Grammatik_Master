@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="dark">
+<head>
+<script>
+(function() {
+  const saved = localStorage.getItem('theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const theme = saved || (prefersDark ? 'dark' : 'dark');
+  document.documentElement.setAttribute('data-theme', theme);
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Verben – Deutsch Grammatik Master</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<div class="app">
+  <header class="header">
+    <div class="header-left">
+      <button class="nav-toggle" aria-label="Menü"><span></span><span></span><span></span></button>
+      <a href="../index.html" class="logo"><div class="logo-icon">🇩🇪</div><span>Grammatik Master</span></a>
+    </div>
+    <div class="header-right">
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="globalSearch" placeholder="Suchen...">
+        <div id="searchResults" class="search-results"></div>
+      </div>
+      <button class="btn-icon" id="themeBtn" onclick="APP.toggleTheme()" title="Theme wechseln">🌙</button>
+    </div>
+  </header>
+
+  <aside class="sidebar">
+    <div class="sidebar-section">Lernen</div>
+    <ul class="sidebar-nav">
+      <li><a href="../index.html"><span class="nav-icon">🏠</span> Dashboard</a></li>
+      <li><a href="wortarten-grundlagen.html"><span class="nav-icon">🧩</span> Wortarten Grundlagen</a></li>
+      <li><a href="nomen.html"><span class="nav-icon">📝</span> Nomen</a></li>
+      <li><a href="adjektiv.html"><span class="nav-icon">🎨</span> Adjektiv</a></li>
+      <li><a href="pronomen.html"><span class="nav-icon">👤</span> Pronomen</a></li>
+      <li><a href="partikel.html"><span class="nav-icon">🔗</span> Partikel</a></li>
+      <li><a href="verben.html" class="active"><span class="nav-icon">⚡</span> Verben</a></li>
+      <li><a href="aktiv-passiv.html"><span class="nav-icon">🔄</span> Aktiv & Passiv</a></li>
+      <li><a href="indirekte-rede.html"><span class="nav-icon">💬</span> Indirekte Rede</a></li>
+    </ul>
+    <div class="sidebar-section">Üben</div>
+    <ul class="sidebar-nav">
+      <li><a href="uebungen.html"><span class="nav-icon">✏️</span> Übungen</a></li>
+      <li><a href="pruefung.html"><span class="nav-icon">🎯</span> Prüfungssimulation</a></li>
+      <li><a href="lernplan.html"><span class="nav-icon">📅</span> Lernplan</a></li>
+      <li><a href="zusammenfassung.html"><span class="nav-icon">📚</span> Zusammenfassung</a></li>
+    </ul>
+  </aside>
+
+  <div class="sidebar-overlay"></div>
+
+  <main class="main">
+    <div class="content">
+      <div class="breadcrumb">
+        <a href="../index.html">Dashboard</a>
+        <span class="breadcrumb-sep">/</span>
+        <span>Verben</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;flex-wrap:wrap;">
+        <h1 style="margin:0;">⚡ Verben</h1>
+        <span class="tag tag-outline">Stammformen · 6 Zeiten · Modi · Konjunktiv</span>
+      </div>
+      <p>Das Verb ist die formenreichste Wortart. Es beschreibt Vorgänge, Handlungen und Abläufe. Es teilt jeder Person eine eigene Verbform zu, zeigt den Zeitpunkt und drückt Tatsache oder Möglichkeit aus.</p>
+
+      <div class="tabs">
+        <button class="tab active">Theorie</button>
+        <button class="tab">Quiz</button>
+        <button class="tab">Lückentext</button>
+        <button class="tab">Satzanalyse</button>
+        <button class="tab">Kapiteltest</button>
+        <button class="tab">Lernkarten</button>
+      </div>
+
+      <div class="tab-panel active">
+        <h2>1. Die drei Gebrauchsarten</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Art</th><th>Aufgabe</th><th>Beispiele</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Vollverb</strong></td><td>Beschreibt Handlungen und Geschehnisse</td><td>blühen, diskutieren, laufen</td></tr>
+              <tr><td><strong>Modalverb</strong></td><td>Modifiziert die Aussage des Vollverbs</td><td>können, müssen, dürfen, wollen, sollen, mögen</td></tr>
+              <tr><td><strong>Hilfsverb</strong></td><td>Hilft, das Verb in bestimmte Formen zu setzen</td><td>haben, sein, werden</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>2. Arten der Vollverben</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Kategorie</th><th>Merkmal</th><th>Beispiel</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Absolut</strong></td><td>Kein Objekt möglich</td><td>Die Rosen blühen. Alle lachen.</td></tr>
+              <tr><td><strong>Transitiv</strong></td><td>Mit Akkusativobjekt</td><td>Wir treffen unsere Freunde.</td></tr>
+              <tr><td><strong>Intransitiv</strong></td><td>Mit Dativ- oder Genitivobjekt</td><td>Ich helfe dem Kollegen.</td></tr>
+              <tr><td><strong>Reflexiv</strong></td><td>Objekt = Subjekt</td><td>Wir freuen uns. Er ärgert sich.</td></tr>
+              <tr><td><strong>Unpersönlich</strong></td><td>Nur mit «es»</td><td>Es regnet. Es graut mir.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>3. Die drei Stammformen</h2>
+        <p>Von den Stammformen lassen sich alle Konjugationsformen ableiten.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Stammform</th><th>Beispiel</th><th>Verwendung</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Infinitiv</strong></td><td>finden</td><td>Grundform, Präsens, Konjunktiv I</td></tr>
+              <tr><td><strong>Präteritum</strong></td><td>fand</td><td>Präteritum, Konjunktiv II</td></tr>
+              <tr><td><strong>Partizip Perfekt</strong></td><td>gefunden</td><td>Perfekt, Plusquamperfekt, Passiv</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>4. Schwache, starke und gemischte Verben</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Typ</th><th>Merkmal</th><th>Beispiel</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Schwach</strong></td><td>Endungen -te / -t, kein Stammvokalwechsel</td><td>spielen – spielte – gespielt</td></tr>
+              <tr><td><strong>Stark</strong></td><td>Stammvokalwechsel, Partizip auf -en</td><td>fahren – fuhr – gefahren</td></tr>
+              <tr><td><strong>Gemischt</strong></td><td>Stammvokalwechsel + schwache Endungen</td><td>rennen – rannte – gerannt, wissen – wusste – gewusst</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout callout-info">
+          <span class="callout-icon">📌</span>
+          <div class="callout-content">
+            <p><strong>Faustregel:</strong> Ist das Präteritum schwach, ist auch das Partizip schwach. Heisst es geschimpft oder geschumpfen? Präteritum = schimpfte → Partizip = geschimpft.</p>
+          </div>
+        </div>
+
+        <h2>5. Die sechs Zeiten</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Zeit</th><th>Bildung</th><th>Beispiel (schwach)</th><th>Beispiel (stark)</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Präsens</strong></td><td>Ein-Wort-Form</td><td>ich spiele</td><td>ich gehe</td></tr>
+              <tr><td><strong>Präteritum</strong></td><td>Ein-Wort-Form</td><td>ich spielte</td><td>ich ging</td></tr>
+              <tr><td><strong>Perfekt</strong></td><td>haben/sein + Partizip II</td><td>ich habe gespielt</td><td>ich bin gegangen</td></tr>
+              <tr><td><strong>Plusquamperfekt</strong></td><td>hatte/war + Partizip II</td><td>ich hatte gespielt</td><td>ich war gegangen</td></tr>
+              <tr><td><strong>Futur I</strong></td><td>werden + Infinitiv</td><td>ich werde spielen</td><td>ich werde gehen</td></tr>
+              <tr><td><strong>Futur II</strong></td><td>werden + Partizip + haben/sein</td><td>ich werde gespielt haben</td><td>ich werde gegangen sein</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Anwendung der Zeiten</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Zeit</th><th>Verwendung</th><th>Beispiel</th></tr></thead>
+            <tbody>
+              <tr><td>Präsens</td><td>Gegenwart, Allgemeingültiges, Zukunft</td><td>Morgen fahren wir in die Ferien.</td></tr>
+              <tr><td>Präteritum</td><td>Erzähltes, geschriebene Texte</td><td>Er setzte sich hin und begann zu schreiben.</td></tr>
+              <tr><td>Perfekt</td><td>Vergangenheit im Gespräch, Tatsachen</td><td>Ich habe einen Brief geschrieben.</td></tr>
+              <tr><td>Plusquamperfekt</td><td>Vorzeitiges zum Präteritum</td><td>Nachdem er gegessen hatte, ging er zu Bett.</td></tr>
+              <tr><td>Futur I</td><td>Zukunft, Vermutung</td><td>Sie wird noch schlafen.</td></tr>
+              <tr><td>Futur II</td><td>Vorzukunft, Vermutung über Vergangenes</td><td>Er wird sich verschlafen haben.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>6. Zeitenfolge</h2>
+        <p>Bei der indirekten Rede und in komplexen Satzgefügen muss die <strong>Zeitenfolge</strong> beachtet werden. Die <strong>Basiszeit</strong> bestimmt, welche Zeit für Vorzeitigkeit verwendet wird.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Basiszeit</th><th>Vorzeitigkeit</th><th>Beispiel</th></tr></thead>
+            <tbody>
+              <tr><td>Präsens</td><td>Perfekt</td><td>Er sagt, dass er <strong>gegessen habe</strong>.</td></tr>
+              <tr><td>Präteritum</td><td>Plusquamperfekt</td><td>Er sagte, dass er <strong>gegessen habe</strong> (Konj. I) bzw. <strong>gegessen hätte</strong> (Konj. II Ersatz).</td></tr>
+              <tr><td>Futur I</td><td>Futur II</td><td>Er wird sagen, dass er <strong>gegessen haben werde</strong>.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="example-box">
+          <div class="example-label">🔍 Visuelle Erklärung</div>
+          <p><strong>Präsens → Perfekt:</strong> Gegenwart als Bezugspunkt → vorher abgeschlossene Handlung.</p>
+          <p>Beispiel: Er sagt, er <strong>habe</strong> das schon <strong>gewusst</strong>. (Gegenwart → Vorzeitigkeit)</p>
+          <p style="margin-top:0.5rem;"><strong>Präteritum → Plusquamperfekt:</strong> Vergangenheit als Bezugspunkt → davor abgeschlossene Handlung.</p>
+          <p>Beispiel: Er sagte, er <strong>hatte</strong> das schon <strong>gewusst</strong>. (Vergangenheit → Vorvergangenheit)</p>
+        </div>
+
+        <h2>7. Modalverben</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Verb</th><th>Hauptbedeutung</th><th>Beispiel</th></tr></thead>
+            <tbody>
+              <tr><td>können</td><td>Fähigkeit, Möglichkeit</td><td>Ich kann schwimmen.</td></tr>
+              <tr><td>müssen</td><td>Zwang, Notwendigkeit, Pflicht</td><td>Ich muss lernen.</td></tr>
+              <tr><td>dürfen</td><td>Erlaubnis</td><td>Du darfst hereinkommen.</td></tr>
+              <tr><td>sollen</td><td>Aufforderung, Befehl, Gerücht</td><td>Du sollst dein Zimmer aufräumen.</td></tr>
+              <tr><td>wollen</td><td>Wunsch, Absicht</td><td>Ich will Arzt werden.</td></tr>
+              <tr><td>mögen</td><td>Zuneigung, Vermutung</td><td>Ich mag Schokolade.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout callout-warning">
+          <span class="callout-icon">⚠️</span>
+          <div class="callout-content">
+            <p><strong>Modalverben im Perfekt:</strong> Steht das Modalverb allein → Partizip (Ich habe es nicht gekonnt). Steht ein Vollverb dabei → beide im Infinitiv (Ich habe es nicht lösen können).</p>
+          </div>
+        </div>
+
+        <h2>8. Imperativ</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Person</th><th>Bildung</th><th>Beispiel</th></tr></thead>
+            <tbody>
+              <tr><td>2. Sg. (Du)</td><td>Stamm ohne Endung, Umlaut fällt weg; e→i bei einigen Verben</td><td>Komm! Warte! Nimm! Fahr!</td></tr>
+              <tr><td>2. Pl. (Ihr)</td><td>Infinitiv + t</td><td>Kommt! Wartet!</td></tr>
+              <tr><td>Höflichkeitsform (Sie)</td><td>Infinitiv + Sie</td><td>Kommen Sie! Warten Sie bitte!</td></tr>
+              <tr><td>Wir-Form</td><td>Infinitiv + wir</td><td>Packen wir's an! Sparen wir Energie!</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout callout-info">
+          <span class="callout-icon">💡</span>
+          <div class="callout-content">
+            <p><strong>Umlautregel:</strong> Bei Umlaut bleibt der Imperativ ohne Umlaut: fahren → du fährst → <strong>Fahr!</strong> (nicht Fähr!). Bei e→i-Wechsel bleibt der Umlaut: nehmen → du nimmst → <strong>Nimm!</strong></p>
+          </div>
+        </div>
+
+        <h2>9. Konjunktiv I</h2>
+        <p>Der Konjunktiv I wird vor allem in der <strong>indirekten Rede</strong> verwendet. Er drückt Distanz zur Aussage aus.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Person</th><th>Konjunktiv I von <em>kommen</em></th><th>Anmerkung</th></tr></thead>
+            <tbody>
+              <tr><td>ich</td><td>ich komme</td><td>= Indikativ (*)</td></tr>
+              <tr><td>du</td><td>du kommest</td><td>e-Stamm</td></tr>
+              <tr><td>er/sie/es</td><td>er komme</td><td>e-Stamm</td></tr>
+              <tr><td>wir</td><td>wir kommen</td><td>= Indikativ (*)</td></tr>
+              <tr><td>ihr</td><td>ihr kommet</td><td>e-Stamm</td></tr>
+              <tr><td>sie/Sie</td><td>sie kommen</td><td>= Indikativ (*)</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout callout-info">
+          <span class="callout-icon">📌</span>
+          <div class="callout-content">
+            <p><strong>Merke:</strong> Wo Konjunktiv I mit dem Indikativ identisch ist (*), tritt der <strong>Konjunktiv II</strong> als Ersatzform auf: <em>Er sagt, ich <strong>käme</strong>.</em></p>
+          </div>
+        </div>
+
+        <h2>10. Konjunktiv II</h2>
+        <p>Der Konjunktiv II drückt <strong>Irrealität</strong>, <strong>Wunsch</strong> oder <strong>höfliche Bitte</strong> aus. Er wird meist aus dem Präteritumstamm mit Umlaut gebildet.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Person</th><th>Konjunktiv II von <em>kommen</em></th><th>Anmerkung</th></tr></thead>
+            <tbody>
+              <tr><td>ich</td><td>ich käme</td><td>a → ä</td></tr>
+              <tr><td>du</td><td>du kämest</td><td>a → ä + e-Stamm</td></tr>
+              <tr><td>er/sie/es</td><td>er käme</td><td>a → ä</td></tr>
+              <tr><td>wir</td><td>wir kämen</td><td>a → ä</td></tr>
+              <tr><td>ihr</td><td>ihr kämet</td><td>a → ä + e-Stamm</td></tr>
+              <tr><td>sie/Sie</td><td>sie kämen</td><td>a → ä</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout callout-info">
+          <span class="callout-icon">💡</span>
+          <div class="callout-content">
+            <p><strong>Umlautregel:</strong> Starke Verben mit a, o, u im Präteritum bilden den Konjunktiv II mit Umlaut: <em>fahren – fuhr – ich führe; laden – lud – ich lüde.</em> Schwache Verben haben meist keine Umlautung und klingen wie der Indikativ Präteritum.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel">
+        <h2>📝 Quiz zu Verben</h2>
+        <div id="verb-quiz"></div>
+      </div>
+
+      <div class="tab-panel">
+        <h2>✏️ Lückentext zu Verben</h2>
+        <div id="verb-lueckentext"></div>
+      </div>
+
+      <div class="tab-panel">
+        <h2>🔍 Satzanalyse zu Verben</h2>
+        <div id="verb-satzanalyse"></div>
+      </div>
+
+      <div class="tab-panel">
+        <h2>🎯 Kapiteltest zu Verben</h2>
+        <div id="verb-test"></div>
+      </div>
+
+      <div class="tab-panel">
+        <h2>🃏 Lernkarten zu Verben</h2>
+        <div id="verb-flashcards"></div>
+      </div>
+    </div>
+  </main>
+</div>
+<script src="../js/app.js"></script>
+<script>
+APP.markVisited('verben');
+
+const verbQuestions = [
+  { question: "Welche Stammform fehlt bei 'laufen'? laufen – lief – …", options: ["gelaufen","gelauft","laufen","liefen"], answer: 0, explanation: "'Laufen' ist stark: laufen – lief – gelaufen." },
+  { question: "Wie bildet man das Perfekt von 'sein'?", options: ["ich habe gewesen","ich bin gewesen","ich werde sein","ich war gewesen"], answer: 1, explanation: "'Sein' bildet das Perfekt mit 'sein': ich bin gewesen." },
+  { question: "Welche Zeit drückt Vorzeitigkeit zum Präteritum aus?", options: ["Perfekt","Plusquamperfekt","Futur I","Präsens"], answer: 1, explanation: "Das Plusquamperfekt drückt aus, dass etwas vor dem Präteritum geschah." },
+  { question: "Wie lautet der Imperativ von 'nehmen' (Du-Form)?", options: ["Nehme!","Nimm!","Nimmst!","Nehm!"], answer: 1, explanation: "Stammvokal -e- wechselt zu -i-: nehmen → du nimmst → Nimm!" },
+  { question: "Welches Verb ist ein Modalverb?", options: ["laufen","können","essen","schlafen"], answer: 1, explanation: "'Können' ist ein Modalverb und modifiziert die Aussage des Vollverbs." },
+  { question: "Welche Zeit ist 'Ich werde gegangen sein'?", options: ["Futur I","Futur II","Perfekt","Plusquamperfekt"], answer: 1, explanation: "'werden + Partizip + sein' = Futur II." },
+  { question: "Was ist ein unregelmässiges (starkes) Verb?", options: ["spielen","lachen","fliegen","machen"], answer: 2, explanation: "'Fliegen' ändert den Stammvokal: fliegen – flog – geflogen." },
+  { question: "Wie lautet das Perfekt von 'ich darf nicht gehen' mit Modalverb?", options: ["Ich habe nicht gehen gedurft","Ich habe nicht gehen dürfen","Ich habe nicht gedurft gehen","Ich durfte nicht gegangen haben"], answer: 1, explanation: "Mit Vollverb stehen beide im Infinitiv: ich habe nicht gehen dürfen." },
+  { question: "Welches Verb ist schwach?", options: ["spielen","fahren","fliegen","essen"], answer: 0, explanation: "Schwache Verben bilden Präteritum mit -te und Partizip mit -t: spielen – spielte – gespielt." },
+  { question: "Welches Verb ist gemischt?", options: ["rennen","laufen","machen","singen"], answer: 0, explanation: "Rennen hat Vokalwechsel wie ein starkes Verb, aber schwache Endungen: rennen – rannte – gerannt." },
+  { question: "Wie lautet das Präteritum von 'werden'?", options: ["wurde","ward","wird","werdet"], answer: 0, explanation: "Das Präteritum von werden ist unregelmässig: ich/er wurde." },
+  { question: "Wie lautet die 3. Person Sg. Konjunktiv I von 'kommen'?", options: ["kommt","komme","käme","kämmt"], answer: 1, explanation: "Konjunktiv I bildet die 3. Person Sg. mit e-Stamm: er komme." },
+  { question: "Wie lautet der Konjunktiv II (ich) von 'fahren'?", options: ["führe","fähre","fuhr","würde fahren"], answer: 0, explanation: "Vom Präteritum fuhr mit Umlaut: ich führe. (Umlaut: a → ä)" },
+  { question: "Wie lautet der Imperativ (Du) von 'fahren'?", options: ["Fahr!","Fähr!","Fahre!","Fuhr!"], answer: 0, explanation: "Im Imperativ fällt der Umlaut weg: fahren → Fahr! (nicht Fähr!)" },
+  { question: "Welches Hilfsverb braucht 'fliegen' im Perfekt?", options: ["haben","sein","werden","hatte"], answer: 1, explanation: "Fliegen drückt Ortsveränderung aus und bildet das Perfekt mit sein: ich bin geflogen." }
+];
+
+const lueckenData = [
+  { before: "Gestern ", answer: "bin", after: " ich nach Hause gegangen." },
+  { before: "Er ", answer: "spielte", after: " früher jeden Tag Klavier." },
+  { before: "Wenn ich Zeit hätte, ", answer: "käme", after: " ich gern." },
+  { before: "Morgen ", answer: "werde", after: " ich den Brief schreiben." },
+  { before: "Sie sagt, er ", answer: "habe", after: " das Buch gelesen." },
+  { before: "Bis nächste Woche ", answer: "werde", after: " ich das Projekt abgeschlossen haben." },
+  { before: "Als er ankam, ", answer: "hatte", after: " sie schon gegessen." },
+  { before: "Du ", answer: "sollst", after: " dein Zimmer aufräumen." },
+  { before: "Wir ", answer: "können", after: " das Problem lösen." },
+  { before: "Wenn er krank ", answer: "wäre", after: ", bliebe er zu Hause." },
+  { before: " ", answer: "Komm", after: " her!" },
+  { before: "Die Kinder ", answer: "dürfen", after: " nicht allein auf die Straße." },
+  { before: "Er hat das nicht ", answer: "gewusst", after: "." },
+  { before: "Sie wird wohl ", answer: "geschlafen", after: " haben." },
+  { before: "Er behauptet, sie ", answer: "sei", after: " krank." }
+];
+
+const satzData = [
+  { question: "In dem Satz 'Sie hat den Brief geschrieben' ist das Verb ...", options: ["transitiv","intransitiv","reflexiv","unpersönlich"], answer: 0, explanation: "Das Verb hat ein Akkusativobjekt (den Brief) und ist daher transitiv." },
+  { question: "In dem Satz 'Wir freuen uns' ist das Verb ...", options: ["reflexiv","transitiv","absolut","unpersönlich"], answer: 0, explanation: "Das Reflexivpronomen 'uns' bezieht sich auf das Subjekt 'wir'." },
+  { question: "In dem Satz 'Ich bin nach Hause gegangen' ist die Zeit ...", options: ["Perfekt","Präteritum","Plusquamperfekt","Futur I"], answer: 0, explanation: "Haben/sein + Partizip II bildet das Perfekt." },
+  { question: "In dem Satz 'Er sagt, sie komme morgen' ist die Verbform ...", options: ["Konjunktiv I","Konjunktiv II","Indikativ","Imperativ"], answer: 0, explanation: "'komme' ist Konjunktiv I der indirekten Rede." },
+  { question: "In dem Satz 'Wenn ich reich wäre' ist 'wäre' ...", options: ["Konjunktiv II","Konjunktiv I","Indikativ Präteritum","Plusquamperfekt"], answer: 0, explanation: "'wäre' ist die Konjunktiv-II-Form von sein (Irrealis)." },
+  { question: "In dem Satz 'Komm herein!' handelt es sich um ...", options: ["Imperativ","Indikativ","Konjunktiv I","Konjunktiv II"], answer: 0, explanation: "'Komm!' ist die Befehlsform (Imperativ) für die Du-Form." },
+  { question: "In dem Satz 'Es regnet' ist das Verb ...", options: ["unpersönlich","absolut","reflexiv","transitiv"], answer: 0, explanation: "'Es regnet' hat nur das formale Subjekt 'es' und ist unpersönlich." },
+  { question: "In dem Satz 'Sie wird tanzen' ist die Zeit ...", options: ["Futur I","Futur II","Präsens","Konjunktiv"], answer: 0, explanation: "Werden + Infinitiv bildet das Futur I." },
+  { question: "In dem Satz 'Ich habe schlafen müssen' steht 'müssen' im ...", options: ["Infinitiv im Perfekt","Partizip","Präteritum","Indikativ"], answer: 0, explanation: "Bei Modalverb + Vollverb im Perfekt stehen beide im Infinitiv: haben ... müssen." },
+  { question: "In dem Satz 'Er kann schwimmen' ist 'können' ein ...", options: ["Modalverb","Vollverb","Hilfsverb","reflexives Verb"], answer: 0, explanation: "Können modifiziert die Aussage des Vollverbs schwimmen." }
+];
+
+const testData = [
+  { question: "Welche Stammformen hat 'bitten'?", options: ["bitten – bat – gebeten","bitten – bittete – gebittet","bitten – bat – gebitten","bitten – bittete – gebeten"], answer: 0, explanation: "Bitten ist stark: bitten – bat – gebeten." },
+  { question: "Wie lautet das Plusquamperfekt von 'er findet'?", options: ["er hatte gefunden","er hat gefunden","er hatte finden","er war gefunden"], answer: 0, explanation: "Plusquamperfekt = hatte/war + Partizip II: er hatte gefunden." },
+  { question: "Wie bildet man das Futur II von 'sie schreibt'?", options: ["sie wird geschrieben haben","sie wird schreiben haben","sie wird geschrieben sein","sie hat geschrieben werden"], answer: 0, explanation: "Futur II = werden + Partizip + haben/sein: sie wird geschrieben haben." },
+  { question: "Welcher Satz steht im Konjunktiv I?", options: ["Er sagt, sie sei krank.","Er sagt, sie wäre krank.","Er sagt, sie ist krank.","Er sagte, sie sei krank."], answer: 0, explanation: "'sei' ist Konjunktiv I von sein in der indirekten Rede (Gegenwart)." },
+  { question: "Welcher Satz zeigt die korrekte Zeitenfolge (Basiszeit Präsens)?", options: ["Er sagt, er habe gegessen.","Er sagt, er hatte gegessen.","Er sagt, er hätte gegessen.","Er sagt, er werde gegessen."], answer: 0, explanation: "Bei Basiszeit Präsens drückt Vorzeitigkeit das Perfekt (habe gegessen) aus." },
+  { question: "Wie lautet die Imperativ-Sie-Form von 'setzen'?", options: ["Setzen Sie sich!","Setzt euch!","Setz dich!","Setzen wir uns!"], answer: 0, explanation: "Imperativ Sie = Infinitiv + Sie: Setzen Sie sich!" },
+  { question: "Welches Verb ist stark?", options: ["fließen","machen","reden","lächeln"], answer: 0, explanation: "Fließen hat Stammvokalwechsel: fließen – floss – geflossen." },
+  { question: "Wie lautet der Konjunktiv II (ich) von 'fahren'?", options: ["führe","fähre","fuhr","würde fahren"], answer: 0, explanation: "Vom Präteritum fuhr mit Umlaut: ich führe." },
+  { question: "Wie lautet das Perfekt von 'Ich muss gehen' mit Vollverb?", options: ["Ich habe gehen müssen.","Ich habe gemusst gehen.","Ich habe gehen gemusst.","Ich bin gehen müssen."], answer: 0, explanation: "Mit Vollverb stehen Modalverb und Vollverb im Infinitiv: haben ... gehen müssen." },
+  { question: "Welche Form ist Indikativ Präsens?", options: ["ich komme","ich käme","ich komme (*)","ich kämest"], answer: 0, explanation: "'ich komme' ist Indikativ Präsens (und zugleich Konjunktiv I, da identisch)." },
+  { question: "Welcher Satz enthält ein unpersönliches Verb?", options: ["Es schneit.","Er schläft.","Sie lacht.","Wir gehen."], answer: 0, explanation: "'Es schneit' hat nur das formale Subjekt 'es' und ist unpersönlich." },
+  { question: "Welches ist ein gemischtes Verb?", options: ["wissen","spielen","laufen","schreiben"], answer: 0, explanation: "Wissen hat Vokalwechsel (wissen – wusste – gewusst), aber schwache Endungen." },
+  { question: "Wie lautet das Präteritum von 'werden'?", options: ["wurde","ward","wird","wurdest"], answer: 0, explanation: "Präteritum von werden: ich/er wurde." },
+  { question: "Welche Form zeigt Futur I mit Vermutung?", options: ["Sie wird noch schlafen.","Sie will noch schlafen.","Sie würde noch schlafen.","Sie ist noch schlafen."], answer: 0, explanation: "Futur I kann Vermutung ausdrücken: Sie wird noch schlafen." },
+  { question: "Wie lautet das Perfekt eines alleinstehenden Modalverbs?", options: ["Ich habe es nicht gekonnt.","Ich habe es nicht können.","Ich habe nicht gekonnt es.","Ich bin es nicht gekonnt."], answer: 0, explanation: "Steht das Modalverb allein, wird es wie ein Vollverb konjugiert: Ich habe es nicht gekonnt." },
+  { question: "Wie lautet die 2. Person Plural Konjunktiv I von 'sein'?", options: ["ihr seiet","ihr seid","ihr wäret","ihr wärt"], answer: 0, explanation: "Konjunktiv I von sein: ihr seiet (e-Stamm)." },
+  { question: "Welche Form ist Konjunktiv II?", options: ["wir kämen","wir kommen","wir kamen","wir kommet"], answer: 0, explanation: "'wir kämen' ist Konjunktiv II von kommen (Präteritum kam + Umlaut)." },
+  { question: "Wie lautet die Imperativ-Ihr-Form von 'machen'?", options: ["Macht!","Machen!","Mache!","Mach!"], answer: 0, explanation: "Imperativ Ihr = Infinitiv: Macht!" },
+  { question: "Welches Hilfsverb braucht 'tanzen' im Perfekt?", options: ["haben","sein","werden","wurden"], answer: 0, explanation: "Tanzen ist ein transitiver Vorgang und bildet das Perfekt mit haben." },
+  { question: "Welche Zeit drückt Vorzeitigkeit zur Basiszeit 'Präsens' aus?", options: ["Perfekt","Präteritum","Plusquamperfekt","Futur I"], answer: 0, explanation: "Zur Basiszeit Präsens drückt das Perfekt Vorzeitigkeit aus." }
+];
+
+const verbCards = [
+  { front: "3 Stammformen", back: "Infinitiv – Präteritum – Partizip Perfekt", detail: "Von ihnen lassen sich alle Formen ableiten." },
+  { front: "Schwaches Verb", back: "Endungen -te / -t", detail: "spielen – spielte – gespielt (kein Vokalwechsel)" },
+  { front: "Starkes Verb", back: "Vokalwechsel + Partizip auf -en", detail: "fahren – fuhr – gefahren" },
+  { front: "Gemischtes Verb", back: "Vokalwechsel + schwache Endungen", detail: "rennen – rannte – gerannt, wissen – wusste – gewusst" },
+  { front: "Perfekt mit haben", back: "transitive Verben, unpersönliche Verben", detail: "Ich habe gegessen. Es hat geregnet." },
+  { front: "Perfekt mit sein", back: "Verben der Orts-/Zustandsänderung", detail: "Ich bin gegangen. Er ist gefahren." },
+  { front: "Futur II", back: "werden + Partizip + haben/sein", detail: "Ich werde gegangen sein. = Vorzukunft / Vermutung" },
+  { front: "6 Modalverben", back: "können, müssen, dürfen, sollen, wollen, mögen", detail: "Modifizieren die Aussage des Vollverbs." }
+];
+
+// Initialize all exercises on page load
+setTimeout(function() {
+  if (document.getElementById('verb-quiz') && !document.getElementById('verb-quiz').dataset.init) {
+    new ExerciseEngine('verb-quiz', verbQuestions, 'verben', 'quiz');
+    document.getElementById('verb-quiz').dataset.init = '1';
+  }
+  if (document.getElementById('verb-lueckentext') && !document.getElementById('verb-lueckentext').dataset.init) {
+    new InputExerciseEngine('verb-lueckentext', lueckenData, 'verben', 'lueckentext');
+    document.getElementById('verb-lueckentext').dataset.init = '1';
+  }
+  if (document.getElementById('verb-satzanalyse') && !document.getElementById('verb-satzanalyse').dataset.init) {
+    new ExerciseEngine('verb-satzanalyse', satzData, 'verben', 'satzanalyse');
+    document.getElementById('verb-satzanalyse').dataset.init = '1';
+  }
+  if (document.getElementById('verb-test') && !document.getElementById('verb-test').dataset.init) {
+    new ExerciseEngine('verb-test', testData, 'verben', 'kapiteltest');
+    document.getElementById('verb-test').dataset.init = '1';
+  }
+  if (document.getElementById('verb-flashcards') && !document.getElementById('verb-flashcards').dataset.init) {
+    new FlashcardEngine('verb-flashcards', verbCards);
+    document.getElementById('verb-flashcards').dataset.init = '1';
+  }
+}, 100);
+</script>
+</body>
+</html>

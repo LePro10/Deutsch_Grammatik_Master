@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="dark">
+<head>
+<script>
+(function() {
+  const saved = localStorage.getItem('theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const theme = saved || (prefersDark ? 'dark' : 'dark');
+  document.documentElement.setAttribute('data-theme', theme);
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Übungen – Deutsch Grammatik Master</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<div class="app">
+  <header class="header">
+    <div class="header-left">
+      <button class="nav-toggle" aria-label="Menü"><span></span><span></span><span></span></button>
+      <a href="../index.html" class="logo"><div class="logo-icon">🇩🇪</div><span>Grammatik Master</span></a>
+    </div>
+    <div class="header-right">
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="globalSearch" placeholder="Suchen...">
+        <div id="searchResults" class="search-results"></div>
+      </div>
+      <button class="btn-icon" id="themeBtn" onclick="APP.toggleTheme()" title="Theme wechseln">🌙</button>
+    </div>
+  </header>
+
+  <aside class="sidebar">
+    <div class="sidebar-section">Lernen</div>
+    <ul class="sidebar-nav">
+      <li><a href="../index.html"><span class="nav-icon">🏠</span> Dashboard</a></li>
+      <li><a href="wortarten-grundlagen.html"><span class="nav-icon">🧩</span> Wortarten Grundlagen</a></li>
+      <li><a href="nomen.html"><span class="nav-icon">📝</span> Nomen</a></li>
+      <li><a href="adjektiv.html"><span class="nav-icon">🎨</span> Adjektiv</a></li>
+      <li><a href="pronomen.html"><span class="nav-icon">👤</span> Pronomen</a></li>
+      <li><a href="partikel.html"><span class="nav-icon">🔗</span> Partikel</a></li>
+      <li><a href="verben.html"><span class="nav-icon">⚡</span> Verben</a></li>
+      <li><a href="aktiv-passiv.html"><span class="nav-icon">🔄</span> Aktiv & Passiv</a></li>
+      <li><a href="indirekte-rede.html"><span class="nav-icon">💬</span> Indirekte Rede</a></li>
+    </ul>
+    <div class="sidebar-section">Üben</div>
+    <ul class="sidebar-nav">
+      <li><a href="uebungen.html" class="active"><span class="nav-icon">✏️</span> Übungen</a></li>
+      <li><a href="pruefung.html"><span class="nav-icon">🎯</span> Prüfungssimulation</a></li>
+      <li><a href="lernplan.html"><span class="nav-icon">📅</span> Lernplan</a></li>
+      <li><a href="zusammenfassung.html"><span class="nav-icon">📚</span> Zusammenfassung</a></li>
+    </ul>
+  </aside>
+
+  <div class="sidebar-overlay"></div>
+
+  <main class="main">
+    <div class="content">
+      <h1>✏️ Übungen</h1>
+      <p>Wähle einen Bereich aus und teste dein Wissen mit interaktiven Quizfragen, Lückentexten, Satzanalysen und Lernkarten. Du erhältst sofort Feedback!</p>
+
+      <div class="callout callout-warning" style="margin:1.5rem 0;">
+        <span class="callout-icon">🎯</span>
+        <div class="callout-content">
+        </div>
+      </div>
+
+      <div class="card-grid" style="margin-top:2rem;">
+        <a href="wortarten-grundlagen.html" class="topic-card">
+          <div class="card-icon">🧩</div>
+          <h3>Wortarten Grundlagen</h3>
+          <p>Sortierübungen und Quiz zu den 5 Hauptwortarten</p>
+          <div class="card-meta"><span class="tag tag-success">15 Quiz</span><span class="tag tag-success">15 Lücken</span><span class="tag tag-success">10 Satzanalyse</span></div>
+          <div class="progress-section" style="margin-top:0.75rem;">
+            <div class="progress-bar" data-progress-category="wortarten"><div class="progress-bar-fill" style="width:0%"></div></div>
+          </div>
+        </a>
+        <a href="nomen.html" class="topic-card">
+          <div class="card-icon">📝</div>
+          <h3>Nomen</h3>
+          <p>Quiz + Lückentext zu Genus, Plural, Fällen und Deklination</p>
+          <div class="card-meta"><span class="tag tag-success">15 Quiz</span><span class="tag tag-success">15 Lücken</span><span class="tag tag-success">10 Satzanalyse</span><span class="tag tag-success">20 Test</span><span class="tag tag-success">8 Karten</span></div>
+          <div class="progress-section" style="margin-top:0.75rem;">
+            <div class="progress-bar" data-progress-category="nomen"><div class="progress-bar-fill" style="width:0%"></div></div>
+          </div>
+        </a>
+        <a href="adjektiv.html" class="topic-card">
+          <div class="card-icon">🎨</div>
+          <h3>Adjektiv</h3>
+          <p>Quiz + Lückentext zu Deklination, Steigerung und Bildung</p>
+          <div class="card-meta"><span class="tag tag-success">15 Quiz</span><span class="tag tag-success">15 Lücken</span><span class="tag tag-success">10 Satzanalyse</span><span class="tag tag-success">20 Test</span><span class="tag tag-success">8 Karten</span></div>
+          <div class="progress-section" style="margin-top:0.75rem;">
+            <div class="progress-bar" data-progress-category="adjektiv"><div class="progress-bar-fill" style="width:0%"></div></div>
+          </div>
+        </a>
+        <a href="pronomen.html" class="topic-card">
+          <div class="card-icon">👤</div>
+          <h3>Pronomen</h3>
+          <p>Quiz zu Personal-, Relativ-, Possessiv- und Indefinitpronomen</p>
+          <div class="card-meta"><span class="tag tag-success">15 Quiz</span><span class="tag tag-success">15 Lücken</span><span class="tag tag-success">10 Satzanalyse</span><span class="tag tag-success">20 Test</span><span class="tag tag-success">8 Karten</span></div>
+          <div class="progress-section" style="margin-top:0.75rem;">
+            <div class="progress-bar" data-progress-category="pronomen"><div class="progress-bar-fill" style="width:0%"></div></div>
+          </div>
+        </a>
+        <a href="partikel.html" class="topic-card">
+          <div class="card-icon">🔗</div>
+          <h3>Partikel</h3>
+          <p>Quiz zu Adverb, Konjunktion, Präposition und Interjektion</p>
+          <div class="card-meta"><span class="tag tag-success">15 Quiz</span><span class="tag tag-success">15 Lücken</span><span class="tag tag-success">10 Satzanalyse</span><span class="tag tag-success">20 Test</span><span class="tag tag-success">8 Karten</span></div>
+          <div class="progress-section" style="margin-top:0.75rem;">
+            <div class="progress-bar" data-progress-category="partikel"><div class="progress-bar-fill" style="width:0%"></div></div>
+          </div>
+        </a>
+        <a href="verben.html" class="topic-card">
+          <div class="card-icon">⚡</div>
+          <h3>Verben</h3>
+          <p>Quiz zu Stammformen, Zeiten, Modi, Konjunktiv und Modalverben</p>
+          <div class="card-meta"><span class="tag tag-success">15 Quiz</span><span class="tag tag-success">15 Lücken</span><span class="tag tag-success">10 Satzanalyse</span><span class="tag tag-success">20 Test</span><span class="tag tag-success">8 Karten</span></div>
+          <div class="progress-section" style="margin-top:0.75rem;">
+            <div class="progress-bar" data-progress-category="verben"><div class="progress-bar-fill" style="width:0%"></div></div>
+          </div>
+        </a>
+        <a href="aktiv-passiv.html" class="topic-card">
+          <div class="card-icon">🔄</div>
+          <h3>Aktiv & Passiv</h3>
+          <p>Quiz + Lückentext zur Umwandlung und Zeitformen</p>
+          <div class="card-meta"><span class="tag tag-success">15 Quiz</span><span class="tag tag-success">15 Lücken</span><span class="tag tag-success">10 Satzanalyse</span><span class="tag tag-success">20 Test</span><span class="tag tag-success">8 Karten</span></div>
+          <div class="progress-section" style="margin-top:0.75rem;">
+            <div class="progress-bar" data-progress-category="aktiv-passiv"><div class="progress-bar-fill" style="width:0%"></div></div>
+          </div>
+        </a>
+        <a href="indirekte-rede.html" class="topic-card">
+          <div class="card-icon">💬</div>
+          <h3>Indirekte Rede</h3>
+          <p>Quiz zu Konjunktiv I & II und der indirekten Rede</p>
+          <div class="card-meta"><span class="tag tag-success">15 Quiz</span><span class="tag tag-success">15 Lücken</span><span class="tag tag-success">10 Satzanalyse</span><span class="tag tag-success">20 Test</span><span class="tag tag-success">8 Karten</span></div>
+          <div class="progress-section" style="margin-top:0.75rem;">
+            <div class="progress-bar" data-progress-category="indirekte-rede"><div class="progress-bar-fill" style="width:0%"></div></div>
+          </div>
+        </a>
+        <a href="pruefung.html" class="topic-card" style="border-color:var(--primary);">
+          <div class="card-icon">🎯</div>
+          <h3>Alle Themen</h3>
+          <p>Gemischte Prüfungssimulation aus allen Bereichen</p>
+          <div class="card-meta"><span class="tag tag-primary">40 Fragen</span><span class="tag tag-primary">Prüfungsmodus</span></div>
+          <div class="progress-section" style="margin-top:0.75rem;">
+            <div class="progress-bar" data-progress-category="pruefung"><div class="progress-bar-fill" style="width:0%"></div></div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </main>
+</div>
+<script src="../js/app.js"></script>
+<script>APP.markVisited('uebungen');</script>
+</body>
+</html>

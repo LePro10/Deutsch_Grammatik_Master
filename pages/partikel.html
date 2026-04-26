@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="dark">
+<head>
+<script>
+(function() {
+  const saved = localStorage.getItem('theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const theme = saved || (prefersDark ? 'dark' : 'dark');
+  document.documentElement.setAttribute('data-theme', theme);
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Partikel – Deutsch Grammatik Master</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<div class="app">
+  <header class="header">
+    <div class="header-left">
+      <button class="nav-toggle" aria-label="Menü"><span></span><span></span><span></span></button>
+      <a href="../index.html" class="logo"><div class="logo-icon">🇩🇪</div><span>Grammatik Master</span></a>
+    </div>
+    <div class="header-right">
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="globalSearch" placeholder="Suchen...">
+        <div class="search-results" id="searchResults"></div>
+      </div>
+      <button class="btn-icon" id="themeBtn" onclick="APP.toggleTheme()" title="Theme wechseln">🌙</button>
+    </div>
+  </header>
+
+  <aside class="sidebar">
+    <div class="sidebar-section">Lernen</div>
+    <ul class="sidebar-nav">
+      <li><a href="../index.html"><span class="nav-icon">🏠</span> Dashboard</a></li>
+      <li><a href="wortarten-grundlagen.html"><span class="nav-icon">🧩</span> Wortarten Grundlagen</a></li>
+      <li><a href="nomen.html"><span class="nav-icon">📝</span> Nomen</a></li>
+      <li><a href="adjektiv.html"><span class="nav-icon">🎨</span> Adjektiv</a></li>
+      <li><a href="pronomen.html"><span class="nav-icon">👤</span> Pronomen</a></li>
+      <li><a href="partikel.html" class="active"><span class="nav-icon">🔗</span> Partikel</a></li>
+      <li><a href="verben.html"><span class="nav-icon">⚡</span> Verben</a></li>
+      <li><a href="aktiv-passiv.html"><span class="nav-icon">🔄</span> Aktiv & Passiv</a></li>
+      <li><a href="indirekte-rede.html"><span class="nav-icon">💬</span> Indirekte Rede</a></li>
+    </ul>
+    <div class="sidebar-section">Üben</div>
+    <ul class="sidebar-nav">
+      <li><a href="uebungen.html"><span class="nav-icon">✏️</span> Übungen</a></li>
+      <li><a href="pruefung.html"><span class="nav-icon">🎯</span> Prüfungssimulation</a></li>
+      <li><a href="lernplan.html"><span class="nav-icon">📅</span> Lernplan</a></li>
+      <li><a href="zusammenfassung.html"><span class="nav-icon">📚</span> Zusammenfassung</a></li>
+    </ul>
+  </aside>
+
+  <div class="sidebar-overlay"></div>
+
+  <main class="main">
+    <div class="content">
+      <nav class="breadcrumb"><a href="../index.html">Dashboard</a> <span>&gt;</span> Partikel</nav>
+      <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;flex-wrap:wrap;">
+        <h1 style="margin:0;">🔗 Partikel</h1>
+        <span class="tag tag-outline">Adverb · Konjunktion · Präposition · Interjektion</span>
+      </div>
+
+      <div class="tabs">
+        <button class="tab active" data-tab="theorie">Theorie</button>
+        <button class="tab" data-tab="quiz">Quiz (15)</button>
+        <button class="tab" data-tab="lueckentext">Lückentext (15)</button>
+        <button class="tab" data-tab="satzanalyse">Satzanalyse (10)</button>
+        <button class="tab" data-tab="kapiteltest">Kapiteltest (20)</button>
+        <button class="tab" data-tab="lernkarten">Lernkarten (8)</button>
+      </div>
+
+      <div class="tab-panel active" id="theorie">
+        <h2>1. Adverb</h2>
+        <p>Adverbien sind unveränderbar und geben die näheren Umstände eines Geschehens an. Wenn eine Partikel keine Präposition, Konjunktion oder Interjektion ist, ist sie ein Adverb.</p>
+        <h3>Grundarten des Adverbs</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Art</th><th>Frage</th><th>Beispiele</th></tr></thead>
+            <tbody>
+              <tr><td><strong>des Ortes</strong></td><td>Wo? Woher? Wohin?</td><td>hier, da, dort, links, rechts, oben, unten, überall, nirgends</td></tr>
+              <tr><td><strong>der Zeit</strong></td><td>Wann? Wie oft?</td><td>jetzt, heute, gestern, morgen, oft, immer, nie, manchmal, dann</td></tr>
+              <tr><td><strong>der Art und Weise</strong></td><td>Wie?</td><td>gern, gut, schnell, langsam, so, sehr, kaum, wohl</td></tr>
+              <tr><td><strong>des Grundes</strong></td><td>Warum?</td><td>darum, deshalb, daher, deswegen, folglich</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Steigerbare Adverbien</h3>
+        <p>Einige Adverbien können gesteigert werden:</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Positiv</th><th>Komparativ</th><th>Superlativ</th></tr></thead>
+            <tbody>
+              <tr><td>wohl</td><td>wohler</td><td>am wohlsten</td></tr>
+              <tr><td>gerne</td><td>lieber</td><td>am liebsten</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Adverbial verwendete Adjektive</h3>
+        <p>Viele Adjektive können als Adverbien verwendet werden. Sie bleiben dann unverändert.</p>
+        <div class="example-box">
+          <div class="example-label">Beispiele</div>
+          <p><strong>Der schöne Gesang</strong> (Adjektiv, attributiv) vs <strong>Er singt schön</strong> (Adverb, adverbial).</p>
+          <p><strong>Das schnelle Auto</strong> (Adjektiv) vs <strong>Er fährt schnell</strong> (Adverb).</p>
+        </div>
+
+        <h2>2. Konjunktion</h2>
+        <p>Konjunktionen verbinden Wörter, Wortgruppen, Sätze und Teilsätze.</p>
+
+        <h3>Beiordnende Konjunktionen</h3>
+        <p>Verbinden gleichrangige Teile (Wörter, Satzteile, Hauptsätze). Das finite Verb bleibt an Position 2.</p>
+        <div class="example-box">
+          <div class="example-label">Beispiele</div>
+          <p><strong>und, aber, denn, sondern, oder</strong></p>
+        </div>
+
+        <h3>Unterordnende Konjunktionen</h3>
+        <p>Verbinden Nebensätze mit dem Hauptsatz. Das finite Verb steht am Ende des Nebensatzes.</p>
+        <div class="example-box">
+          <div class="example-label">Beispiele</div>
+          <p><strong>dass, weil, wenn, obwohl, nachdem, als, seit, falls, damit, ohne dass, bevor, bis, während</strong></p>
+        </div>
+
+        <h3>Doppelkonjunktionen</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Doppelkonjunktion</th><th>Beispiel</th></tr></thead>
+            <tbody>
+              <tr><td>nicht nur … sondern auch</td><td>Er ist nicht nur klug, sondern auch fleissig.</td></tr>
+              <tr><td>zwar … aber</td><td>Zwar habe ich keine Zeit, aber ich helfe dir trotzdem.</td></tr>
+              <tr><td>sowohl … als auch</td><td>Sowohl Maria als auch Peter kommen.</td></tr>
+              <tr><td>weder … noch</td><td>Ich habe weder Hunger noch Durst.</td></tr>
+              <tr><td>entweder … oder</td><td>Entweder du kommst mit, oder ich gehe allein.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout callout-warning">
+          <span class="callout-icon">⚠️</span>
+          <div class="callout-content">
+            <p><strong>Merke:</strong> <em>dass</em> (Konjunktion) leitet einen Nebensatz ein und ist nicht zu verwechseln mit dem Relativpronomen <em>das</em>. Die Konjunktion <em>dass</em> schreibt man mit Doppel-s!</p>
+          </div>
+        </div>
+
+        <h2>3. Präposition</h2>
+        <p>Präpositionen drücken Verhältnisse aus und bestimmen den Fall des zugehörigen Nomens.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Fall</th><th>Präpositionen</th><th>Beispiel</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Akkusativ</strong></td><td>durch, für, gegen, ohne, um, wider</td><td>Ich gehe <strong>durch den</strong> Park.</td></tr>
+              <tr><td><strong>Dativ</strong></td><td>aus, bei, mit, nach, seit, von, zu, gegenüber</td><td>Ich bin <strong>bei dem</strong> Arzt.</td></tr>
+              <tr><td><strong>Genitiv</strong></td><td>wegen, trotz, während, statt, anstelle, mangels</td><td><strong>Wegen des</strong> Regens bleibe ich zu Hause.</td></tr>
+              <tr><td><strong>Wechselpräp.</strong></td><td>an, auf, hinter, in, neben, über, unter, vor, zwischen</td><td>Ich gehe <strong>in den</strong> Park (Akk. = Wohin). Ich bin <strong>in dem</strong> Park (Dat. = Wo).</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout callout-info">
+          <span class="callout-icon">💡</span>
+          <div class="callout-content">
+            <p><strong>Wechselpräpositionen:</strong> Frage nach <strong>Wo?</strong> (Lage) → <strong>Dativ</strong>. Frage nach <strong>Wohin?</strong> (Richtung) → <strong>Akkusativ</strong>.</p>
+          </div>
+        </div>
+
+        <h2>4. Interjektion</h2>
+        <p>Interjektionen stehen ausserhalb von vollständigen Sätzen und drücken Gefühle, Ausrufe oder Geräusche aus.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Art</th><th>Beispiele</th></tr></thead>
+            <tbody>
+              <tr><td>Gesprächsinterjektionen</td><td>ja, nein, danke, bitte, hallo, tschüss</td></tr>
+              <tr><td>Gefühlsinterjektionen</td><td>ach, oh, aha, aua, hurra, pfui</td></tr>
+              <tr><td>Lautmalerei</td><td>miau, wau, peng, ticktack, kikeriki</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>5. Unterscheidung: Adverb, Konjunktion, Präposition</h2>
+        <p>Manche Wörter können je nach Funktion verschiedenen Partikelarten zugeordnet werden:</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Wort</th><th>Satz</th><th>Funktion</th><th>Art</th></tr></thead>
+            <tbody>
+              <tr><td>da</td><td>Deine Brieftasche liegt <strong>da</strong>.</td><td>Ort</td><td>Adverb</td></tr>
+              <tr><td>da</td><td><strong>Da</strong> ich müde bin, gehe ich schlafen.</td><td>Verbindet Sätze (Ursache)</td><td>Konjunktion</td></tr>
+              <tr><td>gegen</td><td>Er arbeitet <strong>gegen</strong> neun Stunden pro Tag.</td><td>Zahl/Approximation</td><td>Adverb</td></tr>
+              <tr><td>gegen</td><td>Ich lehne mich <strong>gegen</strong> die Wand.</td><td>Verlangt Fall (Akkusativ)</td><td>Präposition</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="quiz"><div id="quiz-partikel"></div></div>
+      <div class="tab-panel" id="lueckentext"><div id="lueckentext-partikel"></div></div>
+      <div class="tab-panel" id="satzanalyse"><div id="satzanalyse-partikel"></div></div>
+      <div class="tab-panel" id="kapiteltest"><div id="kapiteltest-partikel"></div></div>
+      <div class="tab-panel" id="lernkarten"><div id="lernkarten-partikel"></div></div>
+    </div>
+  </main>
+</div>
+<script src="../js/app.js"></script>
+<script>
+APP.init();
+APP.markVisited('partikel');
+
+var quizData = [
+  {question:'Welche Präposition verlangt den Akkusativ?', options:['mit','aus','für','von'], answer:2, explanation:'„Für“ verlangt den Akkusativ.'},
+  {question:'„Ich warte ___ den Bus.“', options:['auf','an','in','über'], answer:0, explanation:'„Warten auf“ verlangt den Akkusativ: „auf den Bus“.'},
+  {question:'Welche Präposition steht mit dem Dativ?', options:['durch','gegen','ohne','bei'], answer:3, explanation:'„Bei“ verlangt den Dativ.'},
+  {question:'„Wegen des Wetters“ – welcher Kasus?', options:['Akkusativ','Dativ','Genitiv','Nominativ'], answer:2, explanation:'„Wegen“ verlangt den Genitiv.'},
+  {question:'Wechselpräposition + „Wohin?“ → welcher Kasus?', options:['Dativ','Akkusativ','Genitiv','Nominativ'], answer:1, explanation:'Bei Wechselpräpositionen bedeutet „Wohin?“ (Richtung) den Akkusativ.'},
+  {question:'„Das Buch liegt ___ dem Tisch.“ (Wo?)', options:['auf','auf den','auf dem','auf der'], answer:2, explanation:'„Wo?“ (Lage) mit Wechselpräposition „auf“ verlangt den Dativ: „auf dem Tisch“.'},
+  {question:'„Er geht ___ die Tür.“ (Wohin?)', options:['durch','durch die','durch der','durch den'], answer:1, explanation:'„Durch“ verlangt den Akkusativ: „durch die Tür“.'},
+  {question:'Welche Konjunktion ist unterordnend?', options:['und','aber','denn','weil'], answer:3, explanation:'„Weil“ leitet einen Nebensatz ein und ist unterordnend.'},
+  {question:'„Ich gehe, ___ ich müde bin.“', options:['und','weil','aber','denn'], answer:1, explanation:'„Weil“ begründet den Nebensatz.'},
+  {question:'Welches ist eine Doppelkonjunktion?', options:['oder','sondern','nicht nur…sondern auch','dass'], answer:2, explanation:'„Nicht nur…sondern auch“ ist eine Doppelkonjunktion.'},
+  {question:'„___ es regnet, bleibe ich zu Hause.“', options:['Wenn','Und','Aber','Denn'], answer:0, explanation:'„Wenn“ leitet einen Temporal-/Konditionalsatz ein (unterordnend).'},
+  {question:'Welches Adverb gibt den Ort an?', options:['jetzt','hier','schnell','deshalb'], answer:1, explanation:'„Hier“ gibt den Ort an (Adverb des Ortes).'},
+  {question:'Welches Adverb gibt die Art und Weise an?', options:['morgen','hier','gern','darum'], answer:2, explanation:'„Gern“ gibt die Art und Weise an (Adverb).'},
+  {question:'Welche Form ist der Komparativ von „gern“?', options:['gerner','lieber','am gerntesten','mehr gern'], answer:1, explanation:'Der Komparativ von „gern“ lautet „lieber“.'},
+  {question:'„Er singt ___ .“ (schön)', options:['schön','schöne','schöner','schönen'], answer:0, explanation:'„Schön“ wird hier adverbial verwendet und bleibt unverändert.'}
+];
+
+var lueckenData = [
+  {before:'Ich fahre', answer:'in', after:'die Stadt. (Akkusativ, Wohin)'},
+  {before:'Das Bild hängt', answer:'an', after:'der Wand. (Dativ, Wo)'},
+  {before:'Ich warte', answer:'auf', after:'meinen Bruder. (Akkusativ)'},
+  {before:'Er kommt', answer:'aus', after:'Deutschland. (Dativ)'},
+  {before:'Ich bin', answer:'gegen', after:'den Plan. (Akkusativ)'},
+  {before:'Das Geschenk ist', answer:'für', after:'dich. (Akkusativ)'},
+  {before:'Wir sprechen', answer:'wegen', after:'des Wetters. (Genitiv)'},
+  {before:'Er geht', answer:'in den', after:'Supermarkt. (Akkusativ, Wohin)'},
+  {before:'Ich bleibe', answer:'zu', after:'Hause. (Dativ)'},
+  {before:'', answer:'Wenn', after:'ich müde bin, gehe ich schlafen. (Konjunktion)'},
+  {before:'Er liest,', answer:'obwohl', after:'er müde ist. (Konjunktion)'},
+  {before:'Ich trinke Tee,', answer:'weil', after:'ich durstig bin. (Konjunktion)'},
+  {before:'', answer:'Falls', after:'ich komme, rufe ich an. (Konjunktion)'},
+  {before:'Ich lerne,', answer:'damit', after:'ich bestehe. (Konjunktion)'},
+  {before:'', answer:'Nachdem', after:'ich gegessen habe, gehe ich schlafen. (Konjunktion)'}
+];
+
+var satzData = [
+  {sentence:'Ich gehe ins Kino.', analysis:{'ins':'Präposition + Artikel (in das), Akkusativ, Wohin'}},
+  {sentence:'Er bleibt zu Hause.', analysis:{'zu':'Präposition, Dativ'}},
+  {sentence:'Ich esse, weil ich Hunger habe.', analysis:{'weil':'Unterordnende Konjunktion'}},
+  {sentence:'Er ist müde, aber er arbeitet.', analysis:{'aber':'Beiordnende Konjunktion'}},
+  {sentence:'Das Buch liegt auf dem Tisch.', analysis:{'auf':'Wechselpräposition, Dativ (Wo?)'}},
+  {sentence:'Sie kommt aus dem Haus.', analysis:{'aus':'Präposition, Dativ'}},
+  {sentence:'Ich laufe schnell.', analysis:{'schnell':'Adverb der Art und Weise'}},
+  {sentence:'Er kommt morgen.', analysis:{'morgen':'Adverb der Zeit'}},
+  {sentence:'Das ist nicht nur gut, sondern auch nützlich.', analysis:{'nicht':'Teil der Doppelkonjunktion','sondern':'Teil der Doppelkonjunktion'}},
+  {sentence:'Ach, das ist schön!', analysis:{'ach':'Interjektion (Gefühl)'}}
+];
+
+var testData = [
+  {question:'„Ich warte ___ den Zug.“ Welche Präposition passt?', options:['auf','für','über','mit'], answer:0, explanation:'„Warten auf“ verlangt den Akkusativ: „auf den Zug“.'},
+  {question:'„Das Auto fährt ___ die Brücke.“ (Wohin?)', options:['über','über die','über der','über den'], answer:1, explanation:'„Über“ + Akkusativ bei Richtung (Wohin?): „über die Brücke“.'},
+  {question:'„Das Bild hängt ___ die Wand.“ (Wo?)', options:['an','an die','an der','an den'], answer:2, explanation:'„An“ + Dativ bei Lage (Wo?): „an der Wand“.'},
+  {question:'Welche Präposition steht mit dem Genitiv?', options:['mit','trotz','für','nach'], answer:1, explanation:'„Trotz“ verlangt den Genitiv.'},
+  {question:'„Trotz ___ Regens gehen wir spazieren.“', options:['des','dem','den','der'], answer:0, explanation:'Genitiv Maskulin von „der Regen“ ist „des Regens“.'},
+  {question:'Welche Konjunktion ist beiordnend?', options:['weil','dass','obwohl','aber'], answer:3, explanation:'„Aber“ verbindet zwei Hauptsätze (beiordnend).'},
+  {question:'„Er liest, ___ er müde ist.“', options:['und','denn','obwohl','sondern'], answer:2, explanation:'„Obwohl“ leitet einen konzessiven Nebensatz ein (unterordnend).'},
+  {question:'„Entweder du kommst, ___ du bleibst.“', options:['und','oder','aber','sondern'], answer:1, explanation:'„Entweder…oder“ ist eine Doppelkonjunktion.'},
+  {question:'„Sowohl ich ___ er waren da.“', options:['und','als auch','oder','aber'], answer:1, explanation:'„Sowohl…als auch“ ist die korrekte Doppelkonjunktion.'},
+  {question:'„___ ich krank bin, bleibe ich zu Hause.“', options:['Weil','Und','Aber','Denn'], answer:0, explanation:'„Weil“ leitet einen Kausalsatz ein (unterordnend).'},
+  {question:'Welches Wort ist ein Adverb der Zeit?', options:['hier','jetzt','schnell','deshalb'], answer:1, explanation:'„Jetzt“ gibt die Zeit an.'},
+  {question:'„Gern“ – Superlativ:', options:['am liebsten','lieber','gerner','am gernten'], answer:0, explanation:'Der Superlativ von „gern“ lautet „am liebsten“.'},
+  {question:'„Der ___ Hund bellt.“ vs „Er singt ___ .“', options:['laute/laut','laut/laut','laute/laute','lauter/laut'], answer:0, explanation:'Attributiv: „laute“ (Adjektiv). Adverbial: „laut“ (Adverb).'},
+  {question:'„Da“ als Konjunktion bedeutet oft …?', options:['Ort','Zeit','Ursache','Art'], answer:2, explanation:'„Da“ als Konjunktion leitet oft einen Kausalsatz ein: „Da ich müde bin…“.'},
+  {question:'„Es ist ___ 5 Uhr.“ (gegen als Adverb)', options:['gegen','um','in','bei'], answer:0, explanation:'„Gegen“ kann als Adverb der ungefähren Zeit verwendet werden.'},
+  {question:'Welche Konjunktion leitet einen Finalsatz ein?', options:['weil','damit','obwohl','als'], answer:1, explanation:'„Damit“ drückt einen Zweck aus (Finalsatz).'},
+  {question:'„Ich komme, ___ ich dich sehe.“', options:['damit','weil','obwohl','während'], answer:0, explanation:'„Damit“ drückt den Zweck aus: „Ich komme, damit ich dich sehe“.'},
+  {question:'„___ ich gegessen habe, gehe ich schlafen.“', options:['Nachdem','Weil','Wenn','Damit'], answer:0, explanation:'„Nachdem“ leitet einen Temporal-satz ein.'},
+  {question:'„Er fährt ___ .“ Welche Wortart ist „schnell“ hier?', options:['Adjektiv','Adverb','Präposition','Konjunktion'], answer:1, explanation:'„Schnell“ beschreibt hier das Verb „fährt“ → Adverb.'},
+  {question:'„Ohne ___ zu fragen, ging er.“', options:['dass','das','den','dem'], answer:0, explanation:'„Ohne dass“ ist eine unterordnende Konjunktion.'}
+];
+
+var flashData = [
+  {front:'Präpositionen + Akkusativ (5)', back:'durch, für, gegen, ohne, um'},
+  {front:'Präpositionen + Dativ (8)', back:'aus, bei, mit, nach, seit, von, zu, gegenüber'},
+  {front:'Wechselpräpositionen Regel', back:'Wo? = Dativ, Wohin? = Akkusativ'},
+  {front:'Beiordnende Konjunktionen (5)', back:'und, aber, denn, sondern, oder'},
+  {front:'Unterordnende Konjunktionen', back:'dass, weil, wenn, obwohl, nachdem, als...'},
+  {front:'Doppelkonjunktionen', back:'nicht nur…sondern auch, zwar…aber, sowohl…als auch, weder…noch, entweder…oder'},
+  {front:'Adverb der Art und Weise', back:'Wie? (gern, schnell, gut)'},
+  {front:'Interjektionen', back:'ja, ach, oh, aua, miau, peng'}
+];
+
+function initSatzanalyse(containerId, items) {
+  var container = document.getElementById(containerId);
+  items.forEach(function(item, idx) {
+    var wrapper = document.createElement('div');
+    wrapper.className = 'satzanalyse-wrapper';
+    wrapper.style.marginBottom = '2rem';
+    var title = document.createElement('div');
+    title.className = 'example-label';
+    title.textContent = 'Satz ' + (idx + 1);
+    wrapper.appendChild(title);
+    var div = document.createElement('div');
+    div.id = containerId + '-' + idx;
+    wrapper.appendChild(div);
+    container.appendChild(wrapper);
+    new SatzanalyseTool(div.id, item.sentence, item.analysis);
+  });
+}
+
+// Initialize all exercises on page load
+setTimeout(function() {
+  if (document.getElementById('quiz-partikel') && !document.getElementById('quiz-partikel').dataset.init) {
+    new ExerciseEngine('quiz-partikel', quizData, 'partikel', 'quiz');
+    document.getElementById('quiz-partikel').dataset.init = '1';
+  }
+  if (document.getElementById('lueckentext-partikel') && !document.getElementById('lueckentext-partikel').dataset.init) {
+    new InputExerciseEngine('lueckentext-partikel', lueckenData, 'partikel', 'lueckentext');
+    document.getElementById('lueckentext-partikel').dataset.init = '1';
+  }
+  if (document.getElementById('kapiteltest-partikel') && !document.getElementById('kapiteltest-partikel').dataset.init) {
+    new ExerciseEngine('kapiteltest-partikel', testData, 'partikel', 'kapiteltest');
+    document.getElementById('kapiteltest-partikel').dataset.init = '1';
+  }
+  if (document.getElementById('lernkarten-partikel') && !document.getElementById('lernkarten-partikel').dataset.init) {
+    new FlashcardEngine('lernkarten-partikel', flashData);
+    document.getElementById('lernkarten-partikel').dataset.init = '1';
+  }
+  if (document.getElementById('satzanalyse-partikel') && !document.getElementById('satzanalyse-partikel').dataset.init) {
+    initSatzanalyse('satzanalyse-partikel', satzData);
+    document.getElementById('satzanalyse-partikel').dataset.init = '1';
+  }
+}, 100);
+</script>
+</body>
+</html>
